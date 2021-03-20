@@ -1,0 +1,42 @@
+version: 2
+
+checks:
+  identical-code:
+    config:
+      threshold: 25
+  similar-code:
+    config:
+      threshold: 65
+
+plugins:
+  duplication:
+    enabled: true
+    debug: true
+    config:
+      languages:
+      - javascript
+      - typescript
+  fixme:
+    enabled: true
+  eslint:
+    enabled: true
+    config: 
+      config: .eslintrc
+      extensions:
+        - .ts
+        - .tsx
+    channel: "eslint-6"
+  stylelint:
+    enabled: true
+
+ratings:
+   paths:
+   - "src/**"
+
+exclude_patterns:
+  - "node_modules/"
+  - "coverage/"
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "build/"
+  - ".vscode"
