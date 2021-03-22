@@ -1,0 +1,28 @@
+image: node:14.15.4
+
+stages:
+  - lint
+  - test
+
+cache:
+  paths:
+  - node_modules/
+
+lint:
+  stage: lint
+
+  before_script:
+    - npm install --save-dev
+  script:
+    - npm run lint
+    - npm run lint:scss
+
+test:
+  stage: test
+
+  before_script:
+    - npm install --save-dev
+  script:
+    - npm run lint
+    - npm run test -- --coverage
+
