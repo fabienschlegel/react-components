@@ -28,7 +28,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
   >
     <ul>
       {breadcrumbElement.map((element) => (
-        <li className={clsx(element.isActive ? 'is-active' : undefined)}>
+        <li key={element.to} className={clsx(element.isActive ? 'is-active' : undefined)}>
           <Link to={element.to}>{element.name}</Link>
         </li>
       ))}

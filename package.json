@@ -34,6 +34,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
+    "test:clear": "jest --clearCache",
     "analyze": "node ./analyze.js",
     "dead": "ts-prune",
     "dead:count": "ts-prune |wc -l",
