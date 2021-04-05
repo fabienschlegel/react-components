@@ -14,8 +14,8 @@ plugins:
     debug: true
     config:
       languages:
-      - javascript
-      - typescript
+        - javascript
+        - typescript
   fixme:
     enabled: true
   eslint:
@@ -25,18 +25,21 @@ plugins:
       extensions:
         - .ts
         - .tsx
-    channel: "eslint-6"
+    channel: "eslint-7"
+    checks:
+      fatal:
+        enabled: false
   stylelint:
     enabled: true
 
 ratings:
-   paths:
-   - "src/**"
+  paths:
+    - 'src/**'
 
 exclude_patterns:
-  - "node_modules/"
-  - "coverage/"
-  - "**/*.spec.ts"
-  - "**/*.spec.tsx"
-  - "build/"
-  - ".vscode"
+  - 'node_modules/'
+  - 'coverage/'
+  - '**/*.spec.ts'
+  - '**/*.spec.tsx'
+  - 'build/'
+  - '.vscode'

@@ -22,7 +22,25 @@ test:
 
   before_script:
     - npm install --save-dev
+
   script:
-    - npm run lint
     - npm run test -- --coverage
 
+cc_coverage:
+  stage: test
+  
+  only:
+    - develop
+  
+  before_script:
+    - npm install --save-dev
+    - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+    - chmod +x ./cc-test-reporter
+    - ./cc-test-reporter before-build
+  
+  script:
+    - npm run test -- --coverage
+  
+  after_script :
+    - ./cc-test-reporter format-coverage -t lcov
+    - ./cc-test-reporter upload-coverage -r $CC_TEST_REPORTER
