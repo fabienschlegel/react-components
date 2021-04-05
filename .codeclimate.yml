@@ -26,9 +26,6 @@ plugins:
         - .ts
         - .tsx
     channel: "eslint-7"
-    checks:
-      fatal:
-        enabled: false
   stylelint:
     enabled: true
 
