@@ -18,14 +18,14 @@ plugins:
         - typescript
   fixme:
     enabled: true
-  eslint:
-    enabled: true
-    config: 
-      config: .eslintrc
-      extensions:
-        - .ts
-        - .tsx
-    channel: "eslint-7"
+  # eslint:
+  #   enabled: true
+  #   config: 
+  #     config: .eslintrc
+  #     extensions:
+  #       - .ts
+  #       - .tsx
+  #   channel: "eslint-7"
   stylelint:
     enabled: true
 
