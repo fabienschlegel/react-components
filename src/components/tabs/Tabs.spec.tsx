@@ -1,17 +1,20 @@
-/* eslint-disable no-undef */
+/* eslint-disable no-undef,import/no-extraneous-dependencies */
 import React from 'react';
 
 import '../../setupTests';
 
 import { mount } from 'enzyme';
 
-import { BrowserRouter as Router } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
+import { Router } from 'react-router-dom';
 
 import Tabs from './Tabs';
 
 import { Alignment, Size } from './types';
 
 describe('Test Tabs', () => {
+  const history = createMemoryHistory({ initialEntries: ['/tab1'] });
+
   const tabs = [
     { name: 'first tab', to: '/tab1' },
     { name: 'second tab', to: '/tab2' },
@@ -20,7 +23,7 @@ describe('Test Tabs', () => {
 
   it('Mount Tabs', () => {
     const wrapper = mount(
-      <Router>
+      <Router history={history}>
         <Tabs tabs={tabs} />
       </Router>
     );
@@ -29,7 +32,7 @@ describe('Test Tabs', () => {
 
   it('Tabs are aligned to right', () => {
     const wrapper = mount(
-      <Router>
+      <Router history={history}>
         <Tabs tabs={tabs} alignment={Alignment.isRight} />
       </Router>
     );
@@ -40,7 +43,7 @@ describe('Test Tabs', () => {
 
   it('Tabs are small', () => {
     const wrapper = mount(
-      <Router>
+      <Router history={history}>
         <Tabs tabs={tabs} size={Size.isSmall} />
       </Router>
     );
@@ -51,7 +54,7 @@ describe('Test Tabs', () => {
 
   it('Tabs are boxed', () => {
     const wrapper = mount(
-      <Router>
+      <Router history={history}>
         <Tabs tabs={tabs} isBoxed />
       </Router>
     );
@@ -62,7 +65,7 @@ describe('Test Tabs', () => {
 
   it('Tabs are toggle', () => {
     const wrapper = mount(
-      <Router>
+      <Router history={history}>
         <Tabs tabs={tabs} isToggle />
       </Router>
     );
@@ -73,7 +76,7 @@ describe('Test Tabs', () => {
 
   it('Tabs are toggle and rounded', () => {
     const wrapper = mount(
-      <Router>
+      <Router history={history}>
         <Tabs tabs={tabs} isToggle isToggleRounded />
       </Router>
     );
@@ -84,7 +87,7 @@ describe('Test Tabs', () => {
 
   it('Tabs are full width', () => {
     const wrapper = mount(
-      <Router>
+      <Router history={history}>
         <Tabs tabs={tabs} isFullWidth />
       </Router>
     );

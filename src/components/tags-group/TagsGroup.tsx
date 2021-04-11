@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-export interface TagsGroupProps {
+interface TagsGroupProps {
   children: ReactNode;
   hasAddons?: boolean;
   className?: string;
