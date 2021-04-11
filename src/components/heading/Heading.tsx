@@ -2,7 +2,7 @@ import React from 'react';
 
 import HeadingLevel from './types';
 
-export interface HeadingProps {
+interface HeadingProps {
   headingLevel?: HeadingLevel;
   className?: string;
 }

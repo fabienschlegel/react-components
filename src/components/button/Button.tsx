@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import { Color, Size } from './types';
 
-export interface ButtonProps {
+interface ButtonProps {
   children: React.ReactNode;
   size?: Size;
   color?: Color;

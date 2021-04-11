@@ -38,5 +38,7 @@ exclude_patterns:
   - 'coverage/'
   - '**/*.spec.ts'
   - '**/*.spec.tsx'
+  - '**/*.stories.ts'
+  - '**/*.stories.tsx'
   - 'build/'
   - '.vscode'

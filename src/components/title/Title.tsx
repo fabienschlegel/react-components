@@ -7,7 +7,7 @@ import Heading from 'components/heading/Heading';
 import HeadingLevel from 'components/heading/types';
 import Size from './types';
 
-export interface TitleProps {
+interface TitleProps {
   children: ReactNode;
   size: Size;
   headingLevel?: HeadingLevel;
