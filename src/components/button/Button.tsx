@@ -24,7 +24,7 @@ export type ButtonType = ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElem
 
 const Button: React.FC<ButtonType> = ({
   children,
-  size = Size.Normal,
+  size,
   color,
   isFullWidth,
   isOutlined,
