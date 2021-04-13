@@ -1,6 +1,20 @@
 {
   "name": "@the-sleeping-dog/react-components",
   "version": "0.2.3",
+  "description": "React components designed with Bulma",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/the-sleeping-dog/react-components.git"
+  },
+  "author": {
+    "name": "Fabien Schlegel",
+    "email": "fabien.schlegel.fr@gmail.com"
+  },
+  "keywords": [
+    "react",
+    "bulma"
+  ],
+  "license": "MIT",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-regular-svg-icons": "^5.15.2",
@@ -59,7 +73,8 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.stories.{js,jsx,ts,tsx}"
+      "!src/**/*.stories.{js,jsx,ts,tsx}",
+      "!src/index.ts"
     ],
     "modulePaths": [
       "<rootDir>/src/"
@@ -101,7 +116,7 @@
     "@storybook/node-logger": "^6.2.7",
     "@storybook/preset-create-react-app": "^3.1.7",
     "@storybook/react": "^6.2.7",
-    "@testing-library/react-hooks": "^5.1.0",
+    "@testing-library/react-hooks": "^5.1.1",
     "@types/enzyme": "^3.10.8",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/react-test-renderer": "^17.0.1",

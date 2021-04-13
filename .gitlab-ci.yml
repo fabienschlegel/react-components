@@ -50,9 +50,8 @@ publish:
   image: node:latest
   stage: deploy
   rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_REF_NAME =~ /^v\d+\.\d+\.\d+.*$/
-      changes:
-        - package.json
+    - if: '$CI_COMMIT_BRANCH == "master"'
+      when: manual
   script:
     - echo "//registry.npmjs.org/:_authToken=${NPM_PUBLISH_TOKEN}" > .npmrc
     - npm publish --access public
