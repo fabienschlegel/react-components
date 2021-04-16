@@ -2,7 +2,7 @@ import React from 'react';
 
 import clsx from 'clsx';
 
-import Image, { ImageProps } from 'components/image/Image';
+import Image, { ImageProps } from '../image/Image';
 
 export interface CardImageProps {
   imageConfig: ImageProps;

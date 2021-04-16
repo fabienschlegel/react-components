@@ -2,9 +2,9 @@ import React, { ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-import Heading from 'components/heading/Heading';
+import Heading from '../heading/Heading';
 
-import HeadingLevel from 'components/heading/types';
+import HeadingLevel from '../heading/types';
 import Size from './types';
 
 interface TitleProps {

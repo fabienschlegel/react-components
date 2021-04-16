@@ -1,6 +1,7 @@
 import React from 'react';
 
 import clsx from 'clsx';
+
 import { Ratio, SquaredDimensions } from './types';
 
 export interface ImageProps {

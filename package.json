@@ -1,6 +1,6 @@
 {
   "name": "@the-sleeping-dog/react-components",
-  "version": "0.2.3",
+  "version": "0.2.7",
   "description": "React components designed with Bulma",
   "repository": {
     "type": "git",
@@ -15,6 +15,13 @@
     "bulma"
   ],
   "license": "MIT",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/main.js",
+  "types": "./dist/main.d.ts",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-regular-svg-icons": "^5.15.2",
@@ -42,7 +49,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "tsc",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext ts --ext tsx",
     "lint:scss": "stylelint **/*.scss",
@@ -52,8 +59,8 @@
     "test:watch": "jest --watch",
     "test:clear": "jest --clearCache",
     "analyze": "node ./analyze.js",
-    "dead": "ts-prune",
-    "dead:count": "ts-prune |wc -l",
+    "dead": "ts-prune -p tsconfig.eslint.json",
+    "dead:count": "ts-prune -p tsconfig.eslint.json |wc -l",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },
@@ -71,10 +78,15 @@
     }
   },
   "jest": {
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "tsconfig.eslint.json"
+      }
+    },
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
       "!src/**/*.stories.{js,jsx,ts,tsx}",
-      "!src/index.ts"
+      "!src/main.ts"
     ],
     "modulePaths": [
       "<rootDir>/src/"

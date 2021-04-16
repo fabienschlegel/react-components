@@ -1,6 +1,9 @@
-import clsx from 'clsx';
 import React, { ReactNode } from 'react';
+
+import clsx from 'clsx';
+
 import { Link } from 'react-router-dom';
+
 import { Alignment, Separator, Size } from './types';
 
 interface BreadCrumbElement {

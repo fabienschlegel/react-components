@@ -54,5 +54,6 @@ publish:
       when: manual
   script:
     - echo "//registry.npmjs.org/:_authToken=${NPM_PUBLISH_TOKEN}" > .npmrc
+    - npm run build
     - npm publish --access public
         
