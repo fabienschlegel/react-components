@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-import Delete from 'components/delete/Delete';
+import Delete from '../delete/Delete';
 
 import Color from './types';
 

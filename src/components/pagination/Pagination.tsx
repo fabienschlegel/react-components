@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
-import Button from 'components/button/Button';
+import Button from '../button/Button';
 
 import { Alignment, Size } from './types';
 import usePagination from './hook/usePagination';

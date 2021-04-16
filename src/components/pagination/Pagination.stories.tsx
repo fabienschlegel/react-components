@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { Alignment, Size } from 'components/pagination/types';
+import { Alignment, Size } from './types';
 
 import Pagination, { PaginationProps } from './Pagination';
 
