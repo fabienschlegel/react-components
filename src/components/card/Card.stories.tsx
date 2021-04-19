@@ -1,10 +1,10 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies, react/destructuring-assignment */
 import React from 'react';
 
-import Content from 'components/content/Content';
-import Heading from 'components/heading/Heading';
-
 import { Story, Meta } from '@storybook/react/types-6-0';
+
+import Content from '../content/Content';
+import Heading from '../heading/Heading';
 
 import Card, { CardProps } from './Card';
 
