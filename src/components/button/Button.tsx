@@ -1,10 +1,11 @@
 /* eslint-disable react/button-has-type */
 import * as React from 'react';
+
 import clsx from 'clsx';
 
 import { Color, Size } from './types';
 
-export interface ButtonProps {
+interface ButtonProps {
   children: React.ReactNode;
   size?: Size;
   color?: Color;
@@ -24,7 +25,7 @@ export type ButtonType = ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElem
 
 const Button: React.FC<ButtonType> = ({
   children,
-  size = Size.Normal,
+  size,
   color,
   isFullWidth,
   isOutlined,
