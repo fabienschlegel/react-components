@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+# React Components
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Maintainability](https://api.codeclimate.com/v1/badges/701615948b3266dbf3e9/maintainability)](https://codeclimate.com/repos/6058f3676e46c960800091d8/maintainability)
+&nbsp;&nbsp;&nbsp;
+[![Test Coverage](https://api.codeclimate.com/v1/badges/701615948b3266dbf3e9/test_coverage)](https://codeclimate.com/repos/6058f3676e46c960800091d8/test_coverage)
+&nbsp;&nbsp;&nbsp;
+[![pipeline](https://gitlab.com/the-sleeping-dog/react-components/badges/develop/pipeline.svg)](https://gitlab.com/the-sleeping-dog/react-components/badges/develop/pipeline.svg)
+&nbsp;&nbsp;&nbsp;
+[![version](https://badgen.net/npm/v/@the-sleeping-dog/react-components)](https://badgen.net/npm/v/@the-sleeping-dog/react-components)
+&nbsp;&nbsp;&nbsp;
+[![license](https://badgen.net/npm/license/@the-sleeping-dog/react-components)](https://badgen.net/npm/license/@the-sleeping-dog/react-components)
 
-## Available Scripts
+React Components designed with Bulma 0.9.2
 
-In the project directory, you can run:
+🛠️ This project is currently in development.
 
-### `yarn start`
+## How to install
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+`npm install @the-sleeping-dog/react-components`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+`yarn add @the-sleeping-dog/react-components`
 
-### `yarn test`
+## Context
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project is an experiment to create a library of reusable React components. They are designed with Bulma in an opiniated way.
 
-### `yarn build`
+If you want to contribute to this project, you can contact me.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##  Author
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Fabien Schlegel
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Email : fabien.schlegel.fr@gmail.com
+* Twitter : <https://twitter.com/fabienschlegel>
+* Linkedin : <https://www.linkedin.com/in/fabien-schlegel/>

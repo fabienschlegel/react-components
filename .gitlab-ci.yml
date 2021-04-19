@@ -1,0 +1,59 @@
+image: node:14.15.4
+
+stages:
+  - lint
+  - test
+  - deploy
+
+cache:
+  paths:
+  - node_modules/
+
+lint:
+  stage: lint
+
+  before_script:
+    - npm install --save-dev
+  script:
+    - npm run lint
+    - npm run lint:scss
+
+test:
+  stage: test
+
+  before_script:
+    - npm install --save-dev
+
+  script:
+    - npm run test -- --coverage
+
+cc_coverage:
+  stage: test
+  
+  only:
+    - develop
+  
+  before_script:
+    - npm install --save-dev
+    - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+    - chmod +x ./cc-test-reporter
+    - ./cc-test-reporter before-build
+  
+  script:
+    - npm run test -- --coverage
+  
+  after_script :
+    - ./cc-test-reporter format-coverage -t lcov
+    - ./cc-test-reporter upload-coverage -r $CC_TEST_REPORTER
+
+publish:
+  image: node:latest
+  stage: deploy
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+      when: manual
+  script:
+    - echo "//registry.npmjs.org/:_authToken=${NPM_PUBLISH_TOKEN}" > .npmrc
+    - npm run build
+    - npm publish --access public
+        
