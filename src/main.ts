@@ -5,6 +5,7 @@ import Button from './components/button/Button';
 import Card from './components/card/Card';
 import Content from './components/content/Content';
 import Delete from './components/delete/Delete';
+import Dropdown from './components/dropdown/Dropdown';
 import Heading from './components/heading/Heading';
 import Image from './components/image/Image';
 import Notification from './components/notification/Notification';
@@ -23,6 +24,7 @@ export {
   Card,
   Content,
   Delete,
+  Dropdown,
   Heading,
   Image,
   Notification,

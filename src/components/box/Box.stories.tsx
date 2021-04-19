@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies, react/destructuring-assignment */
 import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
