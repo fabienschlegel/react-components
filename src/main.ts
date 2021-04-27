@@ -8,6 +8,8 @@ import Delete from './components/delete/Delete';
 import Dropdown from './components/dropdown/Dropdown';
 import Heading from './components/heading/Heading';
 import Image from './components/image/Image';
+import Message from './components/message/Message';
+import Modal from './components/modal/Modal';
 import Notification from './components/notification/Notification';
 import Pagination from './components/pagination/Pagination';
 import ProgressBar from './components/progress-bar/ProgressBar';
@@ -27,6 +29,8 @@ export {
   Dropdown,
   Heading,
   Image,
+  Message,
+  Modal,
   Notification,
   Pagination,
   ProgressBar,
