@@ -4,8 +4,6 @@
 &nbsp;&nbsp;&nbsp;
 [![Test Coverage](https://api.codeclimate.com/v1/badges/701615948b3266dbf3e9/test_coverage)](https://codeclimate.com/repos/6058f3676e46c960800091d8/test_coverage)
 &nbsp;&nbsp;&nbsp;
-[![pipeline](https://gitlab.com/the-sleeping-dog/react-components/badges/develop/pipeline.svg)](https://gitlab.com/the-sleeping-dog/react-components/badges/develop/pipeline.svg)
-&nbsp;&nbsp;&nbsp;
 [![version](https://badgen.net/npm/v/@the-sleeping-dog/react-components)](https://badgen.net/npm/v/@the-sleeping-dog/react-components)
 &nbsp;&nbsp;&nbsp;
 [![license](https://badgen.net/npm/license/@the-sleeping-dog/react-components)](https://badgen.net/npm/license/@the-sleeping-dog/react-components)
