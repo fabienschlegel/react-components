@@ -34,6 +34,6 @@ const Template: Story<ImageProps> = (args) => <Image {...args} />;
 
 export const BasicImage = Template.bind({});
 BasicImage.args = {
-  src: 'https://placehold.it/150x150',
+  src: 'https://via.placeholder.com/150',
   alt: 'Alternative Text',
 };
