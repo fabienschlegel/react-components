@@ -26,8 +26,8 @@ plugins:
   #       - .ts
   #       - .tsx
   #   channel: "eslint-7"
-  stylelint:
-    enabled: true
+  # stylelint:
+  #   enabled: true
 
 ratings:
   paths:
@@ -42,3 +42,4 @@ exclude_patterns:
   - '**/*.stories.tsx'
   - 'build/'
   - '.vscode'
+  - 'dist'
