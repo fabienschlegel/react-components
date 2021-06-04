@@ -13,6 +13,7 @@ import Dropdown from './components/dropdown/Dropdown';
 import Field from './components/field/Field';
 import Heading from './components/heading/Heading';
 import Help from './components/help/Help';
+import Hero from './components/hero/Hero';
 import Image from './components/image/Image';
 import Input from './components/input/Input';
 import InputField from './components/input-field/InputField';
@@ -44,6 +45,7 @@ export {
   Field,
   Heading,
   Help,
+  Hero,
   Image,
   Input,
   InputField,
