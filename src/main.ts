@@ -27,6 +27,8 @@ import ProgressBar from './components/progress-bar/ProgressBar';
 import Tabs from './components/tabs/Tabs';
 import Tag from './components/tag/Tag';
 import TagsGroup from './components/tags-group/TagsGroup';
+import Textarea from './components/textarea/Textarea';
+import TextareaField from './components/textarea-field/TextareaField';
 import Title from './components/title/Title';
 
 export {
@@ -59,5 +61,7 @@ export {
   Tabs,
   Tag,
   TagsGroup,
+  Textarea,
+  TextareaField,
   Title,
 };
