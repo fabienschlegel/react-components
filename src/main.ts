@@ -13,6 +13,7 @@ import Dropdown from './components/dropdown/Dropdown';
 import Field from './components/field/Field';
 import Heading from './components/heading/Heading';
 import Help from './components/help/Help';
+import Hero from './components/hero/Hero';
 import Image from './components/image/Image';
 import Input from './components/input/Input';
 import InputField from './components/input-field/InputField';
@@ -26,6 +27,8 @@ import ProgressBar from './components/progress-bar/ProgressBar';
 import Tabs from './components/tabs/Tabs';
 import Tag from './components/tag/Tag';
 import TagsGroup from './components/tags-group/TagsGroup';
+import Textarea from './components/textarea/Textarea';
+import TextareaField from './components/textarea-field/TextareaField';
 import Title from './components/title/Title';
 
 export {
@@ -44,6 +47,7 @@ export {
   Field,
   Heading,
   Help,
+  Hero,
   Image,
   Input,
   InputField,
@@ -57,5 +61,7 @@ export {
   Tabs,
   Tag,
   TagsGroup,
+  Textarea,
+  TextareaField,
   Title,
 };

@@ -2,6 +2,8 @@ import React, { ReactNode } from 'react';
 
 import clsx from 'clsx';
 
+import { Sizes } from 'types';
+
 export interface IconsProps {
   leftIcon?: ReactNode;
   leftIconClassName?: string;
@@ -12,15 +14,19 @@ export interface IconsProps {
 }
 export interface ControlProps {
   children: ReactNode;
+  size?: Sizes;
   icons?: IconsProps;
   isExpanded?: boolean;
+  isLoading?: boolean;
   className?: string;
 }
 
 const Control: React.FC<ControlProps> = ({
   children,
+  size,
   icons = {},
   isExpanded,
+  isLoading,
   className,
 }) => {
   const {
@@ -36,7 +42,9 @@ const Control: React.FC<ControlProps> = ({
     <div
       className={clsx(
         'control',
+        size,
         isExpanded ? 'is-expanded' : undefined,
+        isLoading ? 'is-loading' : undefined,
         leftIcon ? 'has-icons-left' : undefined,
         rightIcon ? 'has-icons-right' : undefined,
         className
