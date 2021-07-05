@@ -24,6 +24,8 @@ import ModalCard from './components/modal-card/ModalCard';
 import Notification from './components/notification/Notification';
 import Pagination from './components/pagination/Pagination';
 import ProgressBar from './components/progress-bar/ProgressBar';
+import Select from './components/select/Select';
+import SelectField from './components/select-field/SelectField';
 import Tabs from './components/tabs/Tabs';
 import Tag from './components/tag/Tag';
 import TagsGroup from './components/tags-group/TagsGroup';
@@ -58,6 +60,8 @@ export {
   Notification,
   Pagination,
   ProgressBar,
+  Select,
+  SelectField,
   Tabs,
   Tag,
   TagsGroup,
