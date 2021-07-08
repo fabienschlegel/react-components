@@ -26,8 +26,6 @@ plugins:
   #       - .ts
   #       - .tsx
   #   channel: "eslint-7"
-  # stylelint:
-  #   enabled: true
 
 ratings:
   paths:
