@@ -3,6 +3,7 @@ import Box from './components/box/Box';
 import Breadcrumb from './components/breadcrumb/Breadcrumb';
 import Button from './components/button/Button';
 import Card from './components/card/Card';
+import Checkbox from './components/checkbox/Checkbox';
 import Column from './components/column/Column';
 import Columns from './components/columns/Columns';
 import Container from './components/container/Container';
@@ -39,6 +40,7 @@ export {
   Breadcrumb,
   Button,
   Card,
+  Checkbox,
   Column,
   Columns,
   Container,
