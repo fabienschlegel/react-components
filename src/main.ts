@@ -25,6 +25,8 @@ import ModalCard from './components/modal-card/ModalCard';
 import Notification from './components/notification/Notification';
 import Pagination from './components/pagination/Pagination';
 import ProgressBar from './components/progress-bar/ProgressBar';
+import RadioElement from './components/radio-element/RadioElement';
+import RadioField from './components/radio-field/RadioField';
 import Select from './components/select/Select';
 import SelectField from './components/select-field/SelectField';
 import Tabs from './components/tabs/Tabs';
@@ -62,6 +64,8 @@ export {
   Notification,
   Pagination,
   ProgressBar,
+  RadioElement,
+  RadioField,
   Select,
   SelectField,
   Tabs,
