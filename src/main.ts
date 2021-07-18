@@ -35,6 +35,7 @@ import Tag from './components/tag/Tag';
 import TagsGroup from './components/tags-group/TagsGroup';
 import Textarea from './components/textarea/Textarea';
 import TextareaField from './components/textarea-field/TextareaField';
+import Tile from './components/tile/Tile';
 import Title from './components/title/Title';
 
 export {
@@ -75,5 +76,6 @@ export {
   TagsGroup,
   Textarea,
   TextareaField,
+  Tile,
   Title,
 };
