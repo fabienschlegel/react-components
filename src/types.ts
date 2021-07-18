@@ -23,3 +23,5 @@ export type LightColors =
   | 'is-danger is-light';
 
 export type Sizes = 'is-small' | 'is-normal' | 'is-medium' | 'is-large';
+
+export type Alignment = 'is-right' | 'is-centered';
