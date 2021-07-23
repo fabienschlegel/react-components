@@ -45,6 +45,23 @@ describe('Test InputField', () => {
     expect(rightIcon).toBeTruthy();
   });
 
+  it('Test InputField with clickable icons', () => {
+    const icons = {
+      leftIcon: <FontAwesomeIcon icon={faTimes} />,
+      rightIcon: <FontAwesomeIcon icon={faSearch} />,
+      handleLeftIconClick: jest.fn(),
+      handleRightIconClick: jest.fn(),
+    };
+
+    const wrapper = mount(<InputField name="inputfield" label={label} icons={icons} />);
+
+    const leftIcon = wrapper.find('.is-left').hasClass('clickable');
+    const rightIcon = wrapper.find('.is-right').hasClass('clickable');
+
+    expect(leftIcon).toBeTruthy();
+    expect(rightIcon).toBeTruthy();
+  });
+
   it('Test InputField is expanded', () => {
     const wrapper = mount(
       <InputField name="inputfield" label={label} controlIsExpanded />

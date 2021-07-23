@@ -5,21 +5,17 @@ import '../../setupTests';
 
 import { mount } from 'enzyme';
 
-import HeadingLevel from 'components/heading/types';
-
 import Title from './Title';
-
-import Size from './types';
 
 describe('Test Title', () => {
   it('Mount Title', () => {
-    const wrapper = mount(<Title size={Size.is1}>Text Title</Title>);
+    const wrapper = mount(<Title size="is-1">Text Title</Title>);
     expect(wrapper.length).toEqual(1);
   });
 
   it('Title is h2', () => {
     const wrapper = mount(
-      <Title size={Size.is2} headingLevel={HeadingLevel.h2}>
+      <Title size="is-2" headingLevel="h2">
         Text Title
       </Title>
     );
@@ -28,7 +24,7 @@ describe('Test Title', () => {
 
   it('Title is subtitle', () => {
     const wrapper = mount(
-      <Title size={Size.is1} isSubtitle>
+      <Title size="is-1" isSubtitle>
         Text Title
       </Title>
     );
@@ -39,7 +35,7 @@ describe('Test Title', () => {
 
   it('Title is spaced', () => {
     const wrapper = mount(
-      <Title size={Size.is1} isSpaced>
+      <Title size="is-1" isSpaced>
         Text Title
       </Title>
     );
@@ -50,7 +46,7 @@ describe('Test Title', () => {
 
   it('Title use paragraph', () => {
     const wrapper = mount(
-      <Title size={Size.is1} useParagraph>
+      <Title size="is-1" useParagraph>
         Text Title
       </Title>
     );

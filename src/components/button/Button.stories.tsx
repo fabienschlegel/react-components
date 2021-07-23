@@ -7,66 +7,11 @@ import { faAddressBook } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Button, { ButtonType } from './Button';
-import { Color, Size } from './types';
 
 export default {
   title: 'Button',
+  component: Button,
   args: {},
-  argTypes: {
-    onClick: { action: 'clicked' },
-    size: {
-      control: {
-        type: 'select',
-        options: Object.values(Size),
-      },
-    },
-    color: {
-      control: {
-        type: 'select',
-        options: Object.values(Color),
-      },
-    },
-    isOutlined: {
-      control: {
-        type: 'boolean',
-      },
-    },
-    isInverted: {
-      control: {
-        type: 'boolean',
-      },
-    },
-    isRounded: {
-      control: {
-        type: 'boolean',
-      },
-    },
-    isHovered: {
-      control: {
-        type: 'boolean',
-      },
-    },
-    isFocused: {
-      control: {
-        type: 'boolean',
-      },
-    },
-    isActive: {
-      control: {
-        type: 'boolean',
-      },
-    },
-    isLoading: {
-      control: {
-        type: 'boolean',
-      },
-    },
-    isStatic: {
-      control: {
-        type: 'boolean',
-      },
-    },
-  },
 } as Meta;
 
 const Template: Story<ButtonType> = (args) => <Button {...args}>{args.children}</Button>;
@@ -78,7 +23,7 @@ BasicButton.args = {
 
 export const DisabledButton = Template.bind({});
 DisabledButton.args = {
-  color: Color.Black,
+  color: 'is-black',
   disabled: true,
   children: 'Button',
 };

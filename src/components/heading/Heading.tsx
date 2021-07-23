@@ -1,6 +1,6 @@
 import React from 'react';
 
-import HeadingLevel from './types';
+import { HeadingLevel } from '../../types';
 
 interface HeadingProps {
   headingLevel?: HeadingLevel;
@@ -8,7 +8,7 @@ interface HeadingProps {
 }
 
 const Heading: React.FC<HeadingProps> = ({
-  headingLevel = HeadingLevel.h1,
+  headingLevel = 'h1',
   className,
   children,
   ...props

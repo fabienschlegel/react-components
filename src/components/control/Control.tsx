@@ -2,6 +2,8 @@ import React, { ReactNode } from 'react';
 
 import clsx from 'clsx';
 
+import './Control.css';
+
 import { Sizes } from 'types';
 
 export interface IconsProps {
@@ -53,7 +55,11 @@ const Control: React.FC<ControlProps> = ({
       {children}
       {leftIcon && (
         <span
-          className={clsx('icon is-left', leftIconClassName)}
+          className={clsx(
+            'icon is-left',
+            handleLeftIconClick && 'clickable',
+            leftIconClassName
+          )}
           onClick={handleLeftIconClick}
           onKeyDown={handleLeftIconClick}
           role="button"
@@ -64,7 +70,11 @@ const Control: React.FC<ControlProps> = ({
       )}
       {rightIcon && (
         <span
-          className={clsx('icon is-right', rightIconClassName)}
+          className={clsx(
+            'icon is-right',
+            handleRightIconClick && 'clickable',
+            rightIconClassName
+          )}
           onClick={handleRightIconClick}
           onKeyDown={handleRightIconClick}
           role="button"

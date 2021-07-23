@@ -6,7 +6,6 @@ import '../../setupTests';
 import { mount } from 'enzyme';
 
 import Button from './Button';
-import { Size } from './types';
 
 describe('Test Button', () => {
   it('Mount Button', () => {
@@ -15,7 +14,7 @@ describe('Test Button', () => {
   });
 
   it('Button is small', () => {
-    const wrapper = mount(<Button size={Size.Small}>Text Button</Button>);
+    const wrapper = mount(<Button size="is-small">Text Button</Button>);
 
     const button = wrapper.find('.button').hasClass('is-small');
     expect(button).toBeTruthy();

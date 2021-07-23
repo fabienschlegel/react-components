@@ -49,3 +49,14 @@ InputFieldWithIcons.args = {
     rightIcon: <FontAwesomeIcon icon={faCheck} />,
   },
 };
+
+export const InputFieldWithIconsClickable = Template.bind({});
+InputFieldWithIcons.args = {
+  ...BasicInputField.args,
+  icons: {
+    leftIcon: <FontAwesomeIcon icon={faMailBulk} />,
+    rightIcon: <FontAwesomeIcon icon={faCheck} />,
+    handleLeftIconClick: () => {},
+    handleRightIconClick: () => {},
+  },
+};

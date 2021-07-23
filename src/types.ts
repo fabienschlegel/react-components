@@ -39,3 +39,7 @@ export type NumericSizeModifier =
   | 'is-10'
   | 'is-11'
   | 'is-12';
+
+export type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+
+export type HeaderSize = 'is-1' | 'is-2' | 'is-3' | 'is-4' | 'is-5' | 'is-6';

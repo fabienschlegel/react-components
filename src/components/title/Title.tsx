@@ -4,12 +4,11 @@ import clsx from 'clsx';
 
 import Heading from '../heading/Heading';
 
-import HeadingLevel from '../heading/types';
-import Size from './types';
+import { HeadingLevel, HeaderSize } from '../../types';
 
 interface TitleProps {
   children: ReactNode;
-  size: Size;
+  size: HeaderSize;
   headingLevel?: HeadingLevel;
   useParagraph?: boolean;
   isSubtitle?: boolean;

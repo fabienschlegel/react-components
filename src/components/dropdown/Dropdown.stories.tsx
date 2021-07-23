@@ -8,8 +8,6 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import Dropdown, { DropdownProps } from './Dropdown';
 
-import { Color } from '../button/types';
-
 const history = createMemoryHistory({ initialEntries: ['/'] });
 
 export default {
@@ -93,6 +91,6 @@ DropdownPrimaryButton.args = {
   title: 'Basic Dropdown',
   items,
   buttonConfig: {
-    color: Color.Primary,
+    color: 'is-primary',
   },
 };

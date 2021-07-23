@@ -3,12 +3,12 @@ import * as React from 'react';
 
 import clsx from 'clsx';
 
-import { Color, Size } from './types';
+import { Colors, AnotherColors, LightColors, Sizes } from '../../types';
 
 interface ButtonProps {
   children: React.ReactNode;
-  size?: Size;
-  color?: Color;
+  size?: Sizes;
+  color?: Colors | AnotherColors | LightColors;
   isFullWidth?: boolean;
   isOutlined?: boolean;
   isInverted?: boolean;
