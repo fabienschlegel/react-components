@@ -55,11 +55,14 @@ describe('Test InputField', () => {
 
     const wrapper = mount(<InputField name="inputfield" label={label} icons={icons} />);
 
-    const leftIcon = wrapper.find('.is-left').hasClass('clickable');
-    const rightIcon = wrapper.find('.is-right').hasClass('clickable');
+    const leftIcon = wrapper.find('.is-left');
+    const rightIcon = wrapper.find('.is-right');
 
-    expect(leftIcon).toBeTruthy();
-    expect(rightIcon).toBeTruthy();
+    const leftIconStyle = leftIcon.props().style;
+    const rightIconStyle = rightIcon.props().style;
+
+    expect(leftIconStyle).toHaveProperty('cursor');
+    expect(rightIconStyle).toHaveProperty('cursor');
   });
 
   it('Test InputField is expanded', () => {

@@ -1,6 +1,6 @@
 {
   "name": "@the-sleeping-dog/react-components",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "description": "React components designed with Bulma",
   "keywords": [
     "react",
@@ -135,11 +135,11 @@
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@typescript-eslint/parser": "^4.16.1",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
+    "bulma": ">=0.9.2",
     "enzyme": "^3.11.0",
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
-    "install-peers": "^1.0.3",
     "prettier": "^2.2.1",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0",

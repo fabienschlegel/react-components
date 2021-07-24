@@ -2,8 +2,6 @@ import React, { ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-import './Control.css';
-
 import { Sizes } from 'types';
 
 export interface IconsProps {
@@ -40,6 +38,8 @@ const Control: React.FC<ControlProps> = ({
     handleRightIconClick,
   } = icons;
 
+  const clickable = { cursor: 'pointer', 'pointer-events': 'initial' };
+
   return (
     <div
       className={clsx(
@@ -55,13 +55,10 @@ const Control: React.FC<ControlProps> = ({
       {children}
       {leftIcon && (
         <span
-          className={clsx(
-            'icon is-left',
-            handleLeftIconClick && 'clickable',
-            leftIconClassName
-          )}
+          className={clsx('icon is-left', leftIconClassName)}
           onClick={handleLeftIconClick}
           onKeyDown={handleLeftIconClick}
+          style={handleLeftIconClick ? clickable : {}}
           role="button"
           tabIndex={0}
         >
@@ -70,13 +67,10 @@ const Control: React.FC<ControlProps> = ({
       )}
       {rightIcon && (
         <span
-          className={clsx(
-            'icon is-right',
-            handleRightIconClick && 'clickable',
-            rightIconClassName
-          )}
+          className={clsx('icon is-right', rightIconClassName)}
           onClick={handleRightIconClick}
           onKeyDown={handleRightIconClick}
+          style={handleRightIconClick ? clickable : {}}
           role="button"
           tabIndex={0}
         >
