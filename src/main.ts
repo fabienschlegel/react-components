@@ -13,6 +13,7 @@ import Delete from './components/delete/Delete';
 import Dropdown from './components/dropdown/Dropdown';
 import Field from './components/field/Field';
 import FileField from './components/file-field/FileField';
+import Footer from './components/footer/Footer';
 import Heading from './components/heading/Heading';
 import Help from './components/help/Help';
 import Hero from './components/hero/Hero';
@@ -56,6 +57,7 @@ export {
   Dropdown,
   Field,
   FileField,
+  Footer,
   Heading,
   Help,
   Hero,
