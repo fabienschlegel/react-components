@@ -31,6 +31,7 @@ import Pagination from './components/pagination/Pagination';
 import ProgressBar from './components/progress-bar/ProgressBar';
 import RadioElement from './components/radio-element/RadioElement';
 import RadioField from './components/radio-field/RadioField';
+import Section from './components/section/Section';
 import Select from './components/select/Select';
 import SelectField from './components/select-field/SelectField';
 import Tabs from './components/tabs/Tabs';
@@ -75,6 +76,7 @@ export {
   ProgressBar,
   RadioElement,
   RadioField,
+  Section,
   Select,
   SelectField,
   Tabs,
