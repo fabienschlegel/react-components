@@ -2,9 +2,9 @@ import React from 'react';
 
 import clsx from 'clsx';
 
-import { Ratio, SquaredDimensions } from './types';
+import { Ratio, SquaredDimensions } from '../../types';
 
-export interface ImageProps {
+interface ImageProps {
   src: string;
   alt: string;
   squaredDimensions?: SquaredDimensions;
@@ -14,7 +14,9 @@ export interface ImageProps {
   imgClassName?: string;
 }
 
-const Image: React.FC<ImageProps> = ({
+export type ImageType = ImageProps & React.ImgHTMLAttributes<HTMLImageElement>;
+
+const Image: React.FC<ImageType> = ({
   src,
   alt,
   squaredDimensions,
@@ -22,12 +24,14 @@ const Image: React.FC<ImageProps> = ({
   isRounded,
   className,
   imgClassName,
+  ...others
 }) => (
   <figure className={clsx('image', squaredDimensions, ratio, className)}>
     <img
       src={src}
       alt={alt}
-      className={clsx(isRounded ? 'is-rounded' : undefined, imgClassName)}
+      className={clsx(isRounded && 'is-rounded', imgClassName)}
+      {...others}
     />
   </figure>
 );

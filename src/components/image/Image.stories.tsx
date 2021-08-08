@@ -3,34 +3,15 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Image, { ImageProps } from './Image';
-import { SquaredDimensions, Ratio } from './types';
+import Image, { ImageType } from './Image';
 
 export default {
   title: 'Image',
+  component: Image,
   args: {},
-  argTypes: {
-    squaredDimensions: {
-      control: {
-        type: 'select',
-        options: Object.values(SquaredDimensions),
-      },
-    },
-    ratio: {
-      control: {
-        type: 'select',
-        options: Object.values(Ratio),
-      },
-    },
-    isRounded: {
-      control: {
-        type: 'boolean',
-      },
-    },
-  },
 } as Meta;
 
-const Template: Story<ImageProps> = (args) => <Image {...args} />;
+const Template: Story<ImageType> = (args) => <Image {...args} />;
 
 export const BasicImage = Template.bind({});
 BasicImage.args = {

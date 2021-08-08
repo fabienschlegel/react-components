@@ -6,7 +6,6 @@ import '../../setupTests';
 import { mount } from 'enzyme';
 
 import Image from './Image';
-import { Ratio, SquaredDimensions } from './types';
 
 describe('Test Image', () => {
   it('Mount Image', () => {
@@ -49,7 +48,7 @@ describe('Test Image', () => {
       <Image
         src="/fake-img-url.png"
         alt="alternative text"
-        squaredDimensions={SquaredDimensions.is128}
+        squaredDimensions="is-128x128"
       />
     );
 
@@ -60,7 +59,7 @@ describe('Test Image', () => {
 
   it('Image have ratio', () => {
     const wrapper = mount(
-      <Image src="/fake-img-url.png" alt="alternative text" ratio={Ratio.Square} />
+      <Image src="/fake-img-url.png" alt="alternative text" ratio="is-square" />
     );
 
     const figure = wrapper.find('figure').hasClass('is-square');

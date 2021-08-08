@@ -23,6 +23,7 @@ import InputField from './components/input-field/InputField';
 import Label from './components/label/Label';
 import Level from './components/level/Level';
 import LevelItem from './components/level-item/LevelItem';
+import MediaObject from './components/media-object/MediaObject';
 import Message from './components/message/Message';
 import Modal from './components/modal/Modal';
 import ModalCard from './components/modal-card/ModalCard';
@@ -68,6 +69,7 @@ export {
   Label,
   Level,
   LevelItem,
+  MediaObject,
   Message,
   Modal,
   ModalCard,

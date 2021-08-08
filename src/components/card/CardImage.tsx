@@ -2,10 +2,10 @@ import React from 'react';
 
 import clsx from 'clsx';
 
-import Image, { ImageProps } from '../image/Image';
+import Image, { ImageType } from '../image/Image';
 
 export interface CardImageProps {
-  imageConfig: ImageProps;
+  imageConfig: ImageType;
   className?: string;
 }
 
