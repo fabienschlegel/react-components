@@ -23,7 +23,9 @@
     "react/jsx-wrap-multilines": "off",
     "react/require-default-props": "off",
     "no-plusplus": "off",
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "object-curly-spacing": "off",
+    "@typescript-eslint/object-curly-spacing": ["error"]
   },
   "ignorePatterns": ["dist/*"],
   "env": {
