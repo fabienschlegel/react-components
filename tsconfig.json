@@ -28,7 +28,8 @@
     "src/**/*.stories.ts",
     "src/**/*.stories.tsx",
     "src/setupTests.ts",
-    "src/__mocks__/*"
+    "src/__mocks__/*",
+    "src/__fake__/*"
   ],
   "include": ["src"]
 }

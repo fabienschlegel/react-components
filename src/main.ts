@@ -35,6 +35,7 @@ import RadioField from './components/radio-field/RadioField';
 import Section from './components/section/Section';
 import Select from './components/select/Select';
 import SelectField from './components/select-field/SelectField';
+import Table from './components/table/Table';
 import Tabs from './components/tabs/Tabs';
 import Tag from './components/tag/Tag';
 import TagsGroup from './components/tags-group/TagsGroup';
@@ -81,6 +82,7 @@ export {
   Section,
   Select,
   SelectField,
+  Table,
   Tabs,
   Tag,
   TagsGroup,

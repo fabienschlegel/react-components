@@ -1,3 +1,5 @@
+import { ReactNode, CSSProperties } from 'react';
+
 export type Colors =
   | 'is-primary'
   | 'is-link'
@@ -70,3 +72,40 @@ export type Ratio =
   | 'is-9by16'
   | 'is-1by2'
   | 'is-1by3';
+
+export type SortOrder = 'asc' | 'desc';
+
+export type SortOrders = (SortOrder | undefined)[];
+
+type SortComparer<T> = (sortOrder: SortOrder) => (a: T, b: T) => number;
+
+type ResolvableValue<T, U> =
+  | ((allData: T[], rowData: T, rowIndex: number, isHovered: boolean) => U)
+  | U;
+
+export interface ColumnConfig<T> {
+  label?: ReactNode | (() => ReactNode);
+  value?: ((allData: T[], rowData: T, rowIndex: number) => ReactNode) | keyof T;
+  icon?: ResolvableValue<T, ReactNode>;
+  iconButtonStyle?: ResolvableValue<T, CSSProperties>;
+  tooltip?: ResolvableValue<T, string>;
+  onClick?: (rowData: T, column: ColumnConfig<T>, colIndex: number, rowIndex: number) => void;
+  sortable?: boolean;
+  defaultSort?: SortOrder;
+  sortComparer?: SortComparer<T>;
+  onSort?: (sortOrder: SortOrder) => void;
+  align?: 'left' | 'centered' | 'right' | 'justified';
+  cellsStyle?: ResolvableValue<T, CSSProperties>;
+  cellsClassName?: ResolvableValue<T, string>;
+}
+
+export interface TableConfig<T> {
+  columns: ColumnConfig<T>[];
+  handleClickOnRow?: (value: T) => void;
+  isBordered?: boolean;
+  isStriped?: boolean;
+  isNarrow?: boolean;
+  isHoverable?: boolean;
+  isFullWidth?: boolean;
+  hasTableFooter?: boolean;
+}
