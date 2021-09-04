@@ -24,6 +24,11 @@ import Label from './components/label/Label';
 import Level from './components/level/Level';
 import LevelItem from './components/level-item/LevelItem';
 import MediaObject from './components/media-object/MediaObject';
+import Menu from './components/menu/Menu';
+import MenuItem from './components/menu-item/MenuItem';
+import MenuLabel from './components/menu-label/MenuLabel';
+import MenuList from './components/menu-list/MenuList';
+import MenuNestedList from './components/menu-nested-list/MenuNestedList';
 import Message from './components/message/Message';
 import Modal from './components/modal/Modal';
 import ModalCard from './components/modal-card/ModalCard';
@@ -78,6 +83,11 @@ export {
   Level,
   LevelItem,
   MediaObject,
+  Menu,
+  MenuItem,
+  MenuLabel,
+  MenuList,
+  MenuNestedList,
   Message,
   Modal,
   ModalCard,
