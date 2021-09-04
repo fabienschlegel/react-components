@@ -17,9 +17,7 @@ describe('Test Pagination', () => {
   });
 
   it('Mount Pagination', () => {
-    const wrapper = mount(
-      <Pagination currentPage={1} lastPage={10} changePage={changePage} />
-    );
+    const wrapper = mount(<Pagination currentPage={1} lastPage={10} changePage={changePage} />);
     expect(wrapper.length).toEqual(1);
   });
 
@@ -44,12 +42,7 @@ describe('Test Pagination', () => {
 
   it('Pagination is small', () => {
     const wrapper = mount(
-      <Pagination
-        currentPage={1}
-        lastPage={10}
-        changePage={changePage}
-        size={Size.isSmall}
-      />
+      <Pagination currentPage={1} lastPage={10} changePage={changePage} size={Size.isSmall} />
     );
     expect(wrapper.length).toEqual(1);
   });
@@ -62,25 +55,19 @@ describe('Test Pagination', () => {
   });
 
   it('Pagination with ellipsis', () => {
-    const wrapper = mount(
-      <Pagination currentPage={9} lastPage={20} changePage={changePage} />
-    );
+    const wrapper = mount(<Pagination currentPage={9} lastPage={20} changePage={changePage} />);
     expect(wrapper.length).toEqual(1);
   });
 
   it('Test Pagination change page event', () => {
-    const wrapper = mount(
-      <Pagination currentPage={9} lastPage={20} changePage={changePage} />
-    );
+    const wrapper = mount(<Pagination currentPage={9} lastPage={20} changePage={changePage} />);
     const firstPage = wrapper.find('#first-page').children();
     firstPage.simulate('click');
     expect(changePage).toHaveBeenCalled();
   });
 
   it('Test Pagination change page event', () => {
-    const wrapper = mount(
-      <Pagination currentPage={9} lastPage={20} changePage={changePage} />
-    );
+    const wrapper = mount(<Pagination currentPage={9} lastPage={20} changePage={changePage} />);
 
     const lastPage = wrapper.find('#last-page').children();
     lastPage.simulate('click');
@@ -88,9 +75,7 @@ describe('Test Pagination', () => {
   });
 
   it('Test Pagination change page event', () => {
-    const wrapper = mount(
-      <Pagination currentPage={9} lastPage={20} changePage={changePage} />
-    );
+    const wrapper = mount(<Pagination currentPage={9} lastPage={20} changePage={changePage} />);
 
     const previousPage = wrapper.find('.pagination-previous').at(0);
     previousPage.simulate('click');

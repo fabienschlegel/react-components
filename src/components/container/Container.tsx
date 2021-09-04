@@ -9,11 +9,8 @@ export interface ContainerProps {
   className?: string;
 }
 
-const Container: React.FC<ContainerProps> = ({
-  children,
-  fullWidth,
-  maxWidth,
-  className,
-}) => <div className={clsx('container', fullWidth, maxWidth, className)}>{children}</div>;
+const Container: React.FC<ContainerProps> = ({ children, fullWidth, maxWidth, className }) => (
+  <div className={clsx('container', fullWidth, maxWidth, className)}>{children}</div>
+);
 
 export default Container;

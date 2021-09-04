@@ -5,8 +5,7 @@ interface RadioElementProps {
   name: string;
 }
 
-export type RadioElementType = RadioElementProps &
-  React.InputHTMLAttributes<HTMLInputElement>;
+export type RadioElementType = RadioElementProps & React.InputHTMLAttributes<HTMLInputElement>;
 
 const RadioElement: React.FC<RadioElementType> = ({ children, name, ...others }) => (
   // eslint-disable-next-line jsx-a11y/label-has-associated-control

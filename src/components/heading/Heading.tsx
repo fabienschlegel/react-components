@@ -7,11 +7,7 @@ interface HeadingProps {
   className?: string;
 }
 
-const Heading: React.FC<HeadingProps> = ({
-  headingLevel = 'h1',
-  className,
-  children,
-  ...props
-}) => React.createElement(headingLevel, { ...props, className }, children);
+const Heading: React.FC<HeadingProps> = ({ headingLevel = 'h1', className, children, ...props }) =>
+  React.createElement(headingLevel, { ...props, className }, children);
 
 export default Heading;

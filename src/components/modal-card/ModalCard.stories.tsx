@@ -26,20 +26,17 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ModalCardProps> = (args) => (
-  <ModalCard {...args}>{args.children}</ModalCard>
-);
+const Template: Story<ModalCardProps> = (args) => <ModalCard {...args}>{args.children}</ModalCard>;
 
 export const BasicModalCard = Template.bind({});
 BasicModalCard.args = {
   title: 'Modal Card',
   children: (
     <Content>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet nunc.
-      Phasellus egestas odio scelerisque ullamcorper lobortis. Sed felis ex, suscipit a
-      diam sed, iaculis faucibus urna. Ut egestas, lacus et egestas pellentesque, dolor
-      sem lobortis metus, eget dignissim nisl orci sed dui. Orci varius natoque penatibus
-      et magnis.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet nunc. Phasellus
+      egestas odio scelerisque ullamcorper lobortis. Sed felis ex, suscipit a diam sed, iaculis
+      faucibus urna. Ut egestas, lacus et egestas pellentesque, dolor sem lobortis metus, eget
+      dignissim nisl orci sed dui. Orci varius natoque penatibus et magnis.
     </Content>
   ),
   footer: <p>Footer Content</p>,

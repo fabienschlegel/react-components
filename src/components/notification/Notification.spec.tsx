@@ -23,9 +23,7 @@ describe('Test Notification', () => {
   });
 
   it('Notification is primary', () => {
-    const wrapper = mount(
-      <Notification color={Color.Primary}>Text Notification</Notification>
-    );
+    const wrapper = mount(<Notification color={Color.Primary}>Text Notification</Notification>);
 
     const notification = wrapper.find('.notification').hasClass('is-primary');
     expect(notification).toBeTruthy();
@@ -33,9 +31,7 @@ describe('Test Notification', () => {
 
   it('Test Notification click event', () => {
     const onClickEvent = jest.fn();
-    const wrapper = mount(
-      <Notification onClick={onClickEvent}>Text Notification</Notification>
-    );
+    const wrapper = mount(<Notification onClick={onClickEvent}>Text Notification</Notification>);
     const button = wrapper.find('.delete');
     button.simulate('click');
     expect(onClickEvent).toHaveBeenCalled();

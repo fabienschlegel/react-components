@@ -14,9 +14,7 @@ describe('Test Image', () => {
   });
 
   it('Image is rounded', () => {
-    const wrapper = mount(
-      <Image src="/fake-img-url.png" alt="alternative text" isRounded />
-    );
+    const wrapper = mount(<Image src="/fake-img-url.png" alt="alternative text" isRounded />);
 
     const img = wrapper.find('img').hasClass('is-rounded');
 
@@ -45,11 +43,7 @@ describe('Test Image', () => {
 
   it('Image have squared dimensions', () => {
     const wrapper = mount(
-      <Image
-        src="/fake-img-url.png"
-        alt="alternative text"
-        squaredDimensions="is-128x128"
-      />
+      <Image src="/fake-img-url.png" alt="alternative text" squaredDimensions="is-128x128" />
     );
 
     const figure = wrapper.find('figure').hasClass('is-128x128');

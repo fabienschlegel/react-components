@@ -1,10 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-const getPages = (
-  currentPage: number,
-  lastPage: number,
-  pagesToShow: number
-): number[] => {
+const getPages = (currentPage: number, lastPage: number, pagesToShow: number): number[] => {
   const pages = [];
   let startFromNumber = currentPage - Math.floor(pagesToShow / 2);
   if (lastPage <= pagesToShow) {

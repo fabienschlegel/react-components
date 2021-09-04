@@ -14,8 +14,7 @@ interface TextareaProps {
   hasFixedSize?: boolean;
 }
 
-export type TextareaType = TextareaProps &
-  React.TextareaHTMLAttributes<HTMLTextAreaElement>;
+export type TextareaType = TextareaProps & React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 const Textarea: React.FC<TextareaType> = ({
   size,

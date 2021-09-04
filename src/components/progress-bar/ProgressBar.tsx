@@ -12,18 +12,8 @@ export interface ProgressBarProps {
   className?: string;
 }
 
-const ProgressBar: React.FC<ProgressBarProps> = ({
-  value,
-  max = 100,
-  color,
-  size,
-  className,
-}) => (
-  <progress
-    className={clsx('progress', color, size, className)}
-    value={value}
-    max={max}
-  />
+const ProgressBar: React.FC<ProgressBarProps> = ({ value, max = 100, color, size, className }) => (
+  <progress className={clsx('progress', color, size, className)} value={value} max={max} />
 );
 
 export default ProgressBar;

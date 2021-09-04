@@ -27,6 +27,13 @@ import MediaObject from './components/media-object/MediaObject';
 import Message from './components/message/Message';
 import Modal from './components/modal/Modal';
 import ModalCard from './components/modal-card/ModalCard';
+import Navbar from './components/navbar/Navbar';
+import NavbarBrand from './components/navbar-brand/NavbarBrand';
+import NavbarDivider from './components/navbar-divider/NavbarDivider';
+import NavbarDropdown from './components/navbar-dropdown/NavbarDropdown';
+import NavbarEnd from './components/navbar-end/NavbarEnd';
+import NavbarItem from './components/navbar-item/NavbarItem';
+import NavbarStart from './components/navbar-start/NavbarStart';
 import Notification from './components/notification/Notification';
 import Pagination from './components/pagination/Pagination';
 import ProgressBar from './components/progress-bar/ProgressBar';
@@ -74,6 +81,13 @@ export {
   Message,
   Modal,
   ModalCard,
+  Navbar,
+  NavbarBrand,
+  NavbarDivider,
+  NavbarDropdown,
+  NavbarEnd,
+  NavbarItem,
+  NavbarStart,
   Notification,
   Pagination,
   ProgressBar,

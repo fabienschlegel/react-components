@@ -35,9 +35,7 @@ describe('Test Hero', () => {
   it('Hero has head and footer', () => {
     const head = <p>Head of the Hero</p>;
     const footer = <p>Footer of the Hero</p>;
-    const wrapper = mount(
-      <Hero title={title} subtitle={subtitle} head={head} footer={footer} />
-    );
+    const wrapper = mount(<Hero title={title} subtitle={subtitle} head={head} footer={footer} />);
 
     const headDiv = wrapper.find('.hero-head').exists();
     const footerDiv = wrapper.find('.hero-foot').exists();

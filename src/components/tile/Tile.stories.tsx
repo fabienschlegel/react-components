@@ -37,17 +37,17 @@ BasicTilePatchwork.args = {
         <ChildTile {...ChildTile.args} isBox>
           <p className="title">One</p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna
-            eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam
-            finibus odio quis feugiat facilisis.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu
+            pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis
+            feugiat facilisis.
           </p>
         </ChildTile>
         <ChildTile {...ChildTile.args} isBox>
           <p className="title">Two</p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna
-            eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam
-            finibus odio quis feugiat facilisis.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu
+            pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis
+            feugiat facilisis.
           </p>
         </ChildTile>
       </ParentTile>
@@ -55,9 +55,9 @@ BasicTilePatchwork.args = {
         <ChildTile {...ChildTile.args} isBox>
           <p className="title">Three</p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna
-            eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam
-            finibus odio quis feugiat facilisis.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu
+            pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis
+            feugiat facilisis.
           </p>
         </ChildTile>
       </ParentTile>
@@ -74,17 +74,17 @@ ColoredTilePatchwork.args = {
         <ChildTile {...ChildTile.args} isBox color="is-primary">
           <p className="title">One</p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna
-            eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam
-            finibus odio quis feugiat facilisis.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu
+            pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis
+            feugiat facilisis.
           </p>
         </ChildTile>
         <ChildTile {...ChildTile.args} isBox color="is-warning">
           <p className="title">Two</p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna
-            eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam
-            finibus odio quis feugiat facilisis.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu
+            pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis
+            feugiat facilisis.
           </p>
         </ChildTile>
       </ParentTile>
@@ -92,9 +92,9 @@ ColoredTilePatchwork.args = {
         <ChildTile {...ChildTile.args} color="is-info">
           <p className="title">Three</p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna
-            eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam
-            finibus odio quis feugiat facilisis.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu
+            pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis
+            feugiat facilisis.
           </p>
         </ChildTile>
       </ParentTile>

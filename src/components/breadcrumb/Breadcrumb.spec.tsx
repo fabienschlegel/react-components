@@ -30,10 +30,7 @@ describe('Test Breadcrumb', () => {
   it('Breadcrumb is aligned to right', () => {
     const wrapper = mount(
       <Router>
-        <Breadcrumb
-          breadcrumbElement={breabcrumbElements}
-          alignment={Alignment.isRight}
-        />
+        <Breadcrumb breadcrumbElement={breabcrumbElements} alignment={Alignment.isRight} />
       </Router>
     );
 
@@ -44,10 +41,7 @@ describe('Test Breadcrumb', () => {
   it('Breadcrumb separator is arrow', () => {
     const wrapper = mount(
       <Router>
-        <Breadcrumb
-          breadcrumbElement={breabcrumbElements}
-          separator={Separator.hasArrow}
-        />
+        <Breadcrumb breadcrumbElement={breabcrumbElements} separator={Separator.hasArrow} />
       </Router>
     );
 

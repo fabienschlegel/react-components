@@ -21,9 +21,7 @@ const Notification: React.FC<NotificationProps> = ({
   onClick,
   className,
 }) => (
-  <div
-    className={clsx('notification', color, isLight ? 'is-light' : undefined, className)}
-  >
+  <div className={clsx('notification', color, isLight ? 'is-light' : undefined, className)}>
     <Delete onClick={onClick} />
     {children}
   </div>

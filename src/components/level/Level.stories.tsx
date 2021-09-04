@@ -35,9 +35,7 @@ BasicLevel.args = {
       ),
     },
     {
-      children: (
-        <CheckboxStories.BasicCheckbox>Do you agree ?</CheckboxStories.BasicCheckbox>
-      ),
+      children: <CheckboxStories.BasicCheckbox>Do you agree ?</CheckboxStories.BasicCheckbox>,
     },
   ],
   rightItems: [

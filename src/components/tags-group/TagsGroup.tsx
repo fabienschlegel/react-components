@@ -9,9 +9,7 @@ interface TagsGroupProps {
 }
 
 const TagsGroup: React.FC<TagsGroupProps> = ({ children, hasAddons, className }) => (
-  <div className={clsx('tags', hasAddons ? 'has-addons' : undefined, className)}>
-    {children}
-  </div>
+  <div className={clsx('tags', hasAddons ? 'has-addons' : undefined, className)}>{children}</div>
 );
 
 export default TagsGroup;

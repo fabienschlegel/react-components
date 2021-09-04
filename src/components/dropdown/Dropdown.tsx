@@ -42,9 +42,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   const [isActiveState, setIsActive] = useState(isActive);
 
   const toggleDropdown = (
-    e:
-      | React.MouseEvent<HTMLButtonElement | MouseEvent>
-      | React.KeyboardEvent<HTMLButtonElement>
+    e: React.MouseEvent<HTMLButtonElement | MouseEvent> | React.KeyboardEvent<HTMLButtonElement>
   ) => {
     e.stopPropagation();
     if (!isHoverable) {
@@ -58,10 +56,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   const dropdownItem = (item: DropdownItem | DropdownLinkItem) =>
     item instanceof Object && 'to' in item ? (
-      <Link
-        to={item.to}
-        className={clsx('dropdown-item', item.isActive ? 'is-active' : undefined)}
-      >
+      <Link to={item.to} className={clsx('dropdown-item', item.isActive ? 'is-active' : undefined)}>
         {item.content}
       </Link>
     ) : (
