@@ -27,15 +27,11 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ContainerProps> = (args) => (
-  <Container {...args}>{args.children}</Container>
-);
+const Template: Story<ContainerProps> = (args) => <Container {...args}>{args.children}</Container>;
 
 export const BasicContainer = Template.bind({});
 BasicContainer.args = {
   children: (
-    <NotificationStories.BasicNotification
-      {...NotificationStories.BasicNotification.args}
-    />
+    <NotificationStories.BasicNotification {...NotificationStories.BasicNotification.args} />
   ),
 };

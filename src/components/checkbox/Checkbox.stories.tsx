@@ -18,9 +18,7 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<CheckboxType> = (args) => (
-  <Checkbox {...args}>{args.children}</Checkbox>
-);
+const Template: Story<CheckboxType> = (args) => <Checkbox {...args}>{args.children}</Checkbox>;
 
 export const BasicCheckbox = Template.bind({});
 BasicCheckbox.args = {

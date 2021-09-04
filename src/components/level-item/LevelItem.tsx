@@ -10,9 +10,7 @@ export interface LevelItemProps {
 }
 
 const LevelItem: React.FC<LevelItemProps> = ({ children, isCentered, className }) => (
-  <div className={clsx('level-item', isCentered && 'has-text-centered', className)}>
-    {children}
-  </div>
+  <div className={clsx('level-item', isCentered && 'has-text-centered', className)}>{children}</div>
 );
 
 export default LevelItem;

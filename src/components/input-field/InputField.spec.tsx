@@ -22,9 +22,7 @@ describe('Test InputField', () => {
       text: 'this is an help message',
     };
 
-    const wrapper = mount(
-      <InputField name="inputfield" label={label} helpProps={helpProps} />
-    );
+    const wrapper = mount(<InputField name="inputfield" label={label} helpProps={helpProps} />);
 
     const help = wrapper.find('.help').exists();
     expect(help).toBeTruthy();
@@ -66,9 +64,7 @@ describe('Test InputField', () => {
   });
 
   it('Test InputField is expanded', () => {
-    const wrapper = mount(
-      <InputField name="inputfield" label={label} controlIsExpanded />
-    );
+    const wrapper = mount(<InputField name="inputfield" label={label} controlIsExpanded />);
 
     const control = wrapper.find('.control').hasClass('is-expanded');
     expect(control).toBeTruthy();

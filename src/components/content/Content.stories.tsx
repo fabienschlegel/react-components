@@ -19,9 +19,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ContentType> = (args) => (
-  <Content {...args}>{args.children}</Content>
-);
+const Template: Story<ContentType> = (args) => <Content {...args}>{args.children}</Content>;
 
 export const BasicContent = Template.bind({});
 BasicContent.args = {

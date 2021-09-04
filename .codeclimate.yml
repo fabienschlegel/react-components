@@ -26,7 +26,11 @@ plugins:
         - .ts
         - .tsx
     channel: "eslint-7"
-
+    checks:
+      '@typescript-eslint/object-curly-spacing':
+        enabled: false
+      '@typescript-eslint/comma-dangle':
+        enabled: false
 ratings:
   paths:
     - 'src/**'

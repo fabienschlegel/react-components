@@ -16,9 +16,7 @@ describe('Test FileField', () => {
   });
 
   it('Test FileField with file name', () => {
-    const wrapper = mount(
-      <FileField name={name} fileLabel={fileLabel} fileName="the-file.txt" />
-    );
+    const wrapper = mount(<FileField name={name} fileLabel={fileLabel} fileName="the-file.txt" />);
 
     const fileDiv = wrapper.find('.file').hasClass('file');
     const fileSpan = wrapper.find('.file-name').exists();

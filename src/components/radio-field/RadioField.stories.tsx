@@ -35,9 +35,5 @@ DefaultCheckedRadioField.args = {
 export const DisabledRadioField = Template.bind({});
 DisabledRadioField.args = {
   name: 'radiofield',
-  radioElements: [
-    { children: 'Yes' },
-    { children: 'No' },
-    { children: 'Maybe', disabled: true },
-  ],
+  radioElements: [{ children: 'Yes' }, { children: 'No' }, { children: 'Maybe', disabled: true }],
 };

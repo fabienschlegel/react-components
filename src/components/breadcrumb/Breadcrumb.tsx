@@ -25,10 +25,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
   separator,
   size,
 }) => (
-  <nav
-    className={clsx('breadcrumb', alignment, separator, size)}
-    aria-label="breadcrumbs"
-  >
+  <nav className={clsx('breadcrumb', alignment, separator, size)} aria-label="breadcrumbs">
     <ul>
       {breadcrumbElement.map((element) => (
         <li key={element.to} className={clsx(element.isActive ? 'is-active' : undefined)}>

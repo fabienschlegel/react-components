@@ -1,8 +1,8 @@
 # React Components
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/701615948b3266dbf3e9/maintainability)](https://codeclimate.com/repos/6058f3676e46c960800091d8/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/701615948b3266dbf3e9/maintainability)](https://codeclimate.com/repos/61221314b9783801b60004f0/maintainability)
 &nbsp;&nbsp;&nbsp;
-[![Test Coverage](https://api.codeclimate.com/v1/badges/701615948b3266dbf3e9/test_coverage)](https://codeclimate.com/repos/6058f3676e46c960800091d8/test_coverage)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/701615948b3266dbf3e9/test_coverage)](https://codeclimate.com/repos/61221314b9783801b60004f0/test_coverage)
 &nbsp;&nbsp;&nbsp;
 [![version](https://badgen.net/npm/v/@the-sleeping-dog/react-components)](https://badgen.net/npm/v/@the-sleeping-dog/react-components)
 &nbsp;&nbsp;&nbsp;

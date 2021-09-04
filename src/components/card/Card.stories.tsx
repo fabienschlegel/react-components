@@ -24,11 +24,10 @@ export const BasicCard = Template.bind({});
 BasicCard.args = {
   children: (
     <Content>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet nunc.
-      Phasellus egestas odio scelerisque ullamcorper lobortis. Sed felis ex, suscipit a
-      diam sed, iaculis faucibus urna. Ut egestas, lacus et egestas pellentesque, dolor
-      sem lobortis metus, eget dignissim nisl orci sed dui. Orci varius natoque penatibus
-      et magnis.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet nunc. Phasellus
+      egestas odio scelerisque ullamcorper lobortis. Sed felis ex, suscipit a diam sed, iaculis
+      faucibus urna. Ut egestas, lacus et egestas pellentesque, dolor sem lobortis metus, eget
+      dignissim nisl orci sed dui. Orci varius natoque penatibus et magnis.
     </Content>
   ),
 };
@@ -37,11 +36,10 @@ export const CardWithFooter = Template.bind({});
 CardWithFooter.args = {
   children: (
     <Content>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet nunc.
-      Phasellus egestas odio scelerisque ullamcorper lobortis. Sed felis ex, suscipit a
-      diam sed, iaculis faucibus urna. Ut egestas, lacus et egestas pellentesque, dolor
-      sem lobortis metus, eget dignissim nisl orci sed dui. Orci varius natoque penatibus
-      et magnis.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet nunc. Phasellus
+      egestas odio scelerisque ullamcorper lobortis. Sed felis ex, suscipit a diam sed, iaculis
+      faucibus urna. Ut egestas, lacus et egestas pellentesque, dolor sem lobortis metus, eget
+      dignissim nisl orci sed dui. Orci varius natoque penatibus et magnis.
     </Content>
   ),
   cardFooter: {
@@ -63,9 +61,9 @@ CardWithImage.args = {
   },
   children: (
     <Content>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet nunc.
-      Phasellus egestas odio scelerisque ullamcorper lobortis. Sed felis ex, suscipit a
-      diam sed, iaculis faucibus urna.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet nunc. Phasellus
+      egestas odio scelerisque ullamcorper lobortis. Sed felis ex, suscipit a diam sed, iaculis
+      faucibus urna.
     </Content>
   ),
   cardFooter: {
@@ -88,9 +86,9 @@ CardWithHeader.args = {
     <>
       <Heading>Lorem Ipsum</Heading>
       <Content>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet
-        nunc. Phasellus egestas odio scelerisque ullamcorper lobortis. Sed felis ex,
-        suscipit a diam sed, iaculis faucibus urna.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet nunc.
+        Phasellus egestas odio scelerisque ullamcorper lobortis. Sed felis ex, suscipit a diam sed,
+        iaculis faucibus urna.
       </Content>
     </>
   ),

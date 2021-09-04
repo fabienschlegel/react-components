@@ -44,18 +44,14 @@ describe('Test Column', () => {
   });
 
   it('Column is 4 for desktop', () => {
-    const wrapper = mount(
-      <Column desktopColumnSize={ColumnSize.is4}>Text Column</Column>
-    );
+    const wrapper = mount(<Column desktopColumnSize={ColumnSize.is4}>Text Column</Column>);
 
     const column = wrapper.find('.column').hasClass('is-4-desktop');
     expect(column).toBeTruthy();
   });
 
   it('Column is 4 for widescreen', () => {
-    const wrapper = mount(
-      <Column widescreenColumnSize={ColumnSize.is4}>Text Column</Column>
-    );
+    const wrapper = mount(<Column widescreenColumnSize={ColumnSize.is4}>Text Column</Column>);
 
     const column = wrapper.find('.column').hasClass('is-4-widescreen');
     expect(column).toBeTruthy();

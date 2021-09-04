@@ -62,13 +62,7 @@ describe('Test SelectField', () => {
 
   it('Test SelectField is expanded', () => {
     const wrapper = mount(
-      <SelectField
-        name={name}
-        label={label}
-        options={options}
-        isMultiple
-        multipleSize={5}
-      />
+      <SelectField name={name} label={label} options={options} isMultiple multipleSize={5} />
     );
 
     const select = wrapper.find('select').prop('multiple');
@@ -78,36 +72,28 @@ describe('Test SelectField', () => {
   });
 
   it('Test SelectField is rounded', () => {
-    const wrapper = mount(
-      <SelectField name={name} label={label} options={options} isRounded />
-    );
+    const wrapper = mount(<SelectField name={name} label={label} options={options} isRounded />);
 
     const select = wrapper.find('.select').hasClass('is-rounded');
     expect(select).toBeTruthy();
   });
 
   it('Test SelectField is loading', () => {
-    const wrapper = mount(
-      <SelectField name={name} label={label} options={options} isLoading />
-    );
+    const wrapper = mount(<SelectField name={name} label={label} options={options} isLoading />);
 
     const select = wrapper.find('.select').hasClass('is-loading');
     expect(select).toBeTruthy();
   });
 
   it('Test SelectField is hovered', () => {
-    const wrapper = mount(
-      <SelectField name={name} label={label} options={options} isHovered />
-    );
+    const wrapper = mount(<SelectField name={name} label={label} options={options} isHovered />);
 
     const select = wrapper.find('select').hasClass('is-hovered');
     expect(select).toBeTruthy();
   });
 
   it('Test SelectField is focused', () => {
-    const wrapper = mount(
-      <SelectField name={name} label={label} options={options} isFocused />
-    );
+    const wrapper = mount(<SelectField name={name} label={label} options={options} isFocused />);
 
     const select = wrapper.find('select').hasClass('is-focused');
     expect(select).toBeTruthy();
@@ -119,12 +105,7 @@ describe('Test SelectField', () => {
     };
 
     const wrapper = mount(
-      <SelectField
-        name="selectfield"
-        label={label}
-        options={options}
-        helpProps={helpProps}
-      />
+      <SelectField name="selectfield" label={label} options={options} helpProps={helpProps} />
     );
 
     const help = wrapper.find('.help').exists();

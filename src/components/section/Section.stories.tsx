@@ -20,9 +20,7 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<SectionProps> = (args) => (
-  <Section {...args}>{args.children}</Section>
-);
+const Template: Story<SectionProps> = (args) => <Section {...args}>{args.children}</Section>;
 
 export const BasicSection = Template.bind({});
 BasicSection.args = {

@@ -13,14 +13,7 @@ export interface TagProps {
   className?: string;
 }
 
-const Tag: React.FC<TagProps> = ({
-  children,
-  color,
-  size,
-  isRounded,
-  isDelete,
-  className,
-}) => (
+const Tag: React.FC<TagProps> = ({ children, color, size, isRounded, isDelete, className }) => (
   <span
     className={clsx(
       'tag',

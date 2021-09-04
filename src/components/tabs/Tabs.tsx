@@ -51,10 +51,7 @@ const Tabs: React.FC<TabsProps> = ({
     >
       <ul>
         {tabs.map((tab) => (
-          <li
-            key={tab.to}
-            className={clsx(pathname === tab.to ? 'is-active' : undefined)}
-          >
+          <li key={tab.to} className={clsx(pathname === tab.to ? 'is-active' : undefined)}>
             <Link to={tab.to}>{tab.name}</Link>
           </li>
         ))}

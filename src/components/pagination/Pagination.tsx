@@ -29,13 +29,11 @@ const Pagination: React.FC<PaginationProps> = ({
   size,
   isRounded,
 }) => {
-  const [
-    pages,
-    leftEllipsis,
-    rightEllipsis,
-    displayFirstPage,
-    displayLastPage,
-  ] = usePagination(currentPage, lastPage, pagesToShow);
+  const [pages, leftEllipsis, rightEllipsis, displayFirstPage, displayLastPage] = usePagination(
+    currentPage,
+    lastPage,
+    pagesToShow
+  );
 
   const ellipsis = (
     <li>
@@ -45,12 +43,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
   return (
     <nav
-      className={clsx(
-        'pagination',
-        alignment,
-        size,
-        isRounded ? 'is-rounded' : undefined
-      )}
+      className={clsx('pagination', alignment, size, isRounded ? 'is-rounded' : undefined)}
       role="navigation"
       aria-label="pagination"
     >
