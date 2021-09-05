@@ -2,7 +2,7 @@ import React from 'react';
 
 import clsx from 'clsx';
 
-import LevelItem, { LevelItemProps } from 'components/level-item/LevelItem';
+import LevelItem, { LevelItemProps } from '../level-item/LevelItem';
 
 export interface LevelProps {
   leftItems?: LevelItemProps[];
