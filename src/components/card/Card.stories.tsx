@@ -5,11 +5,17 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import Content from '../content/Content';
 import Heading from '../heading/Heading';
+import CardHeader from '../card-header/CardHeader';
+import CardFooter from '../card-footer/CardFooter';
+import CardFooterItem from '../card-footer-item/CardFooterItem';
+import CardImage from '../card-image/CardImage';
+import Image from '../image/Image';
 
 import Card, { CardProps } from './Card';
 
 export default {
   title: 'Card',
+  component: Card,
   args: {},
   argTypes: {},
 } as Meta;
@@ -42,23 +48,25 @@ CardWithFooter.args = {
       dignissim nisl orci sed dui. Orci varius natoque penatibus et magnis.
     </Content>
   ),
-  cardFooter: {
-    footerItems: {
-      items: [
-        { id: '1', item: <p>footer 1</p> },
-        { id: '2', item: <p>footer 2</p> },
-        { id: '3', item: <p>footer 3</p> },
-        { id: '4', item: <p>footer 4</p> },
-      ],
-    },
-  },
+  footer: (
+    <CardFooter>
+      <CardFooterItem>
+        <p>footer 1</p>
+      </CardFooterItem>
+      <CardFooterItem>
+        <p>footer 2</p>
+      </CardFooterItem>
+    </CardFooter>
+  ),
 };
 
 export const CardWithImage = Template.bind({});
 CardWithImage.args = {
-  cardImage: {
-    imageConfig: { src: 'https://placehold.it/450x450', alt: 'Alternative Text' },
-  },
+  image: (
+    <CardImage>
+      <Image src="https://via.placeholder.com/256" alt="alternative text" />
+    </CardImage>
+  ),
   children: (
     <Content>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet nunc. Phasellus
@@ -66,22 +74,13 @@ CardWithImage.args = {
       faucibus urna.
     </Content>
   ),
-  cardFooter: {
-    footerItems: {
-      items: [
-        { id: '1', item: <p>footer 1</p> },
-        { id: '2', item: <p>footer 2</p> },
-      ],
-    },
-  },
+  footer: { ...CardWithFooter.args.footer },
 };
 
 export const CardWithHeader = Template.bind({});
 
 CardWithHeader.args = {
-  cardHeader: {
-    title: 'Card Header',
-  },
+  header: <CardHeader title="Card Header" />,
   children: (
     <>
       <Heading>Lorem Ipsum</Heading>
@@ -92,12 +91,5 @@ CardWithHeader.args = {
       </Content>
     </>
   ),
-  cardFooter: {
-    footerItems: {
-      items: [
-        { id: '1', item: <p>footer 1</p> },
-        { id: '2', item: <p>footer 2</p> },
-      ],
-    },
-  },
+  footer: { ...CardWithFooter.args.footer },
 };

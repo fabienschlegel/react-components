@@ -3,6 +3,10 @@ import Box from './components/box/Box';
 import Breadcrumb from './components/breadcrumb/Breadcrumb';
 import Button from './components/button/Button';
 import Card from './components/card/Card';
+import CardFooter from './components/card-footer/CardFooter';
+import CardFooterItem from './components/card-footer-item/CardFooterItem';
+import CardHeader from './components/card-header/CardHeader';
+import CardImage from './components/card-image/CardImage';
 import Checkbox from './components/checkbox/Checkbox';
 import Column from './components/column/Column';
 import Columns from './components/columns/Columns';
@@ -62,6 +66,10 @@ export {
   Breadcrumb,
   Button,
   Card,
+  CardFooter,
+  CardFooterItem,
+  CardHeader,
+  CardImage,
   Checkbox,
   Column,
   Columns,

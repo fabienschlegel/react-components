@@ -1,22 +1,25 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, ReactElement } from 'react';
 
-import CardHeader, { CardHeaderProps } from './CardHeader';
-import CardImage, { CardImageProps } from './CardImage';
-import CardFooter, { CardFooterProps } from './CardFooter';
+import clsx from 'clsx';
+
+import { CardHeaderProps } from '../card-header/CardHeader';
+import { CardImageProps } from '../card-image/CardImage';
+import { CardFooterProps } from '../card-footer/CardFooter';
 
 export interface CardProps {
   children: ReactNode;
-  cardHeader?: CardHeaderProps;
-  cardImage?: CardImageProps;
-  cardFooter?: CardFooterProps;
+  className?: string;
+  header?: ReactElement<CardHeaderProps>;
+  image?: ReactElement<CardImageProps>;
+  footer?: ReactElement<CardFooterProps>;
 }
 
-const Card: React.FC<CardProps> = ({ children, cardHeader, cardImage, cardFooter }) => (
-  <div className="card">
-    {cardHeader ? <CardHeader {...cardHeader} /> : null}
-    {cardImage ? <CardImage {...cardImage} /> : null}
+const Card: React.FC<CardProps> = ({ children, className, header, image, footer }) => (
+  <div className={clsx('card', className)}>
+    {header}
+    {image}
     <div className="card-content">{children}</div>
-    {cardFooter ? <CardFooter {...cardFooter} /> : null}
+    {footer}
   </div>
 );
 
