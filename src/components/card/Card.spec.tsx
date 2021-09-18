@@ -26,6 +26,14 @@ describe('Test Card', () => {
     expect(content).toBeTruthy();
   });
 
+  it('Card with header and icon', () => {
+    const header = <CardHeader title="Card Header title" icon="p" />;
+    const wrapper = mount(<Card header={header}>Text Content</Card>);
+
+    const content = wrapper.find('button').hasClass('card-header-icon');
+    expect(content).toBeTruthy();
+  });
+
   it('Card with image', () => {
     const cardImage = (
       <CardImage>

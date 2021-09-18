@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { CardFooterItemProps } from '../card-footer-item/CardFooterItem';
 
 export interface CardFooterProps {
-  children: Array<ReactElement<CardFooterItemProps>>;
+  children: ReactElement<CardFooterItemProps> | Array<ReactElement<CardFooterItemProps>>;
   className?: string;
 }
 

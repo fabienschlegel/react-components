@@ -3,6 +3,9 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import Content from '../content/Content';
 import Heading from '../heading/Heading';
 import CardHeader from '../card-header/CardHeader';
@@ -81,6 +84,23 @@ export const CardWithHeader = Template.bind({});
 
 CardWithHeader.args = {
   header: <CardHeader title="Card Header" />,
+  children: (
+    <>
+      <Heading>Lorem Ipsum</Heading>
+      <Content>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet nunc.
+        Phasellus egestas odio scelerisque ullamcorper lobortis. Sed felis ex, suscipit a diam sed,
+        iaculis faucibus urna.
+      </Content>
+    </>
+  ),
+  footer: { ...CardWithFooter.args.footer },
+};
+
+export const CardWithHeaderIcon = Template.bind({});
+
+CardWithHeaderIcon.args = {
+  header: <CardHeader title="Card Header" icon={<FontAwesomeIcon icon={faCaretDown} />} />,
   children: (
     <>
       <Heading>Lorem Ipsum</Heading>
