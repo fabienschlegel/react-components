@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import { Link } from 'react-router-dom';
 
-export interface NavbarBrandProps {
+interface NavbarBrandProps {
   children: ReactNode;
   brandUrl: string;
   dataTarget: string;

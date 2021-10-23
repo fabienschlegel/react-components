@@ -1,8 +1,6 @@
 /* eslint-disable no-undef */
 import React from 'react';
 
-import '../../setupTests';
-
 import { mount, ReactWrapper } from 'enzyme';
 
 import { fakeTableData, fakeTableConfig } from '../../__fake__/fakeData';

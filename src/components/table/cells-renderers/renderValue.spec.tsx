@@ -1,8 +1,6 @@
 /* eslint-disable no-undef */
 import React from 'react';
 
-import '../../../setupTests';
-
 import { fakeColumnConfig, fakeTableData } from '../../../__fake__/fakeData';
 
 import renderValue from './renderValue';

@@ -1,8 +1,6 @@
 /* eslint-disable no-undef */
 import React from 'react';
 
-import '../../setupTests';
-
 import { mount } from 'enzyme';
 
 import TextareaField from './TextareaField';

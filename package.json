@@ -1,6 +1,6 @@
 {
   "name": "@the-sleeping-dog/react-components",
-  "version": "0.5.8",
+  "version": "0.6.0",
   "description": "React components designed with Bulma",
   "keywords": [
     "react",
@@ -62,6 +62,9 @@
     "extends": "react-app"
   },
   "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.ts"
+    ],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
       "!src/**/*.stories.{js,jsx,ts,tsx}",
@@ -114,13 +117,13 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
-    "@storybook/addon-actions": "^6.3.2",
-    "@storybook/addon-controls": "^6.3.2",
-    "@storybook/addon-essentials": "^6.3.2",
-    "@storybook/addon-links": "^6.3.2",
-    "@storybook/node-logger": "^6.3.2",
+    "@storybook/addon-actions": "^6.3.12",
+    "@storybook/addon-controls": "^6.3.12",
+    "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-links": "^6.3.12",
+    "@storybook/node-logger": "^6.3.12",
     "@storybook/preset-create-react-app": "^3.1.7",
-    "@storybook/react": "^6.3.2",
+    "@storybook/react": "^6.3.12",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/react-hooks": "^5.1.1",

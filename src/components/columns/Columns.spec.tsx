@@ -1,7 +1,5 @@
 import React from 'react';
 
-import '../../setupTests';
-
 import { mount } from 'enzyme';
 
 import Column from '../column/Column';

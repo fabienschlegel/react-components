@@ -1,7 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
 
-import '../../../setupTests';
-
 import usePagination from './usePagination';
 
 describe('Test usePagination hook', () => {

@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 
 import { Link } from 'react-router-dom';
 
-export interface NavbarItemProps {
+interface NavbarItemProps {
   children: ReactNode;
   to?: string;
   asDiv?: boolean;

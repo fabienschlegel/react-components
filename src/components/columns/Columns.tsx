@@ -14,7 +14,7 @@ export enum ColumnsGap {
   is8 = 'is-8',
 }
 
-export interface ColumnsProps {
+interface ColumnsProps {
   children: ReactNode;
   isMobile?: boolean;
   isDesktop?: boolean;

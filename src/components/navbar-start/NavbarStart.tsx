@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-export interface NavbarStartProps {
+interface NavbarStartProps {
   children: ReactNode;
 }
 

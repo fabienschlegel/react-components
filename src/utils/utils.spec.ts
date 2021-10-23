@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-import '../setupTests';
 
 import { isFunction, generateRandomId } from './utils';
 

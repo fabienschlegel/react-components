@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-import { ColumnSize, IsNarrow } from './types';
+import { ColumnSize, IsNarrow } from '../../types';
 
 export interface ColumnProps {
   children: ReactNode;

@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-import '../../../setupTests';
 
 import { act, renderHook } from '@testing-library/react-hooks';
 

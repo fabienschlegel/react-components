@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-export interface FieldProps {
+interface FieldProps {
   children: ReactNode;
   className?: string;
 }

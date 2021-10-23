@@ -2,7 +2,7 @@ import React, { ReactNode, useCallback, useState } from 'react';
 
 import clsx from 'clsx';
 
-export interface NavbarDropdownProps {
+interface NavbarDropdownProps {
   children: ReactNode;
   label: ReactNode;
   isHoverable?: boolean;

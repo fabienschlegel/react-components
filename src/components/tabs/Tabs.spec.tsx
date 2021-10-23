@@ -1,8 +1,6 @@
 /* eslint-disable no-undef,import/no-extraneous-dependencies */
 import React from 'react';
 
-import '../../setupTests';
-
 import { mount } from 'enzyme';
 
 import { createMemoryHistory } from 'history';

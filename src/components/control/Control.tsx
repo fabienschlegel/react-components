@@ -12,7 +12,7 @@ export interface IconsProps {
   handleLeftIconClick?: () => void;
   handleRightIconClick?: () => void;
 }
-export interface ControlProps {
+interface ControlProps {
   children: ReactNode;
   size?: Sizes;
   icons?: IconsProps;

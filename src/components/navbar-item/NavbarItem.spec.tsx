@@ -3,8 +3,6 @@ import React from 'react';
 
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import '../../setupTests';
-
 import { mount } from 'enzyme';
 
 import NavbarItem from './NavbarItem';

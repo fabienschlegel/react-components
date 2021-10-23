@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 import clsx from 'clsx';
 
 export type BoxType = {
-  children: ReactNode | string;
+  children: ReactNode;
   className?: string;
 };
 

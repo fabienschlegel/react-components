@@ -6,7 +6,7 @@ import { Sizes, Colors } from '../../types';
 
 type AdditionalSizes = 'is-halfheight' | 'is-fullheight' | 'is-fullheight-with-navbar';
 
-export type HeroSizes = Omit<Sizes, 'is-normal'> | AdditionalSizes;
+type HeroSizes = Omit<Sizes, 'is-normal'> | AdditionalSizes;
 
 export interface HeroProps {
   title: ReactNode;

@@ -1,38 +1,31 @@
-import React, { ReactNode } from 'react';
+import React, { ReactElement } from 'react';
 
 import clsx from 'clsx';
 
-import { Link } from 'react-router-dom';
+import { BreadcrumbElementProps } from '../breadcrumb-element/BreadcrumbElement';
 
-import { Alignment, Separator, Size } from './types';
-
-interface BreadCrumbElement {
-  name: string | ReactNode;
-  to: string;
-  isActive?: boolean;
-}
+import { Alignment, Separator, Sizes } from '../../types';
 
 export interface BreadcrumbProps {
-  breadcrumbElement: BreadCrumbElement[];
+  breadcrumbElements: Array<ReactElement<BreadcrumbElementProps>>;
   alignment?: Alignment;
   separator?: Separator;
-  size?: Size;
+  size?: Omit<Sizes, 'is-normal'>;
+  className?: string;
 }
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({
-  breadcrumbElement,
+  breadcrumbElements,
   alignment,
   separator,
   size,
+  className,
 }) => (
-  <nav className={clsx('breadcrumb', alignment, separator, size)} aria-label="breadcrumbs">
-    <ul>
-      {breadcrumbElement.map((element) => (
-        <li key={element.to} className={clsx(element.isActive ? 'is-active' : undefined)}>
-          <Link to={element.to}>{element.name}</Link>
-        </li>
-      ))}
-    </ul>
+  <nav
+    className={clsx('breadcrumb', alignment, separator, size, className)}
+    aria-label="breadcrumbs"
+  >
+    <ul>{breadcrumbElements}</ul>
   </nav>
 );
 

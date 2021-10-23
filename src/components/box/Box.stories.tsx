@@ -7,6 +7,7 @@ import Box, { BoxType } from './Box';
 
 export default {
   title: 'Box',
+  component: Box,
   args: {},
 } as Meta;
 

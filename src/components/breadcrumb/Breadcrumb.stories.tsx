@@ -1,89 +1,58 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies,jsx-a11y/anchor-is-valid */
 import React from 'react';
-
-import { createMemoryHistory } from 'history';
-import { Router, Route } from 'react-router-dom';
 
 import { faAddressBook, faChartBar, faDizzy } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Breadcrumb, { BreadcrumbProps } from './Breadcrumb';
-import { Alignment, Separator, Size } from './types';
+import BreadcrumbElement from '../breadcrumb-element/BreadcrumbElement';
 
-const history = createMemoryHistory({ initialEntries: ['/'] });
+import Breadcrumb, { BreadcrumbProps } from './Breadcrumb';
 
 export default {
   title: 'Breadcrumb',
+  component: Breadcrumb,
   args: {},
-  argTypes: {
-    alignment: {
-      control: {
-        type: 'select',
-        options: Object.values(Alignment),
-      },
-    },
-    separator: {
-      control: {
-        type: 'select',
-        options: Object.values(Separator),
-      },
-    },
-    size: {
-      control: {
-        type: 'select',
-        options: Object.values(Size),
-      },
-    },
-  },
 } as Meta;
 
-const Template: Story<BreadcrumbProps> = (args) => (
-  <Router history={history}>
-    <Route path="/" component={() => <Breadcrumb {...args} />} />
-  </Router>
-);
+const Template: Story<BreadcrumbProps> = (args) => <Breadcrumb {...args} />;
 
 export const BasicBreadcrumb = Template.bind({});
 BasicBreadcrumb.args = {
-  breadcrumbElement: [
-    { name: 'root', to: '/root' },
-    { name: 'firstChild', to: '/child1' },
-    { name: 'secondChild', to: '/child2', isActive: true },
+  breadcrumbElements: [
+    <BreadcrumbElement>
+      <a href="#">root</a>
+    </BreadcrumbElement>,
+    <BreadcrumbElement>
+      <a href="#">firstChild</a>
+    </BreadcrumbElement>,
+    <BreadcrumbElement isActive>
+      <a href="#">secondChild</a>
+    </BreadcrumbElement>,
   ],
 };
 
 export const IconBreadcrumb = Template.bind({});
 IconBreadcrumb.args = {
-  breadcrumbElement: [
-    {
-      name: (
-        <span>
-          <FontAwesomeIcon icon={faAddressBook} className="mr-2" />
-          Root
-        </span>
-      ),
-      to: '/root',
-    },
-    {
-      name: (
-        <span>
-          <FontAwesomeIcon icon={faChartBar} className="mr-2" />
-          first Child
-        </span>
-      ),
-      to: '/child1',
-    },
-    {
-      name: (
-        <span>
-          <FontAwesomeIcon icon={faDizzy} className="mr-2" />
-          Second Child
-        </span>
-      ),
-      to: '/child2',
-      isActive: true,
-    },
+  breadcrumbElements: [
+    <BreadcrumbElement>
+      <a href="#">
+        <FontAwesomeIcon icon={faAddressBook} className="mr-2" />
+        Root
+      </a>
+    </BreadcrumbElement>,
+    <BreadcrumbElement>
+      <a href="#">
+        <FontAwesomeIcon icon={faChartBar} className="mr-2" />
+        first Child
+      </a>
+    </BreadcrumbElement>,
+    <BreadcrumbElement isActive>
+      <a href="#">
+        <FontAwesomeIcon icon={faDizzy} className="mr-2" />
+        Second Child
+      </a>
+    </BreadcrumbElement>,
   ],
 };

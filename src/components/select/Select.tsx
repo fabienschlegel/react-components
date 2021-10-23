@@ -6,7 +6,7 @@ import Control from '../control/Control';
 
 import { Colors, Sizes } from '../../types';
 
-export interface Option {
+interface Option {
   label: string;
   value: string;
 }
