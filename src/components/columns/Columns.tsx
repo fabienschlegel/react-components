@@ -2,74 +2,51 @@ import React, { ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-export enum ColumnsGap {
-  is0 = 'is-0',
-  is1 = 'is-1',
-  is2 = 'is-2',
-  is3 = 'is-3',
-  is4 = 'is-4',
-  is5 = 'is-5',
-  is6 = 'is-6',
-  is7 = 'is-7',
-  is8 = 'is-8',
+import { getResponsiveColumn } from '../../utils/utils';
+
+import { ColumnsGap } from '../../types';
+
+export interface IColumnsGap {
+  mobile?: ColumnsGap;
+  tablet?: ColumnsGap;
+  desktop?: ColumnsGap;
+  widescreen?: ColumnsGap;
+  fullhd?: ColumnsGap;
+}
+
+interface IOptions {
+  'is-mobile'?: boolean;
+  'is-desktop'?: boolean;
+  'is-gapless'?: boolean;
+  'is-multiline'?: boolean;
+  'is-vcentered'?: boolean;
+  'is-centered'?: boolean;
 }
 
 interface ColumnsProps {
   children: ReactNode;
-  isMobile?: boolean;
-  isDesktop?: boolean;
-  isGapLess?: boolean;
-  isMultiline?: boolean;
-  isVCentered?: boolean;
-  isCentered?: boolean;
+  options?: IOptions;
   columnsGap?: ColumnsGap;
-  mobileColumnsGap?: ColumnsGap;
-  tabletColumnsGap?: ColumnsGap;
-  desktopColumnsGap?: ColumnsGap;
-  widescreenColumnsGap?: ColumnsGap;
-  fullhdColumnsGap?: ColumnsGap;
+  responsiveColumnsGap?: IColumnsGap;
   className?: string;
 }
 
-const Columns: React.FC<ColumnsProps> = ({
+export type ColumnsType = ColumnsProps & React.HTMLAttributes<HTMLDivElement>;
+
+const Columns: React.FC<ColumnsType> = ({
   children,
-  isMobile,
-  isDesktop,
-  isGapLess,
-  isMultiline,
-  isVCentered,
-  isCentered,
+  options,
   columnsGap,
-  mobileColumnsGap,
-  tabletColumnsGap,
-  desktopColumnsGap,
-  widescreenColumnsGap,
-  fullhdColumnsGap,
+  responsiveColumnsGap,
   className,
 }) => (
   <div
     className={clsx(
       'columns',
-      isMobile ? 'is-mobile' : undefined,
-      isDesktop ? 'is-desktop' : undefined,
-      isGapLess ? 'is-gapless' : undefined,
-      isMultiline ? 'is-multiline' : undefined,
-      isVCentered ? 'is-vcentered' : undefined,
-      isCentered ? 'is-centered' : undefined,
+      options,
       columnsGap,
-      mobileColumnsGap ? `${mobileColumnsGap}-mobile` : undefined,
-      tabletColumnsGap ? `${tabletColumnsGap}-tablet` : undefined,
-      desktopColumnsGap ? `${desktopColumnsGap}-desktop` : undefined,
-      widescreenColumnsGap ? `${widescreenColumnsGap}-widescreen` : undefined,
-      fullhdColumnsGap ? `${fullhdColumnsGap}-fullhd` : undefined,
-      columnsGap ||
-        mobileColumnsGap ||
-        tabletColumnsGap ||
-        desktopColumnsGap ||
-        widescreenColumnsGap ||
-        fullhdColumnsGap
-        ? 'is-variable'
-        : undefined,
+      responsiveColumnsGap && getResponsiveColumn(responsiveColumnsGap),
+      (columnsGap || responsiveColumnsGap) && 'is-variable',
       className
     )}
   >

@@ -1,8 +1,7 @@
 import React, { ReactNode } from 'react';
 
-import clsx from 'clsx';
-
 import Delete from '../delete/Delete';
+import ModalWrapper from '../modal-wrapper/ModalWrapper';
 
 export interface ModalCardProps {
   title: string | ReactNode;
@@ -21,13 +20,7 @@ const Modal: React.FC<ModalCardProps> = ({
   isClipped,
   onClose,
 }) => (
-  <div
-    className={clsx(
-      'modal',
-      isActive ? 'is-active' : undefined,
-      isClipped ? 'is-clipped' : undefined
-    )}
-  >
+  <ModalWrapper isActive={isActive} isClipped={isClipped}>
     <div className="modal-background" />
     <div className="modal-card">
       <header className="modal-card-head">
@@ -37,7 +30,7 @@ const Modal: React.FC<ModalCardProps> = ({
       <section className="modal-card-body">{children}</section>
       <footer className="modal-card-foot">{footer}</footer>
     </div>
-  </div>
+  </ModalWrapper>
 );
 
 export default Modal;

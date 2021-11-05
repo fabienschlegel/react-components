@@ -11,15 +11,19 @@ interface Option {
   value: string;
 }
 
+interface IStates {
+  'is-hovered'?: boolean;
+  'is-focused'?: boolean;
+}
+
 interface SelectProps {
   options: Array<Option>;
   isMultiple?: boolean;
   multipleSize?: number;
   color?: Colors;
-  isRounded?: boolean;
   size?: Sizes;
-  isHovered?: boolean;
-  isFocused?: boolean;
+  states?: IStates;
+  isRounded?: boolean;
   isLoading?: boolean;
   hasIconLeft?: ReactNode;
   controlIsExpanded?: boolean;
@@ -32,10 +36,9 @@ const Select: React.FC<SelectType> = ({
   isMultiple,
   multipleSize,
   color,
-  isRounded,
   size,
-  isHovered,
-  isFocused,
+  states,
+  isRounded,
   isLoading,
   hasIconLeft,
   controlIsExpanded,
@@ -48,17 +51,17 @@ const Select: React.FC<SelectType> = ({
     <div
       className={clsx(
         'select',
-        isMultiple ? 'is-multiple' : null,
+        isMultiple && 'is-multiple',
         color,
-        isRounded ? 'is-rounded' : null,
         size,
-        isLoading ? 'is-loading' : null
+        isRounded && 'is-rounded',
+        isLoading && 'is-loading'
       )}
     >
       <select
         multiple={isMultiple}
         size={isMultiple ? multipleSize : undefined}
-        className={clsx(isHovered ? 'is-hovered' : null, isFocused ? 'is-focused' : null)}
+        className={clsx(states)}
         {...others}
       >
         {options.map((option) => (

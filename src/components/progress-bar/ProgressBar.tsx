@@ -2,13 +2,13 @@ import React from 'react';
 
 import clsx from 'clsx';
 
-import { Color, Size } from './types';
+import { Colors, Sizes } from '../../types';
 
 export interface ProgressBarProps {
   value?: number;
   max?: number;
-  color?: Color;
-  size?: Size;
+  color?: Colors;
+  size?: Sizes;
   className?: string;
 }
 

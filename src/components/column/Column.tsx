@@ -2,46 +2,48 @@ import React, { ReactNode } from 'react';
 
 import clsx from 'clsx';
 
+import { getResponsiveColumn } from '../../utils/utils';
+
 import { ColumnSize, IsNarrow } from '../../types';
 
-export interface ColumnProps {
+export interface IColumnSize {
+  mobile?: ColumnSize;
+  tablet?: ColumnSize;
+  desktop?: ColumnSize;
+  widescreen?: ColumnSize;
+  fullhd?: ColumnSize;
+}
+
+interface ColumnProps {
   children: ReactNode;
   columnSize?: ColumnSize;
-  mobileColumnSize?: ColumnSize;
-  tabletColumnSize?: ColumnSize;
-  desktopColumnSize?: ColumnSize;
-  widescreenColumnSize?: ColumnSize;
-  fullhdColumnSize?: ColumnSize;
+  responsiveColumnSize?: IColumnSize;
   offset?: number;
   isNarrow?: IsNarrow;
   className?: string;
 }
 
-const Column: React.FC<ColumnProps> = ({
+export type ColumnType = ColumnProps & React.HTMLAttributes<HTMLDivElement>;
+
+const Column: React.FC<ColumnType> = ({
   children,
   columnSize,
-  mobileColumnSize,
-  tabletColumnSize,
-  desktopColumnSize,
-  widescreenColumnSize,
-  fullhdColumnSize,
+  responsiveColumnSize,
   offset,
   isNarrow,
   className,
+  ...others
 }) => (
   <div
     className={clsx(
       'column',
       columnSize,
-      offset ? `is-offset-${offset}` : undefined,
-      mobileColumnSize ? `${mobileColumnSize}-mobile` : undefined,
-      tabletColumnSize ? `${tabletColumnSize}-tablet` : undefined,
-      desktopColumnSize ? `${desktopColumnSize}-desktop` : undefined,
-      widescreenColumnSize ? `${widescreenColumnSize}-widescreen` : undefined,
-      fullhdColumnSize ? `${fullhdColumnSize}-fullhd` : undefined,
+      offset && `is-offset-${offset}`,
+      responsiveColumnSize && getResponsiveColumn(responsiveColumnSize),
       isNarrow,
       className
     )}
+    {...others}
   >
     {children}
   </div>

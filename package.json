@@ -1,6 +1,6 @@
 {
   "name": "@the-sleeping-dog/react-components",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "React components designed with Bulma",
   "keywords": [
     "react",
@@ -8,7 +8,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Humch/react-components.git"
+    "url": "https://github.com/fabienschlegel/react-components.git"
   },
   "license": "MIT",
   "author": {

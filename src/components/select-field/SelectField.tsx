@@ -21,8 +21,7 @@ const SelectField: React.FC<SelectFieldProps> = ({
   color,
   isRounded,
   size,
-  isHovered,
-  isFocused,
+  states,
   isLoading,
   hasIconLeft,
   controlIsExpanded,
@@ -41,8 +40,7 @@ const SelectField: React.FC<SelectFieldProps> = ({
       color={color}
       isRounded={isRounded}
       size={size}
-      isHovered={isHovered}
-      isFocused={isFocused}
+      states={states}
       isLoading={isLoading}
       hasIconLeft={hasIconLeft}
       controlIsExpanded={controlIsExpanded}

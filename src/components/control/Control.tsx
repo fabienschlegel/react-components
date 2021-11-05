@@ -3,6 +3,7 @@ import React, { ReactNode } from 'react';
 import clsx from 'clsx';
 
 import { Sizes } from 'types';
+import ControlIcon from 'components/control-icon/ControlIcon';
 
 export interface IconsProps {
   leftIcon?: ReactNode;
@@ -38,44 +39,32 @@ const Control: React.FC<ControlProps> = ({
     handleRightIconClick,
   } = icons;
 
-  const clickable = { cursor: 'pointer', 'pointer-events': 'initial' };
-
   return (
     <div
       className={clsx(
         'control',
         size,
-        isExpanded ? 'is-expanded' : undefined,
-        isLoading ? 'is-loading' : undefined,
-        leftIcon ? 'has-icons-left' : undefined,
-        rightIcon ? 'has-icons-right' : undefined,
+        isExpanded && 'is-expanded',
+        isLoading && 'is-loading',
+        leftIcon && 'has-icons-left',
+        rightIcon && 'has-icons-right',
         className
       )}
     >
       {children}
       {leftIcon && (
-        <span
-          className={clsx('icon is-left', leftIconClassName)}
-          onClick={handleLeftIconClick}
-          onKeyDown={handleLeftIconClick}
-          style={handleLeftIconClick ? clickable : {}}
-          role="button"
-          tabIndex={0}
-        >
+        <ControlIcon side="is-left" handleClick={handleLeftIconClick} className={leftIconClassName}>
           {leftIcon}
-        </span>
+        </ControlIcon>
       )}
       {rightIcon && (
-        <span
-          className={clsx('icon is-right', rightIconClassName)}
-          onClick={handleRightIconClick}
-          onKeyDown={handleRightIconClick}
-          style={handleRightIconClick ? clickable : {}}
-          role="button"
-          tabIndex={0}
+        <ControlIcon
+          side="is-right"
+          handleClick={handleRightIconClick}
+          className={rightIconClassName}
         >
           {rightIcon}
-        </span>
+        </ControlIcon>
       )}
     </div>
   );

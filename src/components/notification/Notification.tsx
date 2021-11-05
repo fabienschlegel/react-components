@@ -4,11 +4,11 @@ import clsx from 'clsx';
 
 import Delete from '../delete/Delete';
 
-import Color from './types';
+import { Colors } from '../../types';
 
 export interface NotificationProps {
   children: ReactNode | string;
-  color?: Color;
+  color?: Colors;
   isLight?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   className?: string;

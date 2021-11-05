@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Column, { ColumnProps } from './Column';
+import Column, { ColumnType } from './Column';
 
 export default {
   title: 'Column',
@@ -11,7 +11,7 @@ export default {
   args: {},
 } as Meta;
 
-const Template: Story<ColumnProps> = (args) => <Column {...args}>{args.children}</Column>;
+const Template: Story<ColumnType> = (args) => <Column {...args}>{args.children}</Column>;
 
 export const BasicColumn = Template.bind({});
 BasicColumn.args = {

@@ -58,6 +58,17 @@ export type ColumnSize =
   | 'is-11'
   | 'is-12';
 
+export type ColumnsGap =
+  | 'is-0'
+  | 'is-1'
+  | 'is-2'
+  | 'is-3'
+  | 'is-4'
+  | 'is-5'
+  | 'is-6'
+  | 'is-7'
+  | 'is-8';
+
 export type IsNarrow =
   | 'is-narrow-mobile'
   | 'is-narrow-tablet'

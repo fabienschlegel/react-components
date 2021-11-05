@@ -5,19 +5,27 @@ import clsx from 'clsx';
 
 import { Colors, AnotherColors, LightColors, Sizes } from '../../types';
 
+interface IStyles {
+  'is-outlined'?: boolean;
+  'is-inverted'?: boolean;
+  'is-rounded'?: boolean;
+}
+
+interface IStates {
+  'is-hovered'?: boolean;
+  'is-focused'?: boolean;
+  'is-active'?: boolean;
+  'is-loading'?: boolean;
+  'is-static'?: boolean;
+}
+
 interface ButtonProps {
   children: React.ReactNode;
   size?: Sizes;
   color?: Colors | AnotherColors | LightColors;
   isFullWidth?: boolean;
-  isOutlined?: boolean;
-  isInverted?: boolean;
-  isRounded?: boolean;
-  isHovered?: boolean;
-  isFocused?: boolean;
-  isActive?: boolean;
-  isLoading?: boolean;
-  isStatic?: boolean;
+  styles?: IStyles;
+  states?: IStates;
   className?: string;
 }
 
@@ -28,14 +36,8 @@ const Button: React.FC<ButtonType> = ({
   size,
   color,
   isFullWidth,
-  isOutlined,
-  isInverted,
-  isRounded,
-  isHovered,
-  isFocused,
-  isActive,
-  isLoading,
-  isStatic,
+  styles,
+  states,
   className,
   ...others
 }) => (
@@ -44,15 +46,9 @@ const Button: React.FC<ButtonType> = ({
       'button',
       size,
       color,
-      isFullWidth ? 'is-fullwidth' : undefined,
-      isOutlined ? 'is-outlined' : undefined,
-      isInverted ? 'is-inverted' : undefined,
-      isRounded ? 'is-rounded' : undefined,
-      isHovered ? 'is-hovered' : undefined,
-      isFocused ? 'is-focused' : undefined,
-      isActive ? 'is-active' : undefined,
-      isLoading ? 'is-loading' : undefined,
-      isStatic ? 'is-static' : undefined,
+      isFullWidth && 'is-fullwidth',
+      styles,
+      states,
       className
     )}
     {...others}

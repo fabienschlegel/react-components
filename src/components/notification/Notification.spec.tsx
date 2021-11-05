@@ -5,8 +5,6 @@ import { mount } from 'enzyme';
 
 import Notification from './Notification';
 
-import Color from './types';
-
 describe('Test Notification', () => {
   it('Mount Notification', () => {
     const wrapper = mount(<Notification>Text Notification</Notification>);
@@ -21,7 +19,7 @@ describe('Test Notification', () => {
   });
 
   it('Notification is primary', () => {
-    const wrapper = mount(<Notification color={Color.Primary}>Text Notification</Notification>);
+    const wrapper = mount(<Notification color="is-primary">Text Notification</Notification>);
 
     const notification = wrapper.find('.notification').hasClass('is-primary');
     expect(notification).toBeTruthy();

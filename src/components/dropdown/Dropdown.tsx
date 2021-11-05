@@ -1,32 +1,24 @@
-import React, { Fragment, ReactNode, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 
 import clsx from 'clsx';
-
-import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 import Button, { ButtonType } from '../button/Button';
+import DropdownItem, { IDropdownItem, IDropdownLinkItem } from '../dropdown-item/DropdownItem';
 
-interface DropdownItem {
-  id: string;
-  content: string | ReactNode;
-  hasDivider?: boolean;
-}
-
-interface DropdownLinkItem extends DropdownItem {
-  to: string;
-  isActive?: boolean;
+interface IStates {
+  'is-right'?: boolean;
+  'is-up'?: boolean;
 }
 
 export interface DropdownProps {
   title: string;
-  items: (DropdownItem | DropdownLinkItem)[];
+  items: Array<IDropdownItem | IDropdownLinkItem>;
   isActive?: boolean;
   isHoverable?: boolean;
-  isRightAligned?: boolean;
-  isUp?: boolean;
+  states?: IStates;
   buttonConfig?: ButtonType;
 }
 
@@ -35,8 +27,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   items,
   isActive,
   isHoverable,
-  isRightAligned,
-  isUp,
+  states,
   buttonConfig,
 }) => {
   const [isActiveState, setIsActive] = useState(isActive);
@@ -54,23 +45,13 @@ const Dropdown: React.FC<DropdownProps> = ({
     setIsActive(isActive);
   }, [isActive, setIsActive]);
 
-  const dropdownItem = (item: DropdownItem | DropdownLinkItem) =>
-    item instanceof Object && 'to' in item ? (
-      <Link to={item.to} className={clsx('dropdown-item', item.isActive ? 'is-active' : undefined)}>
-        {item.content}
-      </Link>
-    ) : (
-      <div className="dropdown-item">{item.content}</div>
-    );
-
   return (
     <div
       className={clsx(
         'dropdown',
-        isActiveState ? 'is-active' : undefined,
-        isHoverable ? 'is-hoverable' : undefined,
-        isRightAligned ? 'is-right' : undefined,
-        isUp ? 'is-up' : undefined
+        isActiveState && 'is-active',
+        isHoverable && 'is-hoverable',
+        states
       )}
     >
       <div className="dropdown-trigger">
@@ -91,8 +72,8 @@ const Dropdown: React.FC<DropdownProps> = ({
         <div className="dropdown-content">
           {items.map((item) => (
             <Fragment key={item.id}>
-              {dropdownItem(item)}
-              {item.hasDivider ? <hr className="dropdown-divider" /> : null}
+              <DropdownItem item={item} />
+              {item.hasDivider && <hr className="dropdown-divider" />}
             </Fragment>
           ))}
         </div>

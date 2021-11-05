@@ -38,12 +38,12 @@ describe('Test SelectField', () => {
   const name = 'Select Field';
   const label = 'Select Field Label';
 
-  it('Mount SelectField', () => {
+  it('Mount the component', () => {
     const wrapper = mount(<SelectField name={name} label={label} options={options} />);
     expect(wrapper.length).toEqual(1);
   });
 
-  it('Test SelectField with icons', () => {
+  it('with icons', () => {
     const wrapper = mount(
       <SelectField
         name={name}
@@ -58,7 +58,7 @@ describe('Test SelectField', () => {
     expect(leftIcon).toBeTruthy();
   });
 
-  it('Test SelectField is expanded', () => {
+  it('is expanded', () => {
     const wrapper = mount(
       <SelectField name={name} label={label} options={options} isMultiple multipleSize={5} />
     );
@@ -69,35 +69,39 @@ describe('Test SelectField', () => {
     expect(selectSize).toEqual(5);
   });
 
-  it('Test SelectField is rounded', () => {
+  it('is rounded', () => {
     const wrapper = mount(<SelectField name={name} label={label} options={options} isRounded />);
 
     const select = wrapper.find('.select').hasClass('is-rounded');
     expect(select).toBeTruthy();
   });
 
-  it('Test SelectField is loading', () => {
+  it('is loading', () => {
     const wrapper = mount(<SelectField name={name} label={label} options={options} isLoading />);
 
     const select = wrapper.find('.select').hasClass('is-loading');
     expect(select).toBeTruthy();
   });
 
-  it('Test SelectField is hovered', () => {
-    const wrapper = mount(<SelectField name={name} label={label} options={options} isHovered />);
+  it('is hovered', () => {
+    const wrapper = mount(
+      <SelectField name={name} label={label} options={options} states={{ 'is-hovered': true }} />
+    );
 
     const select = wrapper.find('select').hasClass('is-hovered');
     expect(select).toBeTruthy();
   });
 
-  it('Test SelectField is focused', () => {
-    const wrapper = mount(<SelectField name={name} label={label} options={options} isFocused />);
+  it('is focused', () => {
+    const wrapper = mount(
+      <SelectField name={name} label={label} options={options} states={{ 'is-focused': true }} />
+    );
 
     const select = wrapper.find('select').hasClass('is-focused');
     expect(select).toBeTruthy();
   });
 
-  it('Test SelectField with help text', () => {
+  it('with help text', () => {
     const helpProps = {
       text: 'this is an help message',
     };

@@ -31,7 +31,7 @@ describe('Test Dropdown', () => {
     },
   ];
 
-  it('Mount Dropdown', () => {
+  it('Mount the component', () => {
     const wrapper = mount(
       <Router>
         <Dropdown title="Dropdown button" items={items} />
@@ -40,7 +40,7 @@ describe('Test Dropdown', () => {
     expect(wrapper.length).toEqual(1);
   });
 
-  it('Dropdown is active', () => {
+  it('is active', () => {
     const wrapper = mount(
       <Router>
         <Dropdown title="Dropdown button" items={items} isActive />
@@ -50,7 +50,7 @@ describe('Test Dropdown', () => {
     expect(content).toBeTruthy();
   });
 
-  it('Dropdown is hoverable', () => {
+  it('is hoverable', () => {
     const wrapper = mount(
       <Router>
         <Dropdown title="Dropdown button" items={items} isHoverable />
@@ -61,10 +61,10 @@ describe('Test Dropdown', () => {
     expect(content).toBeTruthy();
   });
 
-  it('Dropdown is aligned to right', () => {
+  it('is aligned to right', () => {
     const wrapper = mount(
       <Router>
-        <Dropdown title="Dropdown button" items={items} isRightAligned />
+        <Dropdown title="Dropdown button" items={items} states={{ 'is-right': true }} />
       </Router>
     );
 
@@ -72,10 +72,10 @@ describe('Test Dropdown', () => {
     expect(content).toBeTruthy();
   });
 
-  it('Dropdown is up', () => {
+  it('is up', () => {
     const wrapper = mount(
       <Router>
-        <Dropdown title="Dropdown button" items={items} isUp />
+        <Dropdown title="Dropdown button" items={items} states={{ 'is-up': true }} />
       </Router>
     );
 
@@ -83,7 +83,7 @@ describe('Test Dropdown', () => {
     expect(content).toBeTruthy();
   });
 
-  it('Test Dropdown click event', () => {
+  it('click event', () => {
     const wrapper = mount(
       <Router>
         <Dropdown title="Dropdown button" items={items} />
@@ -103,7 +103,7 @@ describe('Test Dropdown', () => {
     expect(content).toBeTruthy();
   });
 
-  it('Test Dropdown click event with hoverable prop', () => {
+  it('click event with hoverable prop', () => {
     const wrapper = mount(
       <Router>
         <Dropdown title="Dropdown button" items={items} isHoverable />

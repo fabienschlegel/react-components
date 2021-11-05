@@ -4,12 +4,12 @@ import { mount } from 'enzyme';
 
 import Column from '../column/Column';
 
-import Columns, { ColumnsGap } from './Columns';
+import Columns from './Columns';
 
 describe('Test Columns', () => {
   const column = (content: string) => <Column>{content}</Column>;
 
-  it('Mount Columns', () => {
+  it('Mount the components', () => {
     const wrapper = mount(
       <Columns>
         <p>Text Columns</p>
@@ -18,51 +18,63 @@ describe('Test Columns', () => {
     expect(wrapper.length).toEqual(1);
   });
 
-  it('Columns works on mobile', () => {
-    const wrapper = mount(<Columns isMobile>{column('Text Column')}</Columns>);
+  it('works on mobile', () => {
+    const wrapper = mount(
+      <Columns options={{ 'is-mobile': true }}>{column('Text Column')}</Columns>
+    );
 
     const columns = wrapper.find('.columns').hasClass('is-mobile');
     expect(columns).toBeTruthy();
   });
 
-  it('Column works on desktop', () => {
-    const wrapper = mount(<Columns isDesktop>{column('Text Column')}</Columns>);
+  it('works on desktop', () => {
+    const wrapper = mount(
+      <Columns options={{ 'is-desktop': true }}>{column('Text Column')}</Columns>
+    );
 
     const columns = wrapper.find('.columns').hasClass('is-desktop');
     expect(columns).toBeTruthy();
   });
 
-  it('Columns are gapless', () => {
-    const wrapper = mount(<Columns isGapLess>{column('Text Column')}</Columns>);
+  it('are gapless', () => {
+    const wrapper = mount(
+      <Columns options={{ 'is-gapless': true }}>{column('Text Column')}</Columns>
+    );
 
     const columns = wrapper.find('.columns').hasClass('is-gapless');
     expect(columns).toBeTruthy();
   });
 
-  it('Columns are multiline', () => {
-    const wrapper = mount(<Columns isMultiline>{column('Text Column')}</Columns>);
+  it('are multiline', () => {
+    const wrapper = mount(
+      <Columns options={{ 'is-multiline': true }}>{column('Text Column')}</Columns>
+    );
 
     const columns = wrapper.find('.columns').hasClass('is-multiline');
     expect(columns).toBeTruthy();
   });
 
-  it('Columns are vertically centered', () => {
-    const wrapper = mount(<Columns isVCentered>{column('Text Column')}</Columns>);
+  it('are vertically centered', () => {
+    const wrapper = mount(
+      <Columns options={{ 'is-vcentered': true }}>{column('Text Column')}</Columns>
+    );
 
     const columns = wrapper.find('.columns').hasClass('is-vcentered');
     expect(columns).toBeTruthy();
   });
 
-  it('Columns are centered', () => {
-    const wrapper = mount(<Columns isCentered>{column('Text Column')}</Columns>);
+  it('are centered', () => {
+    const wrapper = mount(
+      <Columns options={{ 'is-centered': true }}>{column('Text Column')}</Columns>
+    );
 
     const columns = wrapper.find('.columns').hasClass('is-centered');
     expect(columns).toBeTruthy();
   });
 
-  it('Columns with gap for mobile', () => {
+  it('with gap for mobile', () => {
     const wrapper = mount(
-      <Columns mobileColumnsGap={ColumnsGap.is1}>{column('Text Column')}</Columns>
+      <Columns responsiveColumnsGap={{ mobile: 'is-1' }}>{column('Text Column')}</Columns>
     );
 
     const columns = wrapper.find('.columns').hasClass('is-1-mobile');
@@ -72,9 +84,9 @@ describe('Test Columns', () => {
     expect(columnsAreVariable).toBeTruthy();
   });
 
-  it('Columns with gap for tablet', () => {
+  it('with gap for tablet', () => {
     const wrapper = mount(
-      <Columns tabletColumnsGap={ColumnsGap.is1}>{column('Text Column')}</Columns>
+      <Columns responsiveColumnsGap={{ tablet: 'is-1' }}>{column('Text Column')}</Columns>
     );
 
     const columns = wrapper.find('.columns').hasClass('is-1-tablet');
@@ -82,9 +94,9 @@ describe('Test Columns', () => {
     expect(columns).toBeTruthy();
   });
 
-  it('Columns with gap for desktop', () => {
+  it('with gap for desktop', () => {
     const wrapper = mount(
-      <Columns desktopColumnsGap={ColumnsGap.is1}>{column('Text Column')}</Columns>
+      <Columns responsiveColumnsGap={{ desktop: 'is-1' }}>{column('Text Column')}</Columns>
     );
 
     const columns = wrapper.find('.columns').hasClass('is-1-desktop');
@@ -92,9 +104,9 @@ describe('Test Columns', () => {
     expect(columns).toBeTruthy();
   });
 
-  it('Columns with gap for widescreen', () => {
+  it('with gap for widescreen', () => {
     const wrapper = mount(
-      <Columns widescreenColumnsGap={ColumnsGap.is1}>{column('Text Column')}</Columns>
+      <Columns responsiveColumnsGap={{ widescreen: 'is-1' }}>{column('Text Column')}</Columns>
     );
 
     const columns = wrapper.find('.columns').hasClass('is-1-widescreen');
@@ -102,9 +114,9 @@ describe('Test Columns', () => {
     expect(columns).toBeTruthy();
   });
 
-  it('Columns with gap for fullhd', () => {
+  it('with gap for fullhd', () => {
     const wrapper = mount(
-      <Columns fullhdColumnsGap={ColumnsGap.is1}>{column('Text Column')}</Columns>
+      <Columns responsiveColumnsGap={{ fullhd: 'is-1' }}>{column('Text Column')}</Columns>
     );
 
     const columns = wrapper.find('.columns').hasClass('is-1-fullhd');
