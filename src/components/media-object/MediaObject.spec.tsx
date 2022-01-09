@@ -6,21 +6,30 @@ import { mount } from 'enzyme';
 import MediaObject from './MediaObject';
 
 describe('Test MediaObject', () => {
-  const children = <div>Media Object</div>;
-  const mediaObjectLeft = {
-    src: '/fake-img-url.png',
-    alt: 'alternative text',
-  };
-  const mediaObjectRight = <p>Media Object Right</p>;
-  it('Mount MediaObject', () => {
-    const wrapper = mount(<MediaObject mediaObjectLeft={mediaObjectLeft}>{children}</MediaObject>);
+  const mediaObjectLeft = <MediaObject.Left src="/fake-img-url.png" alt="alternative text" />;
+  const mediaObjectContent = <MediaObject.Content>Media Object</MediaObject.Content>;
+  const mediaObjectRight = (
+    <MediaObject.Right>
+      <p>Media Object Right</p>
+    </MediaObject.Right>
+  );
+  it('Mount the component', () => {
+    const wrapper = mount(
+      <MediaObject>
+        {mediaObjectLeft}
+        {mediaObjectContent}
+        {mediaObjectRight}
+      </MediaObject>
+    );
     expect(wrapper.length).toEqual(1);
   });
 
-  it('MediaObject with right element', () => {
+  it('with right element', () => {
     const wrapper = mount(
-      <MediaObject mediaObjectLeft={mediaObjectLeft} mediaRight={mediaObjectRight}>
-        {children}
+      <MediaObject>
+        {mediaObjectLeft}
+        {mediaObjectContent}
+        {mediaObjectRight}
       </MediaObject>
     );
 
@@ -29,13 +38,15 @@ describe('Test MediaObject', () => {
     expect(mediaRightElement).toBeTruthy();
   });
 
-  it('MediaObject with rounded left element', () => {
+  it('with rounded left element', () => {
+    const mediaObjectLeftRounded = (
+      <MediaObject.Left src="/fake-img-url.png" alt="alternative text" isRounded />
+    );
     const wrapper = mount(
-      <MediaObject
-        mediaObjectLeft={{ ...mediaObjectLeft, isRounded: true }}
-        mediaRight={mediaObjectRight}
-      >
-        {children}
+      <MediaObject>
+        {mediaObjectLeftRounded}
+        {mediaObjectContent}
+        {mediaObjectRight}
       </MediaObject>
     );
 

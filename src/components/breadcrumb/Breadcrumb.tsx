@@ -1,32 +1,34 @@
-import React, { ReactElement } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-import { BreadcrumbElementProps } from '../breadcrumb-element/BreadcrumbElement';
+import BreadcrumbElement, { IBreadcrumbElementProps } from './breadcrumb-element/BreadcrumbElement';
 
 import { Alignment, Separator, Sizes } from '../../types';
 
-export interface BreadcrumbProps {
-  breadcrumbElements: Array<ReactElement<BreadcrumbElementProps>>;
+interface IBreadcrumbComposition {
+  Element: FunctionComponent<IBreadcrumbElementProps>;
+}
+
+export interface IBreadcrumbProps {
+  children: ReactNode;
   alignment?: Alignment;
   separator?: Separator;
   size?: Omit<Sizes, 'is-normal'>;
   className?: string;
 }
 
-const Breadcrumb: React.FC<BreadcrumbProps> = ({
-  breadcrumbElements,
-  alignment,
-  separator,
-  size,
-  className,
-}) => (
+type BreadcrumbType = FunctionComponent<IBreadcrumbProps> & IBreadcrumbComposition;
+
+const Breadcrumb: BreadcrumbType = ({ children, alignment, separator, size, className }) => (
   <nav
     className={clsx('breadcrumb', alignment, separator, size, className)}
     aria-label="breadcrumbs"
   >
-    <ul>{breadcrumbElements}</ul>
+    <ul>{children}</ul>
   </nav>
 );
+
+Breadcrumb.Element = BreadcrumbElement;
 
 export default Breadcrumb;

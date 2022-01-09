@@ -6,7 +6,7 @@ import { mount } from 'enzyme';
 import Container from './Container';
 
 describe('Test Container', () => {
-  it('Mount Container', () => {
+  it('Mount the component', () => {
     const wrapper = mount(<Container>Text Container</Container>);
     expect(wrapper.length).toEqual(1);
   });

@@ -1,13 +1,13 @@
-import React, { ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-interface FieldProps {
+interface IFieldProps {
   children: ReactNode;
   className?: string;
 }
 
-const Field: React.FC<FieldProps> = ({ children, className }) => (
+const Field: FunctionComponent<IFieldProps> = ({ children, className }) => (
   <div className={clsx('field', className)}>{children}</div>
 );
 

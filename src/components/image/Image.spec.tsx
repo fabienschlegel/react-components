@@ -6,12 +6,12 @@ import { mount } from 'enzyme';
 import Image from './Image';
 
 describe('Test Image', () => {
-  it('Mount Image', () => {
+  it('Mount the component', () => {
     const wrapper = mount(<Image src="/fake-img-url.png" alt="alternative text" />);
     expect(wrapper.length).toEqual(1);
   });
 
-  it('Image is rounded', () => {
+  it('is rounded', () => {
     const wrapper = mount(<Image src="/fake-img-url.png" alt="alternative text" isRounded />);
 
     const img = wrapper.find('img').hasClass('is-rounded');
@@ -19,7 +19,7 @@ describe('Test Image', () => {
     expect(img).toBeTruthy();
   });
 
-  it('Image with custom classname on figure', () => {
+  it('with custom classname on figure', () => {
     const wrapper = mount(
       <Image src="/fake-img-url.png" alt="alternative text" className="custom" />
     );
@@ -29,7 +29,7 @@ describe('Test Image', () => {
     expect(figure).toBeTruthy();
   });
 
-  it('Image with custom classname on image', () => {
+  it('with custom classname on image', () => {
     const wrapper = mount(
       <Image src="/fake-img-url.png" alt="alternative text" imgClassName="custom" />
     );
@@ -39,7 +39,7 @@ describe('Test Image', () => {
     expect(img).toBeTruthy();
   });
 
-  it('Image have squared dimensions', () => {
+  it('have squared dimensions', () => {
     const wrapper = mount(
       <Image src="/fake-img-url.png" alt="alternative text" squaredDimensions="is-128x128" />
     );
@@ -49,7 +49,7 @@ describe('Test Image', () => {
     expect(figure).toBeTruthy();
   });
 
-  it('Image have ratio', () => {
+  it('have ratio', () => {
     const wrapper = mount(
       <Image src="/fake-img-url.png" alt="alternative text" ratio="is-square" />
     );

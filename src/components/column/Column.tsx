@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
@@ -14,7 +14,7 @@ export interface IColumnSize {
   fullhd?: ColumnSize;
 }
 
-interface ColumnProps {
+interface IColumnProps {
   children: ReactNode;
   columnSize?: ColumnSize;
   responsiveColumnSize?: IColumnSize;
@@ -23,9 +23,9 @@ interface ColumnProps {
   className?: string;
 }
 
-export type ColumnType = ColumnProps & React.HTMLAttributes<HTMLDivElement>;
+export type ColumnType = IColumnProps & React.HTMLAttributes<HTMLDivElement>;
 
-const Column: React.FC<ColumnType> = ({
+const Column: FunctionComponent<ColumnType> = ({
   children,
   columnSize,
   responsiveColumnSize,

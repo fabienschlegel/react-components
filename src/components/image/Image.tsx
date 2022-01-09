@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
 import clsx from 'clsx';
 
@@ -16,7 +16,7 @@ interface ImageProps {
 
 export type ImageType = ImageProps & React.ImgHTMLAttributes<HTMLImageElement>;
 
-const Image: React.FC<ImageType> = ({
+const Image: FunctionComponent<ImageType> = ({
   src,
   alt,
   squaredDimensions,

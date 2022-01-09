@@ -100,17 +100,4 @@ describe('Test SelectField', () => {
     const select = wrapper.find('select').hasClass('is-focused');
     expect(select).toBeTruthy();
   });
-
-  it('with help text', () => {
-    const helpProps = {
-      text: 'this is an help message',
-    };
-
-    const wrapper = mount(
-      <SelectField name="selectfield" label={label} options={options} helpProps={helpProps} />
-    );
-
-    const help = wrapper.find('.help').exists();
-    expect(help).toBeTruthy();
-  });
 });

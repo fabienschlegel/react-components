@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
 import clsx from 'clsx';
 
@@ -8,7 +8,7 @@ import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
 import { Alignment, AnotherColors, Colors, Sizes } from '../../types';
 
-interface FileFieldProps {
+interface IFileFieldProps {
   name: string;
   fileLabel: string;
   fileName?: string;
@@ -19,9 +19,9 @@ interface FileFieldProps {
   isBoxed?: boolean;
 }
 
-export type FileFieldType = FileFieldProps & React.InputHTMLAttributes<HTMLInputElement>;
+export type FileFieldType = IFileFieldProps & React.InputHTMLAttributes<HTMLInputElement>;
 
-const FileField: React.FC<FileFieldType> = ({
+const FileField: FunctionComponent<FileFieldType> = ({
   name,
   fileLabel,
   fileName,

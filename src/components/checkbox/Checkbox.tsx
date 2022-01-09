@@ -1,17 +1,17 @@
-import React, { ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-interface CheckboxProps {
+interface ICheckboxProps {
   children: ReactNode;
   isDisabled?: boolean;
   labelClassName?: string;
   className?: string;
 }
 
-export type CheckboxType = CheckboxProps & React.InputHTMLAttributes<HTMLInputElement>;
+export type CheckboxType = ICheckboxProps & React.InputHTMLAttributes<HTMLInputElement>;
 
-const Checkbox: React.FC<CheckboxType> = ({
+const Checkbox: FunctionComponent<CheckboxType> = ({
   children,
   isDisabled,
   labelClassName,

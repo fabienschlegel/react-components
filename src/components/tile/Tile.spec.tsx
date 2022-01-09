@@ -6,12 +6,12 @@ import { mount } from 'enzyme';
 import Tile from './Tile';
 
 describe('Test Tile', () => {
-  it('Mount Tile', () => {
+  it('Mount the component', () => {
     const wrapper = mount(<Tile context="is-child">Tile Content</Tile>);
     expect(wrapper.length).toEqual(1);
   });
 
-  it('Test Tile is vertical', () => {
+  it('is vertical', () => {
     const wrapper = mount(
       <Tile context="is-child" isVertical>
         Tile Content
@@ -23,7 +23,7 @@ describe('Test Tile', () => {
     expect(verticalTile).toBeTruthy();
   });
 
-  it('Test Tile is box', () => {
+  it('is box', () => {
     const wrapper = mount(
       <Tile context="is-child" isBox>
         Tile Content
@@ -35,7 +35,7 @@ describe('Test Tile', () => {
     expect(boxTile).toBeTruthy();
   });
 
-  it('Test Tile with color', () => {
+  it('with color', () => {
     const wrapper = mount(
       <Tile context="is-child" color="is-primary">
         Tile Content

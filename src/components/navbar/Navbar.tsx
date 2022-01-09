@@ -1,12 +1,25 @@
-import React, { ReactNode, useState, useCallback } from 'react';
+import React, { ReactNode, useState, useCallback, FunctionComponent } from 'react';
 
 import clsx from 'clsx';
 
+import NavbarBrand from './navbar-brand/NavbarBrand';
+import NavbarDivider, { INavbarDividerProps } from './navbar-divider/NavbarDivider';
+import NavbarDropdown, { INavbarDropdownProps } from './navbar-dropdown/NavbarDropdown';
+import NavbarEnd, { INavbarEndProps } from './navbar-end/NavbarEnd';
+import NavbarItem, { INavbarItemProps } from './navbar-item/NavbarItem';
+import NavbarStart, { INavbarStartProps } from './navbar-start/NavbarStart';
+
 import { Colors, AnotherColors } from '../../types';
 
-import NavbarBrand from '../navbar-brand/NavbarBrand';
+interface NavbarComposition {
+  Divider: FunctionComponent<INavbarDividerProps>;
+  Dropdown: FunctionComponent<INavbarDropdownProps>;
+  End: FunctionComponent<INavbarEndProps>;
+  Item: FunctionComponent<INavbarItemProps>;
+  Start: FunctionComponent<INavbarStartProps>;
+}
 
-export interface NavbarProps {
+export interface INavbarProps {
   children: ReactNode;
   label: string;
   brandUrl: string;
@@ -17,9 +30,12 @@ export interface NavbarProps {
   isFixed?: 'top' | 'bottom';
   isSpaced?: boolean;
   hasShadow?: boolean;
+  className?: string;
 }
 
-const Navbar: React.FC<NavbarProps> = ({
+type NavbarType = FunctionComponent<INavbarProps> & NavbarComposition;
+
+const Navbar: NavbarType = ({
   children,
   label,
   brandUrl,
@@ -30,6 +46,7 @@ const Navbar: React.FC<NavbarProps> = ({
   isFixed,
   isSpaced,
   hasShadow,
+  className,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -45,7 +62,8 @@ const Navbar: React.FC<NavbarProps> = ({
         isTransparent && 'is-transparent',
         isFixed && `is-fixed-${isFixed}`,
         isSpaced && 'is-spaced',
-        hasShadow && 'has-shadow'
+        hasShadow && 'has-shadow',
+        className
       )}
       role="navigation"
       aria-label={label}
@@ -64,5 +82,11 @@ const Navbar: React.FC<NavbarProps> = ({
     </nav>
   );
 };
+
+Navbar.Divider = NavbarDivider;
+Navbar.Dropdown = NavbarDropdown;
+Navbar.End = NavbarEnd;
+Navbar.Item = NavbarItem;
+Navbar.Start = NavbarStart;
 
 export default Navbar;

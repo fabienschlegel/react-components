@@ -1,9 +1,9 @@
-/* eslint-disable import/no-extraneous-dependencies, react/destructuring-assignment */
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import RadioField, { RadioFieldProps } from './RadioField';
+import RadioField, { IRadioFieldProps } from './RadioField';
 
 export default {
   title: 'RadioField',
@@ -18,22 +18,42 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<RadioFieldProps> = (args) => <RadioField {...args} />;
+const Template: Story<IRadioFieldProps> = (args) => {
+  const { children } = args;
+  return <RadioField {...args}>{children}</RadioField>;
+};
 
 export const BasicRadioField = Template.bind({});
 BasicRadioField.args = {
-  name: 'radiofield',
-  radioElements: [{ children: 'Yes' }, { children: 'No' }],
+  children: (
+    <>
+      <RadioField.Element name="radiofield">Yes</RadioField.Element>
+      <RadioField.Element name="radiofield">No</RadioField.Element>
+    </>
+  ),
 };
 
 export const DefaultCheckedRadioField = Template.bind({});
 DefaultCheckedRadioField.args = {
-  name: 'radiofield',
-  radioElements: [{ children: 'Yes' }, { children: 'No', checked: true }],
+  children: (
+    <>
+      <RadioField.Element name="radiofield">Yes</RadioField.Element>
+      <RadioField.Element name="radiofield" checked>
+        No
+      </RadioField.Element>
+    </>
+  ),
 };
 
 export const DisabledRadioField = Template.bind({});
 DisabledRadioField.args = {
-  name: 'radiofield',
-  radioElements: [{ children: 'Yes' }, { children: 'No' }, { children: 'Maybe', disabled: true }],
+  children: (
+    <>
+      <RadioField.Element name="radiofield">Yes</RadioField.Element>
+      <RadioField.Element name="radiofield">No</RadioField.Element>
+      <RadioField.Element name="radiofield" disabled>
+        Maybe
+      </RadioField.Element>
+    </>
+  ),
 };

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
 import clsx from 'clsx';
 
 import { Colors, Sizes } from '../../types';
 
-interface TextareaProps {
+interface ITextareaProps {
   size?: Sizes;
   borderColor?: Colors;
   isHovered?: boolean;
@@ -14,9 +14,9 @@ interface TextareaProps {
   hasFixedSize?: boolean;
 }
 
-export type TextareaType = TextareaProps & React.TextareaHTMLAttributes<HTMLTextAreaElement>;
+export type TextareaType = ITextareaProps & React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
-const Textarea: React.FC<TextareaType> = ({
+const Textarea: FunctionComponent<TextareaType> = ({
   size,
   borderColor,
   isHovered,
@@ -32,11 +32,11 @@ const Textarea: React.FC<TextareaType> = ({
       'textarea',
       size,
       borderColor,
-      isHovered ? 'is-hovered' : undefined,
-      isFocused ? 'is-focused' : undefined,
-      isActive ? 'is-active' : undefined,
-      isStatic ? 'is-static' : undefined,
-      hasFixedSize ? 'has-fixed-size' : undefined,
+      isHovered && 'is-hovered',
+      isFocused && 'is-focused',
+      isActive && 'is-active',
+      isStatic && 'is-static',
+      hasFixedSize && 'has-fixed-size',
       className
     )}
     {...others}

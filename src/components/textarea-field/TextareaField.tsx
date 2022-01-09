@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
+
+import clsx from 'clsx';
 
 import Field from '../field/Field';
 import Control from '../control/Control';
@@ -8,9 +10,14 @@ import Help, { HelpProps } from '../help/Help';
 
 import { Colors, Sizes } from '../../types';
 
-export interface TextareaFieldProps {
+interface TextareaFieldComposition {
+  Help: FunctionComponent<HelpProps>;
+}
+
+export interface ITextareaFieldProps {
   name: string;
-  label: React.ReactNode;
+  label: ReactNode;
+  children?: ReactNode;
   color?: Colors;
   size?: Sizes;
   labelProps?: LabelType;
@@ -19,25 +26,34 @@ export interface TextareaFieldProps {
   isLoading?: boolean;
 }
 
-const TextareaField: React.FC<TextareaFieldProps> = ({
+type TextareaFieldType = FunctionComponent<ITextareaFieldProps> & TextareaFieldComposition;
+
+const TextareaField: TextareaFieldType = ({
   name,
   label,
+  children,
   color,
   size,
   labelProps,
-  textareaProps,
-  helpProps,
   isLoading,
-}) => (
-  <Field>
-    <Label size={size} htmlFor={name} {...labelProps}>
-      {label}
-    </Label>
-    <Control size={size} isLoading={isLoading}>
-      <Textarea size={size} name={name} borderColor={color} {...textareaProps} />
-    </Control>
-    {helpProps && <Help textColor={color} {...helpProps} />}
-  </Field>
-);
+  ...textareaProps
+}) => {
+  const { className: labelClassName, ...othersLabelProps } = labelProps || {
+    className: undefined,
+  };
+  return (
+    <Field>
+      <Label size={size} htmlFor={name} className={clsx(labelClassName)} {...othersLabelProps}>
+        {label}
+      </Label>
+      <Control size={size} isLoading={isLoading}>
+        <Textarea size={size} name={name} borderColor={color} {...textareaProps} />
+      </Control>
+      {children}
+    </Field>
+  );
+};
+
+TextareaField.Help = Help;
 
 export default TextareaField;

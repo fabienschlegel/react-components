@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Title, { TitleProps } from './Title';
+import Title, { ITitleProps } from './Title';
 
 export default {
   title: 'Title',
@@ -18,7 +18,7 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<TitleProps> = (args) => <Title {...args} />;
+const Template: Story<ITitleProps> = (args) => <Title {...args} />;
 
 export const BasicTitle = Template.bind({});
 BasicTitle.args = {

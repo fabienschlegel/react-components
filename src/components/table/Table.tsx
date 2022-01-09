@@ -4,41 +4,41 @@ import clsx from 'clsx';
 
 import useSortableData from './hook/useSortableData';
 
-import TableHeads from './TableHeads';
-import TableBody from './TableBody';
+import TableHead from './table-head/TableHead';
+import TableBody from './table-body/TableBody';
 
 import { TableConfig } from '../../types';
 
-export interface TableProps<T> {
+export interface ITableProps<T> {
   config: TableConfig<T>;
   data: T[];
   className?: string;
 }
 
-const Table = <T extends unknown>({ config, data, className }: TableProps<T>): JSX.Element => {
+const Table = <T extends unknown>({ config, data, className }: ITableProps<T>): JSX.Element => {
   const [sorts, noSort, handleSort] = useSortableData<T>(config);
-
+  const { isBordered, isStriped, isNarrow, isHoverable, isFullWidth, hasTableFooter } = config;
   return (
     <table
       className={clsx(
         'table',
         className,
-        config.isBordered && 'is-bordered',
-        config.isStriped && 'is-striped',
-        config.isNarrow && 'is-narrow',
-        config.isHoverable && 'is-hoverable',
-        config.isFullWidth && 'is-fullwidth'
+        isBordered && 'is-bordered',
+        isStriped && 'is-striped',
+        isNarrow && 'is-narrow',
+        isHoverable && 'is-hoverable',
+        isFullWidth && 'is-fullwidth'
       )}
       aria-label="table"
     >
-      <TableHeads
+      <TableHead
         config={config}
         onHeaderCellsClick={handleSort}
         sortOrders={sorts}
         noSort={noSort}
       />
-      {config.hasTableFooter && (
-        <TableHeads
+      {hasTableFooter && (
+        <TableHead
           config={config}
           onHeaderCellsClick={handleSort}
           sortOrders={sorts}

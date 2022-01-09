@@ -1,24 +1,25 @@
-import React from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import Field from '../field/Field';
 import Control from '../control/Control';
-import RadioElement, { RadioElementType } from '../radio-element/RadioElement';
+import RadioElement, { RadioElementType } from './radio-element/RadioElement';
 
-export interface RadioFieldProps {
-  radioElements: Array<Omit<RadioElementType, 'name'>>;
-  name: string;
+interface RadiofieldComposition {
+  Element: FunctionComponent<RadioElementType>;
+}
+export interface IRadioFieldProps {
+  children: ReactNode;
+  className?: string;
 }
 
-const RadioField: React.FC<RadioFieldProps> = ({ radioElements, name }) => (
-  <Field>
-    <Control>
-      {radioElements.map((radioElement) => (
-        <RadioElement name={name} {...radioElement}>
-          {radioElement.children}
-        </RadioElement>
-      ))}
-    </Control>
+type RadioFieldType = FunctionComponent<IRadioFieldProps> & RadiofieldComposition;
+
+const RadioField: RadioFieldType = ({ children, className }) => (
+  <Field className={className}>
+    <Control>{children}</Control>
   </Field>
 );
+
+RadioField.Element = RadioElement;
 
 export default RadioField;

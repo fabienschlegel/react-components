@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import * as NotificationStories from '../notification/Notification.stories';
 
-import Container, { ContainerProps } from './Container';
+import Container, { IContainerProps } from './Container';
 
 export default {
   title: 'Container',
@@ -27,7 +27,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ContainerProps> = (args) => <Container {...args}>{args.children}</Container>;
+const Template: Story<IContainerProps> = (args) => <Container {...args}>{args.children}</Container>;
 
 export const BasicContainer = Template.bind({});
 BasicContainer.args = {

@@ -6,15 +6,10 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import Content from '../content/Content';
-import Heading from '../heading/Heading';
-import CardHeader from '../card-header/CardHeader';
-import CardFooter from '../card-footer/CardFooter';
-import CardFooterItem from '../card-footer-item/CardFooterItem';
-import CardImage from '../card-image/CardImage';
-import Image from '../image/Image';
+import * as ContentStories from '../content/Content.stories';
+import * as HeadingStories from '../heading/Heading.stories';
 
-import Card, { CardProps } from './Card';
+import Card, { ICardProps } from './Card';
 
 export default {
   title: 'Card',
@@ -23,7 +18,7 @@ export default {
   argTypes: {},
 } as Meta;
 
-const Template: Story<CardProps> = (args) => (
+const Template: Story<ICardProps> = (args) => (
   <div style={{ margin: '0px auto', width: 450 }}>
     <Card {...args}>{args.children}</Card>
   </div>
@@ -32,84 +27,109 @@ const Template: Story<CardProps> = (args) => (
 export const BasicCard = Template.bind({});
 BasicCard.args = {
   children: (
-    <Content>
+    <Card.Content>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet nunc. Phasellus
       egestas odio scelerisque ullamcorper lobortis. Sed felis ex, suscipit a diam sed, iaculis
       faucibus urna. Ut egestas, lacus et egestas pellentesque, dolor sem lobortis metus, eget
       dignissim nisl orci sed dui. Orci varius natoque penatibus et magnis.
-    </Content>
+    </Card.Content>
   ),
 };
 
 export const CardWithFooter = Template.bind({});
 CardWithFooter.args = {
   children: (
-    <Content>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet nunc. Phasellus
-      egestas odio scelerisque ullamcorper lobortis. Sed felis ex, suscipit a diam sed, iaculis
-      faucibus urna. Ut egestas, lacus et egestas pellentesque, dolor sem lobortis metus, eget
-      dignissim nisl orci sed dui. Orci varius natoque penatibus et magnis.
-    </Content>
-  ),
-  footer: (
-    <CardFooter>
-      <CardFooterItem>
-        <p>footer 1</p>
-      </CardFooterItem>
-      <CardFooterItem>
-        <p>footer 2</p>
-      </CardFooterItem>
-    </CardFooter>
+    <>
+      <Card.Content>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet nunc.
+        Phasellus egestas odio scelerisque ullamcorper lobortis. Sed felis ex, suscipit a diam sed,
+        iaculis faucibus urna. Ut egestas, lacus et egestas pellentesque, dolor sem lobortis metus,
+        eget dignissim nisl orci sed dui. Orci varius natoque penatibus et magnis.
+      </Card.Content>
+      <Card.Footer>
+        <Card.Footer.Item>
+          <p>footer 1</p>
+        </Card.Footer.Item>
+        <Card.Footer.Item>
+          <p>footer 2</p>
+        </Card.Footer.Item>
+      </Card.Footer>
+    </>
   ),
 };
 
 export const CardWithImage = Template.bind({});
 CardWithImage.args = {
-  image: (
-    <CardImage>
-      <Image src="https://via.placeholder.com/256" alt="alternative text" />
-    </CardImage>
-  ),
   children: (
-    <Content>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet nunc. Phasellus
-      egestas odio scelerisque ullamcorper lobortis. Sed felis ex, suscipit a diam sed, iaculis
-      faucibus urna.
-    </Content>
+    <>
+      <Card.Image>
+        <Card.Image.Image src="https://via.placeholder.com/128" alt="alternative text" />
+      </Card.Image>
+      <Card.Content>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet nunc.
+        Phasellus egestas odio scelerisque ullamcorper lobortis. Sed felis ex, suscipit a diam sed,
+        iaculis faucibus urna.
+      </Card.Content>
+      <Card.Footer>
+        <Card.Footer.Item>
+          <p>footer 1</p>
+        </Card.Footer.Item>
+        <Card.Footer.Item>
+          <p>footer 2</p>
+        </Card.Footer.Item>
+      </Card.Footer>
+    </>
   ),
-  footer: { ...CardWithFooter.args.footer },
 };
 
 export const CardWithHeader = Template.bind({});
 
 CardWithHeader.args = {
-  header: <CardHeader title="Card Header" />,
   children: (
     <>
-      <Heading>Lorem Ipsum</Heading>
-      <Content>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet nunc.
-        Phasellus egestas odio scelerisque ullamcorper lobortis. Sed felis ex, suscipit a diam sed,
-        iaculis faucibus urna.
-      </Content>
+      <Card.Header title="Card Header" />
+      <Card.Content>
+        <HeadingStories.BasicHeading>Lorem Ipsum</HeadingStories.BasicHeading>
+        <ContentStories.BasicContent className="has-text-centered">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet nunc.
+          Phasellus egestas odio scelerisque ullamcorper lobortis. Sed felis ex, suscipit a diam
+          sed, iaculis faucibus urna.
+        </ContentStories.BasicContent>
+      </Card.Content>
+      <Card.Footer>
+        <Card.Footer.Item>
+          <p>footer 1</p>
+        </Card.Footer.Item>
+        <Card.Footer.Item>
+          <p>footer 2</p>
+        </Card.Footer.Item>
+      </Card.Footer>
     </>
   ),
-  footer: { ...CardWithFooter.args.footer },
 };
 
 export const CardWithHeaderIcon = Template.bind({});
 
 CardWithHeaderIcon.args = {
-  header: <CardHeader title="Card Header" icon={<FontAwesomeIcon icon={faCaretDown} />} />,
   children: (
     <>
-      <Heading>Lorem Ipsum</Heading>
-      <Content>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet nunc.
-        Phasellus egestas odio scelerisque ullamcorper lobortis. Sed felis ex, suscipit a diam sed,
-        iaculis faucibus urna.
-      </Content>
+      <Card.Header title="Card Header" icon={<FontAwesomeIcon icon={faCaretDown} />} />
+      <Card.Content>
+        <HeadingStories.BasicHeading>Lorem Ipsum</HeadingStories.BasicHeading>
+        <ContentStories.BasicContent className="has-text-centered">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet nunc.
+          Phasellus egestas odio scelerisque ullamcorper lobortis. Sed felis ex, suscipit a diam
+          sed, iaculis faucibus urna.
+        </ContentStories.BasicContent>
+      </Card.Content>
+      <Card.Footer>
+        <Card.Footer.Item>
+          <p>footer 1</p>
+        </Card.Footer.Item>
+        <Card.Footer.Item>
+          <p>footer 2</p>
+        </Card.Footer.Item>
+      </Card.Footer>
     </>
   ),
-  footer: { ...CardWithFooter.args.footer },
 };

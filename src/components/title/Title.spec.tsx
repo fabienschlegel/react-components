@@ -6,12 +6,12 @@ import { mount } from 'enzyme';
 import Title from './Title';
 
 describe('Test Title', () => {
-  it('Mount Title', () => {
+  it('Mount the component', () => {
     const wrapper = mount(<Title size="is-1">Text Title</Title>);
     expect(wrapper.length).toEqual(1);
   });
 
-  it('Title is h2', () => {
+  it('is h2', () => {
     const wrapper = mount(
       <Title size="is-2" headingLevel="h2">
         Text Title
@@ -20,7 +20,7 @@ describe('Test Title', () => {
     expect(wrapper.length).toEqual(1);
   });
 
-  it('Title is subtitle', () => {
+  it('is subtitle', () => {
     const wrapper = mount(
       <Title size="is-1" isSubtitle>
         Text Title
@@ -31,7 +31,7 @@ describe('Test Title', () => {
     expect(title).toBeTruthy();
   });
 
-  it('Title is spaced', () => {
+  it('is spaced', () => {
     const wrapper = mount(
       <Title size="is-1" isSpaced>
         Text Title
@@ -42,7 +42,7 @@ describe('Test Title', () => {
     expect(title).toBeTruthy();
   });
 
-  it('Title use paragraph', () => {
+  it('use paragraph', () => {
     const wrapper = mount(
       <Title size="is-1" useParagraph>
         Text Title

@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { FunctionComponent, ReactNode, useEffect, useState } from 'react';
 
 import clsx from 'clsx';
 
@@ -6,25 +6,33 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 import Button, { ButtonType } from '../button/Button';
-import DropdownItem, { IDropdownItem, IDropdownLinkItem } from '../dropdown-item/DropdownItem';
+import DropdownItem, { IDropdownItemProps } from './dropdown-item/DropdownItem';
+import DropdownDivider from './dropdown-divider/DropdownDivider';
 
 interface IStates {
   'is-right'?: boolean;
   'is-up'?: boolean;
 }
 
-export interface DropdownProps {
+interface IDropdownComposition {
+  Item: FunctionComponent<IDropdownItemProps>;
+  Divider: FunctionComponent;
+}
+
+export interface IDropdownProps {
+  children: ReactNode;
   title: string;
-  items: Array<IDropdownItem | IDropdownLinkItem>;
   isActive?: boolean;
   isHoverable?: boolean;
   states?: IStates;
   buttonConfig?: ButtonType;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({
+type DropdownType = FunctionComponent<IDropdownProps> & IDropdownComposition;
+
+const Dropdown: DropdownType = ({
+  children,
   title,
-  items,
   isActive,
   isHoverable,
   states,
@@ -69,17 +77,13 @@ const Dropdown: React.FC<DropdownProps> = ({
         </Button>
       </div>
       <div className="dropdown-menu" id="dropdown" role="menu">
-        <div className="dropdown-content">
-          {items.map((item) => (
-            <Fragment key={item.id}>
-              <DropdownItem item={item} />
-              {item.hasDivider && <hr className="dropdown-divider" />}
-            </Fragment>
-          ))}
-        </div>
+        <div className="dropdown-content">{children}</div>
       </div>
     </div>
   );
 };
+
+Dropdown.Item = DropdownItem;
+Dropdown.Divider = DropdownDivider;
 
 export default Dropdown;

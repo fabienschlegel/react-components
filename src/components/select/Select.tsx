@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
@@ -31,7 +31,7 @@ interface SelectProps {
 
 export type SelectType = SelectProps & React.SelectHTMLAttributes<HTMLSelectElement>;
 
-const Select: React.FC<SelectType> = ({
+const Select: FunctionComponent<SelectType> = ({
   options,
   isMultiple,
   multipleSize,

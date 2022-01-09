@@ -1,9 +1,9 @@
-import React, { ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
 import { Sizes } from 'types';
-import ControlIcon from 'components/control-icon/ControlIcon';
+import ControlIcon from './control-icon/ControlIcon';
 
 export interface IconsProps {
   leftIcon?: ReactNode;
@@ -13,7 +13,7 @@ export interface IconsProps {
   handleLeftIconClick?: () => void;
   handleRightIconClick?: () => void;
 }
-interface ControlProps {
+interface IControlProps {
   children: ReactNode;
   size?: Sizes;
   icons?: IconsProps;
@@ -22,7 +22,7 @@ interface ControlProps {
   className?: string;
 }
 
-const Control: React.FC<ControlProps> = ({
+const Control: FunctionComponent<IControlProps> = ({
   children,
   size,
   icons = {},

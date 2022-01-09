@@ -6,26 +6,26 @@ import { mount } from 'enzyme';
 import Notification from './Notification';
 
 describe('Test Notification', () => {
-  it('Mount Notification', () => {
+  it('Mount the component', () => {
     const wrapper = mount(<Notification>Text Notification</Notification>);
     expect(wrapper.length).toEqual(1);
   });
 
-  it('Notification is light', () => {
+  it('is light', () => {
     const wrapper = mount(<Notification isLight>Text Notification</Notification>);
 
     const notification = wrapper.find('.notification').hasClass('is-light');
     expect(notification).toBeTruthy();
   });
 
-  it('Notification is primary', () => {
+  it('is primary', () => {
     const wrapper = mount(<Notification color="is-primary">Text Notification</Notification>);
 
     const notification = wrapper.find('.notification').hasClass('is-primary');
     expect(notification).toBeTruthy();
   });
 
-  it('Test Notification click event', () => {
+  it('click event', () => {
     const onClickEvent = jest.fn();
     const wrapper = mount(<Notification onClick={onClickEvent}>Text Notification</Notification>);
     const button = wrapper.find('.delete');

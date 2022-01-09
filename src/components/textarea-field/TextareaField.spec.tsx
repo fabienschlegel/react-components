@@ -3,6 +3,8 @@ import React from 'react';
 
 import { mount } from 'enzyme';
 
+import Help from '../help/Help';
+
 import TextareaField from './TextareaField';
 
 describe('Test TextareaField', () => {
@@ -18,7 +20,9 @@ describe('Test TextareaField', () => {
     };
 
     const wrapper = mount(
-      <TextareaField name="textareafield" label={label} helpProps={helpProps} />
+      <TextareaField name="textareafield" label={label}>
+        <Help {...helpProps} />
+      </TextareaField>
     );
 
     const help = wrapper.find('.help').exists();

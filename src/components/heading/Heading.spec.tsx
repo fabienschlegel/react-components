@@ -6,7 +6,7 @@ import { mount } from 'enzyme';
 import Heading from './Heading';
 
 describe('Test Heading', () => {
-  it('Mount Heading', () => {
+  it('Mount the component', () => {
     const wrapper = mount(<Heading>Text Heading</Heading>);
     expect(wrapper.length).toEqual(1);
   });

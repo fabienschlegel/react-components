@@ -1,13 +1,13 @@
-import React, { ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-export type BoxType = {
+export interface IBoxProps {
   children: ReactNode;
   className?: string;
-};
+}
 
-const Box: React.FC<BoxType> = ({ children, className }) => (
+const Box: FunctionComponent<IBoxProps> = ({ children, className }) => (
   <div className={clsx('box', className)}>{children}</div>
 );
 

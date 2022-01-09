@@ -6,18 +6,15 @@ import { mount } from 'enzyme';
 import RadioField from './RadioField';
 
 describe('Test RadioField', () => {
-  const radioElements = [
-    {
-      children: 'Yes',
-    },
-    {
-      children: 'No',
-    },
-  ];
   const name = 'radioField';
 
   it('Mount SelectField', () => {
-    const wrapper = mount(<RadioField name={name} radioElements={radioElements} />);
+    const wrapper = mount(
+      <RadioField>
+        <RadioField.Element name={name}>Yes</RadioField.Element>
+        <RadioField.Element name={name}>No</RadioField.Element>
+      </RadioField>
+    );
     expect(wrapper.length).toEqual(1);
   });
 });

@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import MediaObject, { MediaObjectProps } from './MediaObject';
+import MediaObject, { IMediaObjectProps } from './MediaObject';
 
 export default {
   title: 'MediaObject',
@@ -18,16 +18,17 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<MediaObjectProps> = (args) => {
+const Template: Story<IMediaObjectProps> = (args) => {
   const { children } = args;
   return <MediaObject {...args}>{children}</MediaObject>;
 };
 
 export const BasicMediaObject = Template.bind({});
 BasicMediaObject.args = {
-  children: 'Basic MediaObject',
-  mediaObjectLeft: {
-    src: 'https://via.placeholder.com/64',
-    alt: 'Alternative Text',
-  },
+  children: (
+    <>
+      <MediaObject.Left src="https://via.placeholder.com/64" alt="Alternative Text" />
+      <MediaObject.Content> Basic MediaObject </MediaObject.Content>
+    </>
+  ),
 };

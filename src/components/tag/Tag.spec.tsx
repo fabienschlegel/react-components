@@ -4,37 +4,36 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import Tag from './Tag';
-import { Color, Size } from './types';
 
 describe('Test Tag', () => {
-  it('Mount Tag', () => {
+  it('Mount the component', () => {
     const wrapper = mount(<Tag>Text Tag</Tag>);
     expect(wrapper.length).toEqual(1);
   });
 
-  it('Tag is small', () => {
-    const wrapper = mount(<Tag size={Size.Medium}>Text Tag</Tag>);
+  it('is small', () => {
+    const wrapper = mount(<Tag size="is-medium">Text Tag</Tag>);
 
     const tag = wrapper.find('.tag').hasClass('is-medium');
     expect(tag).toBeTruthy();
   });
 
-  it('Tag color is primary', () => {
-    const wrapper = mount(<Tag color={Color.Primary}>Text Tag</Tag>);
+  it('color is primary', () => {
+    const wrapper = mount(<Tag color="is-primary">Text Tag</Tag>);
 
     const tag = wrapper.find('.tag').hasClass('is-primary');
     expect(tag).toBeTruthy();
   });
 
-  it('Tag  is rounded', () => {
+  it('is rounded', () => {
     const wrapper = mount(<Tag isRounded>Text Tag</Tag>);
 
     const tag = wrapper.find('.tag').hasClass('is-rounded');
     expect(tag).toBeTruthy();
   });
 
-  it('Tag  is delete', () => {
-    const wrapper = mount(<Tag isDelete />);
+  it('is delete', () => {
+    const wrapper = mount(<Tag isDelete>Text Tag</Tag>);
 
     const tag = wrapper.find('.tag').hasClass('is-delete');
     expect(tag).toBeTruthy();

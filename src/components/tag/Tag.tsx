@@ -1,30 +1,37 @@
-import React, { ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-import { Color, Size } from './types';
+import { AnotherColors, Colors, LightColors, Sizes } from '../../types';
 
-export interface TagProps {
-  children?: ReactNode;
-  color?: Color;
-  size?: Size;
+export interface ITagProps {
+  children: ReactNode;
+  color?: Colors | Omit<AnotherColors, 'is-text' | 'is-ghost'> | LightColors;
+  size?: Omit<Sizes, 'is-small'>;
   isRounded?: boolean;
   isDelete?: boolean;
   className?: string;
 }
 
-const Tag: React.FC<TagProps> = ({ children, color, size, isRounded, isDelete, className }) => (
+const Tag: FunctionComponent<ITagProps> = ({
+  children,
+  color,
+  size,
+  isRounded,
+  isDelete,
+  className,
+}) => (
   <span
     className={clsx(
       'tag',
       color,
       size,
-      isRounded ? 'is-rounded' : undefined,
-      isDelete ? 'is-delete' : undefined,
+      isRounded && 'is-rounded',
+      isDelete && 'is-delete',
       className
     )}
   >
-    {isDelete ? null : children}
+    {children}
   </span>
 );
 

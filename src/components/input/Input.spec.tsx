@@ -6,40 +6,40 @@ import { mount } from 'enzyme';
 import Input from './Input';
 
 describe('Test Input', () => {
-  it('Mount Input', () => {
+  it('Mount the component', () => {
     const wrapper = mount(<Input />);
     expect(wrapper.length).toEqual(1);
   });
 
-  it('Test Input is rounded', () => {
+  it('is rounded', () => {
     const wrapper = mount(<Input isRounded />);
 
     const input = wrapper.find('.input').hasClass('is-rounded');
     expect(input).toBeTruthy();
   });
 
-  it('Test Input is hovered', () => {
+  it('is hovered', () => {
     const wrapper = mount(<Input isHovered />);
 
     const input = wrapper.find('.input').hasClass('is-hovered');
     expect(input).toBeTruthy();
   });
 
-  it('Test Input is focused', () => {
+  it('is focused', () => {
     const wrapper = mount(<Input isFocused />);
 
     const input = wrapper.find('.input').hasClass('is-focused');
     expect(input).toBeTruthy();
   });
 
-  it('Test Input is loading', () => {
+  it('is loading', () => {
     const wrapper = mount(<Input isLoading />);
 
     const input = wrapper.find('.input').hasClass('is-loading');
     expect(input).toBeTruthy();
   });
 
-  it('Test Input is static', () => {
+  it('is static', () => {
     const wrapper = mount(<Input isStatic />);
 
     const input = wrapper.find('.input').hasClass('is-static');

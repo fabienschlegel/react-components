@@ -1,18 +1,17 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
 import * as React from 'react';
 
 import clsx from 'clsx';
 
-import Size from './types';
+import { Sizes } from '../../types';
 
-interface DeleteProps {
-  size?: Size;
+interface IDeleteProps {
+  size?: Omit<Sizes, 'is-normal'>;
   className?: string;
 }
 
-type DeleteType = DeleteProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
+type DeleteType = IDeleteProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Delete: React.FC<DeleteType> = ({ size, className, ...others }) => (
+const Delete: React.FunctionComponent<DeleteType> = ({ size, className, ...others }) => (
   <button type="button" className={clsx('delete', size, className)} {...others} />
 );
 

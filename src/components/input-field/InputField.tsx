@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import Field from '../field/Field';
 import Control, { IconsProps } from '../control/Control';
@@ -8,26 +8,32 @@ import Help, { HelpProps } from '../help/Help';
 
 import { Colors, Sizes } from '../../types';
 
+interface InputFieldComposition {
+  Help: FunctionComponent<HelpProps>;
+}
+
 export interface InputFieldProps {
   name: string;
   label: React.ReactNode;
+  children?: ReactNode;
   color?: Colors;
   size?: Sizes;
   labelProps?: LabelType;
   inputProps?: InputType;
-  helpProps?: HelpProps;
   icons?: IconsProps;
   controlIsExpanded?: boolean;
 }
 
-const InputField: React.FC<InputFieldProps> = ({
+type InputFieldType = FunctionComponent<InputFieldProps> & InputFieldComposition;
+
+const InputField: InputFieldType = ({
   name,
   label,
+  children,
   color,
   size,
   labelProps,
   inputProps,
-  helpProps,
   icons,
   controlIsExpanded,
 }) => (
@@ -38,8 +44,10 @@ const InputField: React.FC<InputFieldProps> = ({
     <Control isExpanded={controlIsExpanded} icons={icons}>
       <Input inputSize={size} name={name} borderColor={color} {...inputProps} />
     </Control>
-    {helpProps && <Help textColor={color} {...helpProps} />}
+    {children}
   </Field>
 );
+
+InputField.Help = Help;
 
 export default InputField;

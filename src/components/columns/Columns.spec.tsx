@@ -9,7 +9,7 @@ import Columns from './Columns';
 describe('Test Columns', () => {
   const column = (content: string) => <Column>{content}</Column>;
 
-  it('Mount the components', () => {
+  it('Mount the component', () => {
     const wrapper = mount(
       <Columns>
         <p>Text Columns</p>

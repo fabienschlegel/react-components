@@ -1,21 +1,19 @@
-import React, { ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-import { Link, useLocation } from 'react-router-dom';
+import TabElement, { ITabElementProps } from './tab-element/TabElement';
 
-import { Alignment, Size } from './types';
+import { Alignment, Sizes } from '../../types';
 
-interface Tab {
-  name: string | ReactNode;
-  to: string;
-  isActive?: boolean;
+interface TabsComposition {
+  Element: FunctionComponent<ITabElementProps>;
 }
 
-export interface TabsProps {
-  tabs: Tab[];
+export interface ITabsProps {
+  children: ReactNode;
   alignment?: Alignment;
-  size?: Size;
+  size?: Omit<Sizes, 'is-normal'>;
   isBoxed?: boolean;
   isToggle?: boolean;
   isToggleRounded?: boolean;
@@ -23,8 +21,10 @@ export interface TabsProps {
   className?: string;
 }
 
-const Tabs: React.FC<TabsProps> = ({
-  tabs,
+type TabsType = FunctionComponent<ITabsProps> & TabsComposition;
+
+const Tabs: TabsType = ({
+  children,
   alignment,
   size,
   isBoxed,
@@ -32,32 +32,23 @@ const Tabs: React.FC<TabsProps> = ({
   isToggleRounded,
   isFullWidth,
   className,
-}) => {
-  const location = useLocation();
+}) => (
+  <div
+    className={clsx(
+      'tabs',
+      alignment,
+      size,
+      isBoxed && 'is-boxed',
+      isToggle && 'is-toggle',
+      isToggle && isToggleRounded && 'is-toggle-rounded',
+      isFullWidth && 'is-fullwidth',
+      className
+    )}
+  >
+    <ul>{children}</ul>
+  </div>
+);
 
-  const { pathname } = location;
-  return (
-    <div
-      className={clsx(
-        'tabs',
-        alignment,
-        size,
-        isBoxed ? 'is-boxed' : undefined,
-        isToggle ? 'is-toggle' : undefined,
-        isToggle && isToggleRounded ? 'is-toggle-rounded' : undefined,
-        isFullWidth ? 'is-fullwidth' : undefined,
-        className
-      )}
-    >
-      <ul>
-        {tabs.map((tab) => (
-          <li key={tab.to} className={clsx(pathname === tab.to ? 'is-active' : undefined)}>
-            <Link to={tab.to}>{tab.name}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+Tabs.Element = TabElement;
 
 export default Tabs;

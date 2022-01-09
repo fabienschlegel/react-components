@@ -8,33 +8,22 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Dropdown from './Dropdown';
 
 describe('Test Dropdown', () => {
-  const items = [
-    {
-      id: '0',
-      content: <p>First Item</p>,
-    },
-    {
-      id: '1',
-      content: <p>Second Item</p>,
-      hasDivider: true,
-    },
-    {
-      id: '2',
-      content: 'This item is a link',
-      to: '/fakeurl',
-    },
-    {
-      id: '3',
-      content: 'This item is an active link',
-      to: '/fakeurl2',
-      isActive: true,
-    },
-  ];
+  const items = (
+    <>
+      <Dropdown.Item>First Item</Dropdown.Item>
+      <Dropdown.Item>Second Item</Dropdown.Item>
+      <Dropdown.Divider />
+      <Dropdown.Item to="/fakeurl">This item is a link</Dropdown.Item>
+      <Dropdown.Item isActive to="/fakeurl">
+        This item is an active link
+      </Dropdown.Item>
+    </>
+  );
 
   it('Mount the component', () => {
     const wrapper = mount(
       <Router>
-        <Dropdown title="Dropdown button" items={items} />
+        <Dropdown title="Dropdown button">{items}</Dropdown>
       </Router>
     );
     expect(wrapper.length).toEqual(1);
@@ -43,7 +32,9 @@ describe('Test Dropdown', () => {
   it('is active', () => {
     const wrapper = mount(
       <Router>
-        <Dropdown title="Dropdown button" items={items} isActive />
+        <Dropdown title="Dropdown button" isActive>
+          {items}
+        </Dropdown>
       </Router>
     );
     const content = wrapper.find('.dropdown').hasClass('is-active');
@@ -53,7 +44,9 @@ describe('Test Dropdown', () => {
   it('is hoverable', () => {
     const wrapper = mount(
       <Router>
-        <Dropdown title="Dropdown button" items={items} isHoverable />
+        <Dropdown title="Dropdown button" isHoverable>
+          {items}
+        </Dropdown>
       </Router>
     );
 
@@ -64,7 +57,9 @@ describe('Test Dropdown', () => {
   it('is aligned to right', () => {
     const wrapper = mount(
       <Router>
-        <Dropdown title="Dropdown button" items={items} states={{ 'is-right': true }} />
+        <Dropdown title="Dropdown button" states={{ 'is-right': true }}>
+          {items}
+        </Dropdown>
       </Router>
     );
 
@@ -75,7 +70,9 @@ describe('Test Dropdown', () => {
   it('is up', () => {
     const wrapper = mount(
       <Router>
-        <Dropdown title="Dropdown button" items={items} states={{ 'is-up': true }} />
+        <Dropdown title="Dropdown button" states={{ 'is-up': true }}>
+          {items}
+        </Dropdown>
       </Router>
     );
 
@@ -86,7 +83,7 @@ describe('Test Dropdown', () => {
   it('click event', () => {
     const wrapper = mount(
       <Router>
-        <Dropdown title="Dropdown button" items={items} />
+        <Dropdown title="Dropdown button">{items}</Dropdown>
       </Router>
     );
 
@@ -106,7 +103,9 @@ describe('Test Dropdown', () => {
   it('click event with hoverable prop', () => {
     const wrapper = mount(
       <Router>
-        <Dropdown title="Dropdown button" items={items} isHoverable />
+        <Dropdown title="Dropdown button" isHoverable>
+          {items}
+        </Dropdown>
       </Router>
     );
 

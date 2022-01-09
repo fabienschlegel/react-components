@@ -3,16 +3,9 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { createMemoryHistory } from 'history';
-import { Router, Route } from 'react-router-dom';
+import { MemoryRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Navbar, { NavbarProps } from './Navbar';
-import NavbarStart from '../navbar-start/NavbarStart';
-import NavbarEnd from '../navbar-end/NavbarEnd';
-import NavbarItem from '../navbar-item/NavbarItem';
-import NavbarDropdown from '../navbar-dropdown/NavbarDropdown';
-
-const history = createMemoryHistory({ initialEntries: ['/'] });
+import Navbar, { INavbarProps } from './Navbar';
 
 export default {
   title: 'Navbar',
@@ -20,8 +13,10 @@ export default {
   args: {},
   decorators: [
     (StoryComponent) => (
-      <Router history={history}>
-        <Route path="/" component={() => <StoryComponent />} />
+      <Router initialEntries={['/']}>
+        <Routes>
+          <Route path="/" element={<StoryComponent />} />
+        </Routes>
       </Router>
     ),
   ],
@@ -30,19 +25,19 @@ export default {
   },
 } as Meta;
 
-const Template: Story<NavbarProps> = (args) => (
+const Template: Story<INavbarProps> = (args) => (
   <Navbar {...args}>
-    <NavbarStart>
-      <NavbarItem to="/">Home</NavbarItem>
-      <NavbarItem to="/">Dogs</NavbarItem>
-      <NavbarDropdown label="More">
-        <NavbarItem to="/">Cats</NavbarItem>
-        <NavbarItem to="/">Birds</NavbarItem>
-      </NavbarDropdown>
-    </NavbarStart>
-    <NavbarEnd>
-      <NavbarItem to="/">Sign In</NavbarItem>
-    </NavbarEnd>
+    <Navbar.Start>
+      <Navbar.Item to="/">Home</Navbar.Item>
+      <Navbar.Item to="/">Dogs</Navbar.Item>
+      <Navbar.Dropdown label="More">
+        <Navbar.Item to="/">Cats</Navbar.Item>
+        <Navbar.Item to="/">Birds</Navbar.Item>
+      </Navbar.Dropdown>
+    </Navbar.Start>
+    <Navbar.End>
+      <Navbar.Item to="/">Sign In</Navbar.Item>
+    </Navbar.End>
   </Navbar>
 );
 

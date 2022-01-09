@@ -1,12 +1,12 @@
-import React, { ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-import { Colors, NumericSizeModifier } from 'types';
+import { Colors, NumericSizeModifier } from '../../types';
 
 type Context = 'is-ancestor' | 'is-parent' | 'is-child';
 
-export interface TileProps {
+export interface ITileProps {
   children: ReactNode;
   context: Context;
   isVertical?: boolean;
@@ -16,7 +16,7 @@ export interface TileProps {
   className?: string;
 }
 
-const Tile: React.FC<TileProps> = ({
+const Tile: FunctionComponent<ITileProps> = ({
   children,
   context,
   isVertical,

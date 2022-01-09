@@ -5,23 +5,21 @@ import { mount } from 'enzyme';
 
 import Delete from './Delete';
 
-import Size from './types';
-
 describe('Test Delete', () => {
-  it('Mount Delete', () => {
+  it('Mount the component', () => {
     const wrapper = mount(<Delete />);
     expect(wrapper.length).toEqual(1);
   });
 
-  it('Delete is small', () => {
-    const wrapper = mount(<Delete size={Size.Small} />);
+  it('is small', () => {
+    const wrapper = mount(<Delete size="is-small" />);
 
     const deleteButton = wrapper.find('.delete').hasClass('is-small');
 
     expect(deleteButton).toBeTruthy();
   });
 
-  it('Test Delete click event', () => {
+  it('click event', () => {
     const onClickEvent = jest.fn();
     const wrapper = mount(<Delete onClick={onClickEvent} />);
 

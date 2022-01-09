@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
@@ -23,7 +23,7 @@ interface IOptions {
   'is-centered'?: boolean;
 }
 
-interface ColumnsProps {
+interface IColumnsProps {
   children: ReactNode;
   options?: IOptions;
   columnsGap?: ColumnsGap;
@@ -31,9 +31,9 @@ interface ColumnsProps {
   className?: string;
 }
 
-export type ColumnsType = ColumnsProps & React.HTMLAttributes<HTMLDivElement>;
+type ColumnsType = IColumnsProps & React.HTMLAttributes<HTMLDivElement>;
 
-const Columns: React.FC<ColumnsType> = ({
+const Columns: FunctionComponent<ColumnsType> = ({
   children,
   options,
   columnsGap,

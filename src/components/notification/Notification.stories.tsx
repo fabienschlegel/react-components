@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Notification, { NotificationProps } from './Notification';
+import Notification, { INotificationProps } from './Notification';
 
 export default {
   title: 'Notification',
@@ -11,7 +11,7 @@ export default {
   args: {},
 } as Meta;
 
-const Template: Story<NotificationProps> = (args) => (
+const Template: Story<INotificationProps> = (args) => (
   <Notification {...args}>{args.children}</Notification>
 );
 

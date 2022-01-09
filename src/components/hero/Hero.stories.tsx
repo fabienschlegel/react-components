@@ -3,7 +3,9 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Hero, { HeroProps } from './Hero';
+import * as TitleStories from '../title/Title.stories';
+
+import Hero, { IHeroProps } from './Hero';
 
 export default {
   title: 'Hero',
@@ -26,19 +28,39 @@ export default {
   },
 } as Meta;
 
-const Template: Story<HeroProps> = (args) => <Hero {...args} />;
+const Template: Story<IHeroProps> = (args) => <Hero {...args}>{args.children}</Hero>;
 
 export const BasicHero = Template.bind({});
 BasicHero.args = {
-  title: 'Hero title',
-  subtitle: 'Hero subtitle',
+  children: (
+    <Hero.Body>
+      <TitleStories.BasicTitle useParagraph>
+        {TitleStories.BasicTitle.args.children}
+      </TitleStories.BasicTitle>
+      <TitleStories.BasicTitle useParagraph isSubtitle>
+        Subtitle
+      </TitleStories.BasicTitle>
+    </Hero.Body>
+  ),
 };
 
 export const FullHeightHero = Template.bind({});
 FullHeightHero.args = {
-  title: 'Hero title',
-  subtitle: 'Hero subtitle',
-  head: <p>Head of the Hero</p>,
-  footer: <p>Footer of the Hero</p>,
+  children: (
+    <>
+      <Hero.Head>Head of the Hero</Hero.Head>
+      <Hero.Body>
+        <div>
+          <TitleStories.BasicTitle useParagraph>
+            {TitleStories.BasicTitle.args.children}
+          </TitleStories.BasicTitle>
+          <TitleStories.BasicTitle useParagraph isSubtitle>
+            Subtitle
+          </TitleStories.BasicTitle>
+        </div>
+      </Hero.Body>
+      <Hero.Footer>Footer of the Hero</Hero.Footer>
+    </>
+  ),
   size: 'is-fullheight',
 };

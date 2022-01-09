@@ -1,29 +1,31 @@
-import React, { ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-import Delete from '../delete/Delete';
+import MessageHeader, { IMessageHeaderProps } from './message-header/MessageHeader';
+import MessageBody, { IMessageBodyProps } from './message-body/MessageBody';
 
-import { Color, Size } from './types';
+import { Colors, Sizes } from '../../types';
 
-export interface MessageProps {
-  message: string | ReactNode;
-  header?: string;
-  onDelete?: () => void;
-  size?: Size;
-  color?: Color;
+interface MessageComposition {
+  Header: FunctionComponent<IMessageHeaderProps>;
+  Body: FunctionComponent<IMessageBodyProps>;
 }
 
-const Message: React.FC<MessageProps> = ({ message, header, onDelete, size, color }) => (
-  <article className={clsx('message', size, color)}>
-    {header ? (
-      <div className="message-header">
-        <p>{header}</p>
-        <Delete onClick={onDelete} />
-      </div>
-    ) : null}
-    <div className="message-body">{message}</div>
-  </article>
+export interface IMessageProps {
+  children: ReactNode;
+  size?: Omit<Sizes, 'is-normal'>;
+  color?: Colors | 'is-dark';
+  className?: string;
+}
+
+type MessageType = FunctionComponent<IMessageProps> & MessageComposition;
+
+const Message: MessageType = ({ children, size, color, className }) => (
+  <article className={clsx('message', size, color, className)}>{children}</article>
 );
+
+Message.Header = MessageHeader;
+Message.Body = MessageBody;
 
 export default Message;

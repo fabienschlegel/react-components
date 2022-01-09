@@ -3,26 +3,19 @@ import React from 'react';
 
 import { mount } from 'enzyme';
 
-import { createMemoryHistory } from 'history';
-import { Router } from 'react-router-dom';
+import { MemoryRouter as Router } from 'react-router-dom';
 
 import Tabs from './Tabs';
 
-import { Alignment, Size } from './types';
-
 describe('Test Tabs', () => {
-  const history = createMemoryHistory({ initialEntries: ['/tab1'] });
-
-  const tabs = [
-    { name: 'first tab', to: '/tab1' },
-    { name: 'second tab', to: '/tab2' },
-    { name: 'three tab', to: '/tab3' },
-  ];
-
   it('Mount Tabs', () => {
     const wrapper = mount(
-      <Router history={history}>
-        <Tabs tabs={tabs} />
+      <Router initialEntries={['/tab1']}>
+        <Tabs>
+          <Tabs.Element to="/tab1">tab1</Tabs.Element>
+          <Tabs.Element to="/tab2">tab2</Tabs.Element>
+          <Tabs.Element to="/tab3">tab3</Tabs.Element>
+        </Tabs>
       </Router>
     );
     expect(wrapper.length).toEqual(1);
@@ -30,8 +23,12 @@ describe('Test Tabs', () => {
 
   it('Tabs are aligned to right', () => {
     const wrapper = mount(
-      <Router history={history}>
-        <Tabs tabs={tabs} alignment={Alignment.isRight} />
+      <Router initialEntries={['/tab1']}>
+        <Tabs alignment="is-right">
+          <Tabs.Element to="/tab1">tab1</Tabs.Element>
+          <Tabs.Element to="/tab2">tab2</Tabs.Element>
+          <Tabs.Element to="/tab3">tab3</Tabs.Element>
+        </Tabs>
       </Router>
     );
 
@@ -41,8 +38,12 @@ describe('Test Tabs', () => {
 
   it('Tabs are small', () => {
     const wrapper = mount(
-      <Router history={history}>
-        <Tabs tabs={tabs} size={Size.isSmall} />
+      <Router initialEntries={['/tab1']}>
+        <Tabs size="is-small">
+          <Tabs.Element to="/tab1">tab1</Tabs.Element>
+          <Tabs.Element to="/tab2">tab2</Tabs.Element>
+          <Tabs.Element to="/tab3">tab3</Tabs.Element>
+        </Tabs>
       </Router>
     );
 
@@ -52,8 +53,12 @@ describe('Test Tabs', () => {
 
   it('Tabs are boxed', () => {
     const wrapper = mount(
-      <Router history={history}>
-        <Tabs tabs={tabs} isBoxed />
+      <Router initialEntries={['/tab1']}>
+        <Tabs isBoxed>
+          <Tabs.Element to="/tab1">tab1</Tabs.Element>
+          <Tabs.Element to="/tab2">tab2</Tabs.Element>
+          <Tabs.Element to="/tab3">tab3</Tabs.Element>
+        </Tabs>
       </Router>
     );
 
@@ -63,8 +68,12 @@ describe('Test Tabs', () => {
 
   it('Tabs are toggle', () => {
     const wrapper = mount(
-      <Router history={history}>
-        <Tabs tabs={tabs} isToggle />
+      <Router initialEntries={['/tab1']}>
+        <Tabs isToggle>
+          <Tabs.Element to="/tab1">tab1</Tabs.Element>
+          <Tabs.Element to="/tab2">tab2</Tabs.Element>
+          <Tabs.Element to="/tab3">tab3</Tabs.Element>
+        </Tabs>
       </Router>
     );
 
@@ -74,8 +83,12 @@ describe('Test Tabs', () => {
 
   it('Tabs are toggle and rounded', () => {
     const wrapper = mount(
-      <Router history={history}>
-        <Tabs tabs={tabs} isToggle isToggleRounded />
+      <Router initialEntries={['/tab1']}>
+        <Tabs isToggle isToggleRounded>
+          <Tabs.Element to="/tab1">tab1</Tabs.Element>
+          <Tabs.Element to="/tab2">tab2</Tabs.Element>
+          <Tabs.Element to="/tab3">tab3</Tabs.Element>
+        </Tabs>
       </Router>
     );
 
@@ -85,8 +98,12 @@ describe('Test Tabs', () => {
 
   it('Tabs are full width', () => {
     const wrapper = mount(
-      <Router history={history}>
-        <Tabs tabs={tabs} isFullWidth />
+      <Router initialEntries={['/tab1']}>
+        <Tabs isFullWidth>
+          <Tabs.Element to="/tab1">tab1</Tabs.Element>
+          <Tabs.Element to="/tab2">tab2</Tabs.Element>
+          <Tabs.Element to="/tab3">tab3</Tabs.Element>
+        </Tabs>
       </Router>
     );
 

@@ -1,15 +1,15 @@
-import React, { ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-interface TagsGroupProps {
+interface ITagsGroupProps {
   children: ReactNode;
   hasAddons?: boolean;
   className?: string;
 }
 
-const TagsGroup: React.FC<TagsGroupProps> = ({ children, hasAddons, className }) => (
-  <div className={clsx('tags', hasAddons ? 'has-addons' : undefined, className)}>{children}</div>
+const TagsGroup: FunctionComponent<ITagsGroupProps> = ({ children, hasAddons, className }) => (
+  <div className={clsx('tags', hasAddons && 'has-addons', className)}>{children}</div>
 );
 
 export default TagsGroup;

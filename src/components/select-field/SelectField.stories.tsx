@@ -6,7 +6,9 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import { faDizzy } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import SelectField, { SelectFieldProps } from './SelectField';
+import * as HelpStories from '../help/Help.stories';
+
+import SelectField, { ISelectFieldProps } from './SelectField';
 
 export default {
   title: 'SelectField',
@@ -21,7 +23,7 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<SelectFieldProps> = (args) => <SelectField {...args} />;
+const Template: Story<ISelectFieldProps> = (args) => <SelectField {...args} />;
 
 const options = [
   {
@@ -66,5 +68,5 @@ SelectFieldWithIcon.args = {
 export const SelectFieldWithHelper = Template.bind({});
 SelectFieldWithHelper.args = {
   ...BasicSelectField.args,
-  helpProps: { text: 'This is help text' },
+  children: <HelpStories.BasicHelp {...HelpStories.BasicHelp.args} />,
 };

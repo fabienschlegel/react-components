@@ -1,5 +1,5 @@
 /* eslint-disable react/button-has-type */
-import * as React from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
@@ -19,8 +19,8 @@ interface IStates {
   'is-static'?: boolean;
 }
 
-interface ButtonProps {
-  children: React.ReactNode;
+interface IButtonProps {
+  children: ReactNode;
   size?: Sizes;
   color?: Colors | AnotherColors | LightColors;
   isFullWidth?: boolean;
@@ -29,9 +29,9 @@ interface ButtonProps {
   className?: string;
 }
 
-export type ButtonType = ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
+export type ButtonType = IButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Button: React.FC<ButtonType> = ({
+const Button: FunctionComponent<ButtonType> = ({
   children,
   size,
   color,

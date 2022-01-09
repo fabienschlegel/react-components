@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
@@ -6,7 +6,7 @@ import Heading from '../heading/Heading';
 
 import { HeadingLevel, HeaderSize } from '../../types';
 
-export interface TitleProps {
+export interface ITitleProps {
   children: ReactNode;
   size: HeaderSize;
   headingLevel?: HeadingLevel;
@@ -16,7 +16,7 @@ export interface TitleProps {
   className?: string;
 }
 
-const Title: React.FC<TitleProps> = ({
+const Title: FunctionComponent<ITitleProps> = ({
   children,
   size,
   headingLevel,
@@ -27,7 +27,7 @@ const Title: React.FC<TitleProps> = ({
 }) => {
   const classNameValues = clsx(
     isSubtitle ? 'subtitle' : 'title',
-    isSpaced ? 'is-spaced' : undefined,
+    isSpaced && 'is-spaced',
     size,
     className
   );

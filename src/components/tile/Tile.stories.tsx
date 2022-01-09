@@ -1,9 +1,9 @@
-/* eslint-disable import/no-extraneous-dependencies, react/destructuring-assignment */
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Tile, { TileProps } from './Tile';
+import Tile, { ITileProps } from './Tile';
 
 export default {
   title: 'Tile',
@@ -11,7 +11,10 @@ export default {
   args: {},
 } as Meta;
 
-const Template: Story<TileProps> = (args) => <Tile {...args}>{args.children}</Tile>;
+const Template: Story<ITileProps> = (args) => {
+  const { children } = args;
+  return <Tile {...args}>{children}</Tile>;
+};
 
 const ParentTile = Template.bind({});
 ParentTile.args = {

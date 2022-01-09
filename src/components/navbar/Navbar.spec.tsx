@@ -8,7 +8,7 @@ import { mount } from 'enzyme';
 import Navbar from './Navbar';
 
 describe('Test Navbar', () => {
-  it('mount component', () => {
+  it('Mount the component', () => {
     const wrapper = mount(
       <Router>
         <Navbar label="My Navbar" dataTarget="myNavbar" navbarBrand="My Navbar" brandUrl="/">
@@ -19,7 +19,7 @@ describe('Test Navbar', () => {
     expect(wrapper.length).toEqual(1);
   });
 
-  it('Navbar is transparent', () => {
+  it('is transparent', () => {
     const wrapper = mount(
       <Router>
         <Navbar
@@ -39,7 +39,7 @@ describe('Test Navbar', () => {
     expect(navbar).toBeTruthy();
   });
 
-  it('Navbar is fixed to top', () => {
+  it('is fixed to top', () => {
     const wrapper = mount(
       <Router>
         <Navbar
@@ -59,7 +59,7 @@ describe('Test Navbar', () => {
     expect(navbar).toBeTruthy();
   });
 
-  it('Navbar is spaced', () => {
+  it('is spaced', () => {
     const wrapper = mount(
       <Router>
         <Navbar
@@ -79,7 +79,7 @@ describe('Test Navbar', () => {
     expect(navbar).toBeTruthy();
   });
 
-  it('Navbar has shadow', () => {
+  it('has shadow', () => {
     const wrapper = mount(
       <Router>
         <Navbar
@@ -99,7 +99,7 @@ describe('Test Navbar', () => {
     expect(navbar).toBeTruthy();
   });
 
-  it('Navbar menu is open', () => {
+  it('menu is open', () => {
     const wrapper = mount(
       <Router>
         <Navbar label="My Navbar" dataTarget="myNavbar" navbarBrand="My Navbar" brandUrl="/">

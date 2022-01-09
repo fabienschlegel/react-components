@@ -1,21 +1,32 @@
-import React, { ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
-import Delete from '../delete/Delete';
-import ModalWrapper from '../modal-wrapper/ModalWrapper';
+import clsx from 'clsx';
+
+import ModalContent, { IModalContentProps } from './modal-content/ModalContent';
+import ModalCard, { ModalCardType } from './modal-card/ModalCard';
+
+interface ModalComposition {
+  Content: FunctionComponent<IModalContentProps>;
+  Card: ModalCardType;
+}
 
 export interface ModalProps {
   children: ReactNode;
   isActive?: boolean;
   isClipped?: boolean;
-  onClose?: React.MouseEventHandler<HTMLButtonElement>;
+  className?: string;
 }
 
-const Modal: React.FC<ModalProps> = ({ children, isActive, isClipped, onClose }) => (
-  <ModalWrapper isActive={isActive} isClipped={isClipped}>
+type ModalType = FunctionComponent<ModalProps> & ModalComposition;
+
+const Modal: ModalType = ({ children, isActive, isClipped, className }) => (
+  <div className={clsx('modal', isActive && 'is-active', isClipped && 'is-clipped', className)}>
     <div className="modal-background" />
-    <div className="modal-content">{children}</div>
-    <Delete onClick={onClose} className="modal-close is-large" />
-  </ModalWrapper>
+    {children}
+  </div>
 );
+
+Modal.Content = ModalContent;
+Modal.Card = ModalCard;
 
 export default Modal;

@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import * as ContentStories from '../content/Content.stories';
 
-import Section, { SectionProps } from './Section';
+import Section, { ISectionProps } from './Section';
 
 export default {
   title: 'Section',
@@ -20,7 +20,7 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<SectionProps> = (args) => <Section {...args}>{args.children}</Section>;
+const Template: Story<ISectionProps> = (args) => <Section {...args}>{args.children}</Section>;
 
 export const BasicSection = Template.bind({});
 BasicSection.args = {

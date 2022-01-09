@@ -1,12 +1,12 @@
 import clsx from 'clsx';
-import React, { ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 export interface FooterProps {
   children: ReactNode;
   className?: string;
 }
 
-const Footer: React.FC<FooterProps> = ({ children, className }) => (
+const Footer: FunctionComponent<FooterProps> = ({ children, className }) => (
   <footer className={clsx('footer', className)}>{children}</footer>
 );
 

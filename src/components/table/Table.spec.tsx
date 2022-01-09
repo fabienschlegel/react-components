@@ -10,14 +10,14 @@ import { FakeDataType } from '../../__fake__/types';
 import Table from './Table';
 
 describe('Test Table', () => {
-  it('Mount Table', () => {
+  it('Mount the component', () => {
     const wrapper: ReactWrapper<FakeDataType> = mount(
       <Table data={fakeTableData} config={fakeTableConfig} />
     );
     expect(wrapper.length).toEqual(1);
   });
 
-  it('Test Table is bordered', () => {
+  it('is bordered', () => {
     const wrapper: ReactWrapper<FakeDataType> = mount(
       <Table data={fakeTableData} config={{ ...fakeTableConfig, isBordered: true }} />
     );
@@ -26,7 +26,7 @@ describe('Test Table', () => {
     expect(table).toBeTruthy();
   });
 
-  it('Test Table is striped', () => {
+  it('is striped', () => {
     const wrapper: ReactWrapper<FakeDataType> = mount(
       <Table data={fakeTableData} config={{ ...fakeTableConfig, isStriped: true }} />
     );
@@ -35,7 +35,7 @@ describe('Test Table', () => {
     expect(table).toBeTruthy();
   });
 
-  it('Test Table is narrow', () => {
+  it('is narrow', () => {
     const wrapper: ReactWrapper<FakeDataType> = mount(
       <Table data={fakeTableData} config={{ ...fakeTableConfig, isNarrow: true }} />
     );
@@ -44,7 +44,7 @@ describe('Test Table', () => {
     expect(table).toBeTruthy();
   });
 
-  it('Test Table is hoverable', () => {
+  it('is hoverable', () => {
     const wrapper: ReactWrapper<FakeDataType> = mount(
       <Table data={fakeTableData} config={{ ...fakeTableConfig, isHoverable: true }} />
     );
@@ -53,7 +53,7 @@ describe('Test Table', () => {
     expect(table).toBeTruthy();
   });
 
-  it('Test Table is fullwidth', () => {
+  it('is fullwidth', () => {
     const wrapper: ReactWrapper<FakeDataType> = mount(
       <Table data={fakeTableData} config={{ ...fakeTableConfig, isFullWidth: true }} />
     );
@@ -62,7 +62,7 @@ describe('Test Table', () => {
     expect(table).toBeTruthy();
   });
 
-  it('Test Table has footer', () => {
+  it('has footer', () => {
     const wrapper: ReactWrapper<FakeDataType> = mount(
       <Table data={fakeTableData} config={{ ...fakeTableConfig, hasTableFooter: true }} />
     );

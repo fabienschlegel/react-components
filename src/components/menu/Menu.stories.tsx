@@ -3,16 +3,9 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { createMemoryHistory } from 'history';
-import { Router, Route } from 'react-router-dom';
+import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Menu, { MenuProps } from './Menu';
-import MenuLabel from '../menu-label/MenuLabel';
-import MenuList from '../menu-list/MenuList';
-import MenuNestedList from '../menu-nested-list/MenuNestedList';
-import MenuItem from '../menu-item/MenuItem';
-
-const history = createMemoryHistory({ initialEntries: ['/'] });
+import Menu, { IMenuProps } from './Menu';
 
 export default {
   title: 'Menu',
@@ -20,9 +13,11 @@ export default {
   args: {},
   decorators: [
     (StoryComponent) => (
-      <Router history={history}>
+      <Router initialEntries={['/']}>
         <div style={{ margin: '0px auto', width: 500 }}>
-          <Route path="/" component={() => <StoryComponent />} />
+          <Routes>
+            <Route path="/" element={<StoryComponent />} />
+          </Routes>
         </div>
       </Router>
     ),
@@ -32,33 +27,32 @@ export default {
   },
 } as Meta;
 
-const Template: Story<MenuProps> = () => (
-  <Menu>
-    <MenuLabel>General</MenuLabel>
-    <MenuList>
-      <MenuItem to="/">Dashboard</MenuItem>
-      <MenuItem to="/">Customers</MenuItem>
-    </MenuList>
-    <MenuLabel>Administration</MenuLabel>
-    <MenuList>
-      <MenuItem to="/">Team Settings</MenuItem>
-      <MenuNestedList label="Manage Your team">
-        <MenuItem to="/">Members</MenuItem>
-        <MenuItem to="/">Plugins</MenuItem>
-        <MenuItem to="/">Add a member</MenuItem>
-      </MenuNestedList>
-      <MenuItem to="/">Invitations</MenuItem>
-      <MenuItem to="/">Cloud Storage Environment Settings</MenuItem>
-    </MenuList>
-    <MenuLabel>Transactions</MenuLabel>
-    <MenuList>
-      <MenuItem to="/">Payments</MenuItem>
-      <MenuItem to="/">Transfers</MenuItem>
-      <MenuItem to="/">Balance</MenuItem>
-    </MenuList>
-  </Menu>
-);
+const Template: Story<IMenuProps> = (args) => {
+  const { children } = args;
+  return <Menu {...args}>{children}</Menu>;
+};
 
 export const BasicMenu = Template.bind({});
 
-BasicMenu.args = {};
+BasicMenu.args = {
+  children: (
+    <>
+      <Menu.Label>General</Menu.Label>
+      <Menu.List>
+        <Menu.Item to="/">Dashboard</Menu.Item>
+        <Menu.Item to="/">Customers</Menu.Item>
+      </Menu.List>
+      <Menu.Label>Administration</Menu.Label>
+      <Menu.List>
+        <Menu.Item to="/">Team Settings</Menu.Item>
+        <Menu.NestedList label="Manage Your team">
+          <Menu.Item to="/">Members</Menu.Item>
+          <Menu.Item to="/">Plugins</Menu.Item>
+          <Menu.Item to="/">Add a member</Menu.Item>
+        </Menu.NestedList>
+        <Menu.Item to="/">Invitations</Menu.Item>
+        <Menu.Item to="/">Cloud Storage Environment Settings</Menu.Item>
+      </Menu.List>
+    </>
+  ),
+};

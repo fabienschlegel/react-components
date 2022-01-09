@@ -1,103 +1,72 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
-import { createMemoryHistory } from 'history';
-import { Router, Route } from 'react-router-dom';
+import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
 import { faAddressBook, faChartBar, faDizzy } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import Tabs, { TabsProps } from './Tabs';
-import { Alignment, Size } from './types';
-
-const history = createMemoryHistory({ initialEntries: ['/tab1'] });
+import Tabs, { ITabsProps } from './Tabs';
 
 export default {
   title: 'Tabs',
+  component: Tabs,
+  decorators: [
+    (StoryComponent) => (
+      <Router initialEntries={['/tab1']}>
+        <div style={{ margin: '0px auto', width: 500 }}>
+          <Routes>
+            <Route path="/tab1" element={<StoryComponent />} />
+            <Route path="/tab2" element={<StoryComponent />} />
+            <Route path="/tab3" element={<StoryComponent />} />
+          </Routes>
+        </div>
+      </Router>
+    ),
+  ],
   args: {},
-  argTypes: {
-    alignment: {
-      control: {
-        type: 'select',
-        options: Object.values(Alignment),
-      },
-    },
-    size: {
-      control: {
-        type: 'select',
-        options: Object.values(Size),
-      },
-    },
-    isBoxed: {
-      control: {
-        type: 'boolean',
-      },
-    },
-    isToggle: {
-      control: {
-        type: 'boolean',
-      },
-    },
-    isToggleRounded: {
-      control: {
-        type: 'boolean',
-      },
-    },
-    isFullWidth: {
-      control: {
-        type: 'boolean',
-      },
-    },
-  },
 } as Meta;
 
-const Template: Story<TabsProps> = (args) => (
-  <Router history={history}>
-    <Route path="/" component={() => <Tabs {...args} />} />
-  </Router>
-);
+const Template: Story<ITabsProps> = (args) => {
+  const { children } = args;
+  return <Tabs {...args}>{children}</Tabs>;
+};
 
 export const BasicTabs = Template.bind({});
 BasicTabs.args = {
-  tabs: [
-    { name: 'first tab', to: '/tab1' },
-    { name: 'second tab', to: '/tab2' },
-    { name: 'three tab', to: '/tab3' },
-  ],
+  children: (
+    <>
+      <Tabs.Element to="/tab1">tab1</Tabs.Element>
+      <Tabs.Element to="/tab2">tab2</Tabs.Element>
+      <Tabs.Element to="/tab3">tab3</Tabs.Element>
+    </>
+  ),
 };
 
 export const IconTabs = Template.bind({});
 IconTabs.args = {
-  tabs: [
-    {
-      name: (
+  children: (
+    <>
+      <Tabs.Element to="/tab1">
         <span>
           <FontAwesomeIcon icon={faAddressBook} className="mr-2" />
           First Tab
         </span>
-      ),
-      to: '/tab1',
-    },
-    {
-      name: (
+      </Tabs.Element>
+      <Tabs.Element to="/tab2">
         <span>
           <FontAwesomeIcon icon={faChartBar} className="mr-2" />
           Second Tab
         </span>
-      ),
-      to: '/tab2',
-    },
-    {
-      name: (
+      </Tabs.Element>
+      <Tabs.Element to="/tab3">
         <span>
           <FontAwesomeIcon icon={faDizzy} className="mr-2" />
           Three Tab
         </span>
-      ),
-      to: '/tab3',
-      isActive: true,
-    },
-  ],
+      </Tabs.Element>
+    </>
+  ),
 };

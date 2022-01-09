@@ -1,16 +1,16 @@
-import React, { ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-import Size from './types';
+import { Sizes } from '../../types';
 
-export type ContentType = {
+export interface IContentProps {
   children: ReactNode | string;
-  size?: Size;
+  size?: Sizes;
   className?: string;
-};
+}
 
-const Content: React.FC<ContentType> = ({ children, size, className }) => (
+const Content: FunctionComponent<IContentProps> = ({ children, size, className }) => (
   <div className={clsx('content', size, className)}>{children}</div>
 );
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
 import clsx from 'clsx';
 
@@ -16,7 +16,7 @@ interface InputProps {
 
 export type InputType = InputProps & React.InputHTMLAttributes<HTMLInputElement>;
 
-const Input: React.FC<InputType> = ({
+const Input: FunctionComponent<InputType> = ({
   inputSize,
   borderColor,
   isRounded,
@@ -32,11 +32,11 @@ const Input: React.FC<InputType> = ({
       'input',
       inputSize,
       borderColor,
-      isRounded ? 'is-rounded' : undefined,
-      isHovered ? 'is-hovered' : undefined,
-      isFocused ? 'is-focused' : undefined,
-      isLoading ? 'is-loading' : undefined,
-      isStatic ? 'is-static' : undefined,
+      isRounded && 'is-rounded',
+      isHovered && 'is-hovered',
+      isFocused && 'is-focused',
+      isLoading && 'is-loading',
+      isStatic && 'is-static',
       className
     )}
     {...others}

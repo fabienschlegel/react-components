@@ -1,0 +1,17 @@
+/* eslint-disable no-undef */
+import React from 'react';
+
+import { mount } from 'enzyme';
+
+import NavbarEnd from './NavbarEnd';
+
+describe('Test NavbarEnd', () => {
+  it('Mount the component', () => {
+    const wrapper = mount(
+      <NavbarEnd>
+        <p>NavbarEnd Content</p>
+      </NavbarEnd>
+    );
+    expect(wrapper.length).toEqual(1);
+  });
+});

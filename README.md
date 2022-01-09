@@ -24,7 +24,7 @@ This project is an experiment to create a library of reusable React components. 
 
 If you want to contribute to this project, you can contact me.
 
-##  Author
+## Author
 
 Fabien Schlegel
 

@@ -3,23 +3,16 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Content, { ContentType } from './Content';
-import Size from './types';
+import Content, { IContentProps } from './Content';
 
 export default {
   title: 'Content',
+  component: Content,
   args: {},
-  argTypes: {
-    size: {
-      control: {
-        type: 'select',
-        options: Object.values(Size),
-      },
-    },
-  },
+  argTypes: {},
 } as Meta;
 
-const Template: Story<ContentType> = (args) => <Content {...args}>{args.children}</Content>;
+const Template: Story<IContentProps> = (args) => <Content {...args}>{args.children}</Content>;
 
 export const BasicContent = Template.bind({});
 BasicContent.args = {

@@ -7,26 +7,31 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import InputField from './InputField';
+import Help from '../help/Help';
 
 describe('Test InputField', () => {
   const label = 'Input Field';
-  it('Mount InputField', () => {
+  it('Mount the component', () => {
     const wrapper = mount(<InputField name="input field" label={label} />);
     expect(wrapper.length).toEqual(1);
   });
 
-  it('Test InputField with help text', () => {
+  it('with help text', () => {
     const helpProps = {
       text: 'this is an help message',
     };
 
-    const wrapper = mount(<InputField name="inputfield" label={label} helpProps={helpProps} />);
+    const wrapper = mount(
+      <InputField name="inputfield" label={label}>
+        <Help {...helpProps} />
+      </InputField>
+    );
 
     const help = wrapper.find('.help').exists();
     expect(help).toBeTruthy();
   });
 
-  it('Test InputField with icons', () => {
+  it('with icons', () => {
     const icons = {
       leftIcon: <FontAwesomeIcon icon={faTimes} />,
       rightIcon: <FontAwesomeIcon icon={faSearch} />,
@@ -41,7 +46,7 @@ describe('Test InputField', () => {
     expect(rightIcon).toBeTruthy();
   });
 
-  it('Test InputField with clickable icons', () => {
+  it('with clickable icons', () => {
     const icons = {
       leftIcon: <FontAwesomeIcon icon={faTimes} />,
       rightIcon: <FontAwesomeIcon icon={faSearch} />,
@@ -54,14 +59,14 @@ describe('Test InputField', () => {
     const leftIcon = wrapper.find('.is-left');
     const rightIcon = wrapper.find('.is-right');
 
-    const leftIconStyle = leftIcon.props().style;
-    const rightIconStyle = rightIcon.props().style;
+    const handleLeftIconClickable = leftIcon.hasClass('is-clickable');
+    const rightIconClickable = rightIcon.hasClass('is-clickable');
 
-    expect(leftIconStyle).toHaveProperty('cursor');
-    expect(rightIconStyle).toHaveProperty('cursor');
+    expect(handleLeftIconClickable).toBeTruthy();
+    expect(rightIconClickable).toBeTruthy();
   });
 
-  it('Test InputField is expanded', () => {
+  it('is expanded', () => {
     const wrapper = mount(<InputField name="inputfield" label={label} controlIsExpanded />);
 
     const control = wrapper.find('.control').hasClass('is-expanded');

@@ -6,16 +6,30 @@ import { mount } from 'enzyme';
 import Hero from './Hero';
 
 describe('Test Hero', () => {
-  const title = 'Lorem ipsum';
-  const subtitle = '';
+  const title = <p>Lorem ipsum</p>;
+  const subtitle = <p>dolor sit amet</p>;
 
   it('Mount Hero', () => {
-    const wrapper = mount(<Hero title={title} subtitle={subtitle} />);
+    const wrapper = mount(
+      <Hero>
+        <Hero.Body>
+          {title}
+          {subtitle}
+        </Hero.Body>
+      </Hero>
+    );
     expect(wrapper.length).toEqual(1);
   });
 
   it('Hero is small', () => {
-    const wrapper = mount(<Hero title={title} subtitle={subtitle} size="is-small" />);
+    const wrapper = mount(
+      <Hero size="is-small">
+        <Hero.Body>
+          {title}
+          {subtitle}
+        </Hero.Body>
+      </Hero>
+    );
 
     const messageDiv = wrapper.find('.hero').hasClass('is-small');
 
@@ -23,7 +37,14 @@ describe('Test Hero', () => {
   });
 
   it('Hero has danger color', () => {
-    const wrapper = mount(<Hero title={title} subtitle={subtitle} color="is-danger" />);
+    const wrapper = mount(
+      <Hero color="is-danger">
+        <Hero.Body>
+          {title}
+          {subtitle}
+        </Hero.Body>
+      </Hero>
+    );
 
     const messageDiv = wrapper.find('.hero').hasClass('is-danger');
 
@@ -33,7 +54,16 @@ describe('Test Hero', () => {
   it('Hero has head and footer', () => {
     const head = <p>Head of the Hero</p>;
     const footer = <p>Footer of the Hero</p>;
-    const wrapper = mount(<Hero title={title} subtitle={subtitle} head={head} footer={footer} />);
+    const wrapper = mount(
+      <Hero>
+        <Hero.Head>{head}</Hero.Head>
+        <Hero.Body>
+          {title}
+          {subtitle}
+        </Hero.Body>
+        <Hero.Footer>{footer}</Hero.Footer>
+      </Hero>
+    );
 
     const headDiv = wrapper.find('.hero-head').exists();
     const footerDiv = wrapper.find('.hero-foot').exists();

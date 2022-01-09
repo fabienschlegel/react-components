@@ -1,34 +1,30 @@
-import React, { ReactNode, ReactElement } from 'react';
+import React, { ReactNode, FunctionComponent } from 'react';
 
 import clsx from 'clsx';
 
-import { CardHeaderProps } from '../card-header/CardHeader';
-import { CardImageProps } from '../card-image/CardImage';
-import { CardFooterProps } from '../card-footer/CardFooter';
+import CardHeader, { ICardHeaderProps } from './card-header/CardHeader';
+import CardContent, { ICardContentProps } from './card-content/CardContent';
+import CardImage, { CardImageType } from './card-image/CardImage';
+import CardFooter, { CardFooterType } from './card-footer/CardFooter';
 
-export interface CardProps {
+interface ICardComposition {
+  Header: FunctionComponent<ICardHeaderProps>;
+  Content: FunctionComponent<ICardContentProps>;
+  Image: CardImageType;
+  Footer: CardFooterType;
+}
+export interface ICardProps {
   children: ReactNode;
   className?: string;
-  contentClassName?: string;
-  header?: ReactElement<CardHeaderProps>;
-  image?: ReactElement<CardImageProps>;
-  footer?: ReactElement<CardFooterProps>;
 }
 
-const Card: React.FC<CardProps> = ({
-  children,
-  className,
-  contentClassName,
-  header,
-  image,
-  footer,
-}) => (
-  <div className={clsx('card', className)}>
-    {header}
-    {image}
-    <div className={clsx('card-content', contentClassName)}>{children}</div>
-    {footer}
-  </div>
+const Card: FunctionComponent<ICardProps> & ICardComposition = ({ children, className }) => (
+  <div className={clsx('card', className)}>{children}</div>
 );
+
+Card.Header = CardHeader;
+Card.Content = CardContent;
+Card.Image = CardImage;
+Card.Footer = CardFooter;
 
 export default Card;

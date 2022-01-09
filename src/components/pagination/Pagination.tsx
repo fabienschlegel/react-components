@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
 import clsx from 'clsx';
 
@@ -7,20 +7,20 @@ import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 import Button from '../button/Button';
 
-import { Alignment, Size } from './types';
+import { Alignment, Sizes } from '../../types';
 import usePagination from './hook/usePagination';
 
-export interface PaginationProps {
+export interface IPaginationProps {
   currentPage: number;
   lastPage: number;
   changePage: (page: number) => void;
   pagesToShow?: number;
   alignment?: Alignment;
-  size?: Size;
+  size?: Omit<Sizes, 'is-normal'>;
   isRounded?: boolean;
 }
 
-const Pagination: React.FC<PaginationProps> = ({
+const Pagination: FunctionComponent<IPaginationProps> = ({
   currentPage,
   lastPage,
   changePage,
@@ -63,7 +63,7 @@ const Pagination: React.FC<PaginationProps> = ({
         <FontAwesomeIcon icon={faAngleRight} />
       </Button>
       <ul className="pagination-list">
-        {displayFirstPage ? (
+        {displayFirstPage && (
           <li id="first-page">
             <Button
               onClick={() => changePage(1)}
@@ -73,8 +73,8 @@ const Pagination: React.FC<PaginationProps> = ({
               1
             </Button>
           </li>
-        ) : null}
-        {leftEllipsis ? ellipsis : null}
+        )}
+        {leftEllipsis && ellipsis}
         {pages.map((page) => {
           const isCurrent = page === currentPage ? 'is-current' : null;
           return (
@@ -90,8 +90,8 @@ const Pagination: React.FC<PaginationProps> = ({
             </li>
           );
         })}
-        {rightEllipsis ? ellipsis : null}
-        {displayLastPage ? (
+        {rightEllipsis && ellipsis}
+        {displayLastPage && (
           <li id="last-page">
             <Button
               onClick={() => changePage(lastPage)}
@@ -101,7 +101,7 @@ const Pagination: React.FC<PaginationProps> = ({
               {lastPage}
             </Button>
           </li>
-        ) : null}
+        )}
       </ul>
     </nav>
   );

@@ -1,13 +1,13 @@
-import React, { ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-type BlockType = {
+interface IBlockProps {
   children: ReactNode | string;
   className?: string;
-};
+}
 
-const Block: React.FC<BlockType> = ({ children, className }) => (
+const Block: FunctionComponent<IBlockProps> = ({ children, className }) => (
   <div className={clsx('block', className)}>{children}</div>
 );
 

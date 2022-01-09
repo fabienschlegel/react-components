@@ -5,16 +5,14 @@ import { mount } from 'enzyme';
 
 import Content from './Content';
 
-import Size from './types';
-
 describe('Test Content', () => {
-  it('Mount Content', () => {
+  it('Mount the component', () => {
     const wrapper = mount(<Content>Text Content</Content>);
     expect(wrapper.length).toEqual(1);
   });
 
-  it('Content is small', () => {
-    const wrapper = mount(<Content size={Size.Small}>Text Content</Content>);
+  it('is small', () => {
+    const wrapper = mount(<Content size="is-small">Text Content</Content>);
 
     const content = wrapper.find('.content').hasClass('is-small');
     expect(content).toBeTruthy();

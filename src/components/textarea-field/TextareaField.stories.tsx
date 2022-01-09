@@ -1,9 +1,11 @@
-/* eslint-disable import/no-extraneous-dependencies, react/destructuring-assignment */
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import TextareaField, { TextareaFieldProps } from './TextareaField';
+import * as HelpStories from '../help/Help.stories';
+
+import TextareaField, { ITextareaFieldProps } from './TextareaField';
 
 export default {
   title: 'TextareaField',
@@ -18,7 +20,7 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<TextareaFieldProps> = (args) => <TextareaField {...args} />;
+const Template: Story<ITextareaFieldProps> = (args) => <TextareaField {...args} />;
 
 export const BasicTextareaField = Template.bind({});
 BasicTextareaField.args = {
@@ -29,5 +31,5 @@ BasicTextareaField.args = {
 export const TextareaFieldWithHelper = Template.bind({});
 TextareaFieldWithHelper.args = {
   ...BasicTextareaField.args,
-  helpProps: { text: 'This is help text' },
+  children: <HelpStories.BasicHelp {...HelpStories.BasicHelp.args} />,
 };

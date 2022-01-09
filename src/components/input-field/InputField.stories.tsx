@@ -6,6 +6,8 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faMailBulk } from '@fortawesome/free-solid-svg-icons';
 
+import * as HelpStories from '../help/Help.stories';
+
 import InputField, { InputFieldProps } from './InputField';
 
 export default {
@@ -21,7 +23,9 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<InputFieldProps> = (args) => <InputField {...args} />;
+const Template: Story<InputFieldProps> = (args) => (
+  <InputField {...args}>{args.children}</InputField>
+);
 
 export const BasicInputField = Template.bind({});
 BasicInputField.args = {
@@ -38,7 +42,7 @@ RoundedInputField.args = {
 export const InputFieldWithHelper = Template.bind({});
 InputFieldWithHelper.args = {
   ...BasicInputField.args,
-  helpProps: { text: 'This is help text' },
+  children: <HelpStories.BasicHelp {...HelpStories.BasicHelp.args} />,
 };
 
 export const InputFieldWithIcons = Template.bind({});
@@ -57,6 +61,7 @@ InputFieldWithIconsClickable.args = {
     leftIcon: <FontAwesomeIcon icon={faMailBulk} />,
     rightIcon: <FontAwesomeIcon icon={faCheck} />,
     handleLeftIconClick: () => {
+      // eslint-disable-next-line no-alert
       alert('top');
     },
     handleRightIconClick: () => {},
