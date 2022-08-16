@@ -3,11 +3,13 @@ import React, { FunctionComponent, ReactNode } from 'react';
 import clsx from 'clsx';
 
 import TabElement, { ITabElementProps } from './tab-element/TabElement';
+import TabAnchorElement, { ITabAnchorElementProps } from './tab-anchor-element/TabAnchorElement';
 
 import { Alignment, Sizes } from '../../types';
 
 interface TabsComposition {
   Element: FunctionComponent<ITabElementProps>;
+  AnchorElement: FunctionComponent<ITabAnchorElementProps>;
 }
 
 export interface ITabsProps {
@@ -50,5 +52,6 @@ const Tabs: TabsType = ({
 );
 
 Tabs.Element = TabElement;
+Tabs.AnchorElement = TabAnchorElement;
 
 export default Tabs;

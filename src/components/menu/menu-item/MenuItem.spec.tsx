@@ -16,4 +16,13 @@ describe('Test MenuItem', () => {
     );
     expect(wrapper.length).toEqual(1);
   });
+
+  it('Mount the component with anchor', () => {
+    const wrapper = mount(
+      <MenuItem to="/" renderAsAnchor>
+        Menu Item Content
+      </MenuItem>
+    );
+    expect(wrapper.length).toEqual(1);
+  });
 });

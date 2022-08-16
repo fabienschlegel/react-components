@@ -1,10 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
 import { Alignment, AnotherColors, Colors, Sizes } from '../../types';
 
@@ -12,6 +9,7 @@ interface IFileFieldProps {
   name: string;
   fileLabel: string;
   fileName?: string;
+  downloadIcon?: ReactNode;
   color?: Colors | Omit<AnotherColors, 'is-text' | 'is-ghost'>;
   size?: Sizes;
   alignment?: Alignment;
@@ -25,6 +23,7 @@ const FileField: FunctionComponent<FileFieldType> = ({
   name,
   fileLabel,
   fileName,
+  downloadIcon,
   color,
   size,
   alignment,
@@ -46,9 +45,7 @@ const FileField: FunctionComponent<FileFieldType> = ({
     <label className="file-label">
       <input className="file-input" type="file" name={name} {...others} />
       <span className="file-cta">
-        <span className="file-icon">
-          <FontAwesomeIcon icon={faDownload} />
-        </span>
+        <span className="file-icon">{downloadIcon || <>&#x1F817;</>}</span>
         <span className="file-label">{fileLabel}</span>
       </span>
       {fileName && <span className="file-name">{fileName}</span>}

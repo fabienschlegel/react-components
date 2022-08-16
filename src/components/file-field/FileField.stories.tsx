@@ -3,6 +3,9 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
+
 import FileField, { FileFieldType } from './FileField';
 
 export default {
@@ -46,12 +49,21 @@ export default {
 const Template: Story<FileFieldType> = (args) => <FileField {...args} />;
 
 export const BasicFileField = Template.bind({});
+
 BasicFileField.args = {
   name: 'BasicFileField',
   fileLabel: 'Upload',
 };
 
+export const CustomIconFileField = Template.bind({});
+
+CustomIconFileField.args = {
+  ...BasicFileField.args,
+  downloadIcon: <FontAwesomeIcon icon={faDownload} />,
+};
+
 export const FileFieldWithFileName = Template.bind({});
+
 FileFieldWithFileName.args = {
   ...BasicFileField.args,
   fileName: 'Its-a-trap-2021-07-16.jpeg',

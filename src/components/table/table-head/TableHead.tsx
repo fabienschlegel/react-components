@@ -2,9 +2,6 @@ import React, { ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons';
-
 import { isFunction } from '../../../utils/utils';
 
 import { TableConfig, SortOrders, ColumnConfig, SortOrder } from '../../../types';
@@ -37,10 +34,11 @@ export default function TableHead<T>({
     onHeaderCellsClick && onHeaderCellsClick(column, index);
 
   const renderSortIcon = (sortOrder: SortOrder): JSX.Element => {
+    const { ascendantSortIcon, descendantSortIcon } = config;
     if (sortOrder === 'asc') {
-      return <FontAwesomeIcon icon={faCaretUp} />;
+      return ascendantSortIcon ? <>{ascendantSortIcon}</> : <>&#x23F6;</>;
     }
-    return <FontAwesomeIcon icon={faCaretDown} />;
+    return descendantSortIcon ? <>{descendantSortIcon}</> : <>&#x23F7;</>;
   };
 
   const renderHeaderColumn = (column: ColumnConfig<T>, index: number) => {

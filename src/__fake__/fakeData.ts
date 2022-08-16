@@ -115,6 +115,29 @@ export const fakeTableConfig: TableConfig<FakeDataType> = {
   ],
 };
 
+export const fakeSortableTableConfig: TableConfig<FakeDataType> = {
+  columns: [
+    {
+      label: 'id',
+      value: 'id',
+      sortable: true,
+      defaultSort: 'desc'
+    },
+    {
+      label: 'name',
+      value: 'name',
+    },
+    {
+      label: 'email',
+      value: 'email',
+    },
+    {
+      label: 'company',
+      value: 'company',
+    },
+  ],
+};
+
 export const fakeColumnConfig: ColumnConfig<FakeDataType> = {
   label: 'id',
   value: 'id',

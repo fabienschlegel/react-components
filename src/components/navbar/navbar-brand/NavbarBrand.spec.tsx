@@ -21,6 +21,21 @@ describe('Test NavbarBrand', () => {
     expect(wrapper.length).toEqual(1);
   });
 
+  it('Mount the component with anchor link', () => {
+    const wrapper = mount(
+      <NavbarBrand
+        brandUrl="/"
+        dataTarget="myNavbar"
+        isOpen={false}
+        toggleMenu={toggleMenu}
+        renderAsAnchor
+      >
+        <p>NavbarBrand Content</p>
+      </NavbarBrand>
+    );
+    expect(wrapper.length).toEqual(1);
+  });
+
   it('menu is open', () => {
     const wrapper = mount(
       <Router>
