@@ -2,9 +2,6 @@ import React, { FunctionComponent, ReactNode, useEffect, useState } from 'react'
 
 import clsx from 'clsx';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-
 import Button, { ButtonType } from '../button/Button';
 import DropdownItem, { IDropdownItemProps } from './dropdown-item/DropdownItem';
 import DropdownDivider from './dropdown-divider/DropdownDivider';
@@ -26,6 +23,7 @@ export interface IDropdownProps {
   isHoverable?: boolean;
   states?: IStates;
   buttonConfig?: ButtonType;
+  dropdownIcon?: ReactNode;
 }
 
 type DropdownType = FunctionComponent<IDropdownProps> & IDropdownComposition;
@@ -37,6 +35,7 @@ const Dropdown: DropdownType = ({
   isHoverable,
   states,
   buttonConfig,
+  dropdownIcon,
 }) => {
   const [isActiveState, setIsActive] = useState(isActive);
 
@@ -52,7 +51,7 @@ const Dropdown: DropdownType = ({
   useEffect(() => {
     setIsActive(isActive);
   }, [isActive, setIsActive]);
-
+  
   return (
     <div
       className={clsx(
@@ -71,9 +70,7 @@ const Dropdown: DropdownType = ({
           {...buttonConfig}
         >
           <span>{title}</span>
-          <span className="icon is-small">
-            <FontAwesomeIcon icon={faAngleDown} />
-          </span>
+          <span className="icon is-small">{dropdownIcon || <>&#9207;</>}</span>
         </Button>
       </div>
       <div className="dropdown-menu" id="dropdown" role="menu">

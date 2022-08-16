@@ -1,9 +1,6 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 import Button from '../button/Button';
 
@@ -13,6 +10,8 @@ import usePagination from './hook/usePagination';
 export interface IPaginationProps {
   currentPage: number;
   lastPage: number;
+  previousPageIcon?: ReactNode;
+  nextPageIcon?: ReactNode;
   changePage: (page: number) => void;
   pagesToShow?: number;
   alignment?: Alignment;
@@ -23,6 +22,8 @@ export interface IPaginationProps {
 const Pagination: FunctionComponent<IPaginationProps> = ({
   currentPage,
   lastPage,
+  previousPageIcon,
+  nextPageIcon,
   changePage,
   pagesToShow = 5,
   alignment,
@@ -52,7 +53,7 @@ const Pagination: FunctionComponent<IPaginationProps> = ({
         onClick={() => changePage(currentPage - 1)}
         disabled={currentPage <= 1}
       >
-        <FontAwesomeIcon icon={faAngleLeft} />
+        {previousPageIcon || <>&#x23F4;</>}
       </Button>
 
       <Button
@@ -60,7 +61,7 @@ const Pagination: FunctionComponent<IPaginationProps> = ({
         onClick={() => changePage(currentPage + 1)}
         disabled={currentPage >= lastPage}
       >
-        <FontAwesomeIcon icon={faAngleRight} />
+        {nextPageIcon || <>&#x23F5;</>}
       </Button>
       <ul className="pagination-list">
         {displayFirstPage && (

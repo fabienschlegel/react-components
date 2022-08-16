@@ -25,6 +25,7 @@ export interface INavbarProps {
   brandUrl: string;
   dataTarget: string;
   navbarBrand: ReactNode;
+  renderNavbarBrandLinkAsAnchor?:boolean
   colors?: Colors | Omit<AnotherColors, 'is-text' | 'is-ghost'>;
   isTransparent?: boolean;
   isFixed?: 'top' | 'bottom';
@@ -41,6 +42,7 @@ const Navbar: NavbarType = ({
   brandUrl,
   dataTarget,
   navbarBrand,
+  renderNavbarBrandLinkAsAnchor,
   colors,
   isTransparent,
   isFixed,
@@ -73,6 +75,7 @@ const Navbar: NavbarType = ({
         dataTarget={dataTarget}
         toggleMenu={toggleMenu}
         isOpen={isOpen}
+        renderAsAnchor={renderNavbarBrandLinkAsAnchor}
       >
         {navbarBrand}
       </NavbarBrand>

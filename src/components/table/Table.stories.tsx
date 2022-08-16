@@ -3,7 +3,10 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { fakeTableData, fakeTableConfig } from '../../__fake__/fakeData';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+
+import { fakeTableData, fakeTableConfig, fakeSortableTableConfig } from '../../__fake__/fakeData';
 
 import Table, { ITableProps } from './Table';
 
@@ -54,5 +57,23 @@ WithFooterTable.args = {
   config: {
     ...BasicTable.args.config,
     hasTableFooter: true,
+  },
+};
+
+export const SortableTable = Template.bind({});
+
+SortableTable.args = {
+  ...BasicTable.args,
+  config: fakeSortableTableConfig,
+};
+
+export const CustomIconSortableTable = Template.bind({});
+
+CustomIconSortableTable.args = {
+  ...BasicTable.args,
+  config: {
+    ...fakeSortableTableConfig,
+    ascendantSortIcon: <FontAwesomeIcon icon={faCaretUp} />,
+    descendantSortIcon: <FontAwesomeIcon icon={faCaretDown} />,
   },
 };

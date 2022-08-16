@@ -1,18 +1,18 @@
 /* eslint-disable import/no-extraneous-dependencies, react/destructuring-assignment */
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faMailBulk } from '@fortawesome/free-solid-svg-icons';
 
 import * as HelpStories from '../help/Help.stories';
 
-import InputField, { InputFieldProps } from './InputField';
+import InputFieldComponent, { InputFieldProps } from './InputField';
 
 export default {
   title: 'InputField',
-  component: InputField,
+  component: InputFieldComponent,
   args: {},
   decorators: [
     (StoryComponent) => (
@@ -21,31 +21,31 @@ export default {
       </div>
     ),
   ],
-} as Meta;
+} as ComponentMeta<FunctionComponent<InputFieldProps>>;
 
-const Template: Story<InputFieldProps> = (args) => (
-  <InputField {...args}>{args.children}</InputField>
+const InputField: ComponentStory<FunctionComponent<InputFieldProps>> = (args) => (
+  <InputFieldComponent {...args}>{args.children}</InputFieldComponent>
 );
 
-export const BasicInputField = Template.bind({});
+export const BasicInputField = InputField.bind({});
 BasicInputField.args = {
   name: 'input',
   label: 'Input Field',
 };
 
-export const RoundedInputField = Template.bind({});
+export const RoundedInputField = InputField.bind({});
 RoundedInputField.args = {
   ...BasicInputField.args,
   inputProps: { isRounded: true },
 };
 
-export const InputFieldWithHelper = Template.bind({});
+export const InputFieldWithHelper = InputField.bind({});
 InputFieldWithHelper.args = {
   ...BasicInputField.args,
   children: <HelpStories.BasicHelp {...HelpStories.BasicHelp.args} />,
 };
 
-export const InputFieldWithIcons = Template.bind({});
+export const InputFieldWithIcons = InputField.bind({});
 InputFieldWithIcons.args = {
   ...BasicInputField.args,
   icons: {
@@ -54,7 +54,7 @@ InputFieldWithIcons.args = {
   },
 };
 
-export const InputFieldWithIconsClickable = Template.bind({});
+export const InputFieldWithIconsClickable = InputField.bind({});
 InputFieldWithIconsClickable.args = {
   ...BasicInputField.args,
   icons: {

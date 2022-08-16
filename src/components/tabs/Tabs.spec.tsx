@@ -8,7 +8,7 @@ import { MemoryRouter as Router } from 'react-router-dom';
 import Tabs from './Tabs';
 
 describe('Test Tabs', () => {
-  it('Mount Tabs', () => {
+  it('Mount the component', () => {
     const wrapper = mount(
       <Router initialEntries={['/tab1']}>
         <Tabs>
@@ -17,6 +17,19 @@ describe('Test Tabs', () => {
           <Tabs.Element to="/tab3">tab3</Tabs.Element>
         </Tabs>
       </Router>
+    );
+    expect(wrapper.length).toEqual(1);
+  });
+
+  it('Mount the component with anchor link', () => {
+    const wrapper = mount(
+      <Tabs>
+        <Tabs.AnchorElement isActive to="/tab1">
+          tab1
+        </Tabs.AnchorElement>
+        <Tabs.AnchorElement to="/tab2">tab2</Tabs.AnchorElement>
+        <Tabs.AnchorElement to="/tab3">tab3</Tabs.AnchorElement>
+      </Tabs>
     );
     expect(wrapper.length).toEqual(1);
   });

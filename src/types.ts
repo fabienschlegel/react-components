@@ -157,4 +157,6 @@ export interface TableConfig<T> {
   isHoverable?: boolean;
   isFullWidth?: boolean;
   hasTableFooter?: boolean;
+  ascendantSortIcon?:ReactNode
+  descendantSortIcon?:ReactNode
 }

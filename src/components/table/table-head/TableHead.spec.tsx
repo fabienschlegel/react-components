@@ -3,6 +3,9 @@ import React from 'react';
 
 import { mount, ReactWrapper } from 'enzyme';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+
 import { fakeTableConfig } from '../../../__fake__/fakeData';
 
 import TableHead from './TableHead';
@@ -95,9 +98,9 @@ describe('Test TableHeads', () => {
 
     const firstHeadCase = wrapper.find('th').at(0);
 
-    const ascendantIcon = firstHeadCase.find('svg').hasClass('fa-caret-up');
+    const ascendantIcon = firstHeadCase.find('span').text();
 
-    expect(ascendantIcon).toBeTruthy();
+    expect(ascendantIcon).toEqual('⏶');
   });
 
   it('Test TableHeads with sort descendant', () => {
@@ -117,9 +120,9 @@ describe('Test TableHeads', () => {
 
     const firstHeadCase = wrapper.find('th').at(0);
 
-    const descendantIcon = firstHeadCase.find('svg').hasClass('fa-caret-down');
+    const descendantIcon = firstHeadCase.find('span').text();
 
-    expect(descendantIcon).toBeTruthy();
+    expect(descendantIcon).toEqual('⏷');
   });
 
   it('Test TableHeads with default sort', () => {
@@ -145,9 +148,57 @@ describe('Test TableHeads', () => {
 
     const firstHeadCase = wrapper.find('th').at(0);
 
+    const ascendantIcon = firstHeadCase.find('span').text();
+
+    expect(ascendantIcon).toEqual('⏶');
+  });
+
+  it('Test TableHeads with sort ascendant and custom icon', () => {
+    const wrapper: ReactWrapper<FakeDataType> = mount(
+      <TableHead
+        config={{
+          ...fakeTableConfig,
+          columns: [
+            { value: 'id', label: 'id', sortable: true, onSort: handleSort() },
+            ...fakeTableConfig.columns.slice(1),
+          ],
+          ascendantSortIcon: <FontAwesomeIcon icon={faCaretUp} />,
+          descendantSortIcon: <FontAwesomeIcon icon={faCaretDown} />,
+        }}
+        sortOrders={['asc']}
+        noSort
+      />
+    );
+
+    const firstHeadCase = wrapper.find('th').at(0);
+
     const ascendantIcon = firstHeadCase.find('svg').hasClass('fa-caret-up');
 
     expect(ascendantIcon).toBeTruthy();
+  });
+
+  it('Test TableHeads with sort descendant and custom icon', () => {
+    const wrapper: ReactWrapper<FakeDataType> = mount(
+      <TableHead
+        config={{
+          ...fakeTableConfig,
+          columns: [
+            { value: 'id', label: 'id', sortable: true, onSort: handleSort() },
+            ...fakeTableConfig.columns.slice(1),
+          ],
+          ascendantSortIcon: <FontAwesomeIcon icon={faCaretUp} />,
+          descendantSortIcon: <FontAwesomeIcon icon={faCaretDown} />,
+        }}
+        sortOrders={['desc']}
+        noSort
+      />
+    );
+
+    const firstHeadCase = wrapper.find('th').at(0);
+
+    const descendantIcon = firstHeadCase.find('svg').hasClass('fa-caret-down');
+
+    expect(descendantIcon).toBeTruthy();
   });
 
   it('Test TableHeads sort click event', () => {
