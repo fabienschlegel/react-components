@@ -6,7 +6,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import RadioField, { IRadioFieldProps } from './RadioField';
 
 export default {
-  title: 'RadioField',
+  title: 'Form/RadioField',
   component: RadioField,
   args: {},
   decorators: [

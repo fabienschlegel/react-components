@@ -8,7 +8,7 @@ import * as NotificationStories from '../notification/Notification.stories';
 import Container, { IContainerProps } from './Container';
 
 export default {
-  title: 'Container',
+  title: 'Layout/Container',
   component: Container,
   args: {},
   argTypes: {

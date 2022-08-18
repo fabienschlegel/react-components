@@ -10,7 +10,7 @@ import * as TitleStories from '../title/Title.stories';
 import Level, { ILevelProps } from './Level';
 
 export default {
-  title: 'Level',
+  title: 'Layout/Level',
   component: Level,
   args: {},
   decorators: [

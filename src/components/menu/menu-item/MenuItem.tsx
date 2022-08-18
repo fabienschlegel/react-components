@@ -9,12 +9,8 @@ export interface IMenuItemProps {
   className?: string;
 }
 
-const MenuList: FunctionComponent<IMenuItemProps> = ({
-  children,
-  to,
-  renderAsAnchor,
-  className,
-}) => renderAsAnchor ? (
+const MenuList: FunctionComponent<IMenuItemProps> = ({ children, to, renderAsAnchor, className }) =>
+  renderAsAnchor ? (
     <a href={to} className={className}>
       {children}
     </a>

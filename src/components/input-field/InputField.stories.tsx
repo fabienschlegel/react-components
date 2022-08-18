@@ -11,7 +11,7 @@ import * as HelpStories from '../help/Help.stories';
 import InputFieldComponent, { InputFieldProps } from './InputField';
 
 export default {
-  title: 'InputField',
+  title: 'Form/InputField',
   component: InputFieldComponent,
   args: {},
   decorators: [

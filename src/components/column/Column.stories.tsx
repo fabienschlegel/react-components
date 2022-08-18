@@ -6,7 +6,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Column, { ColumnType } from './Column';
 
 export default {
-  title: 'Column',
+  title: 'Layout/Column',
   component: Column,
   args: {},
 } as Meta;

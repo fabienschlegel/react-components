@@ -6,7 +6,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Heading, { IHeadingProps } from './Heading';
 
 export default {
-  title: 'Heading',
+  title: 'Elements/Heading',
   component: Heading,
   args: {},
   argTypes: {},

@@ -12,7 +12,7 @@ import * as HeadingStories from '../heading/Heading.stories';
 import Card, { ICardProps } from './Card';
 
 export default {
-  title: 'Card',
+  title: 'Components/Card',
   component: Card,
   args: {},
   argTypes: {},

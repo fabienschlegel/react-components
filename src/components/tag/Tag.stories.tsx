@@ -8,7 +8,7 @@ import Delete from '../delete/Delete';
 import Tag, { ITagProps } from './Tag';
 
 export default {
-  title: 'Tag',
+  title: 'Elements/Tag',
   component: Tag,
   args: {},
 } as Meta;

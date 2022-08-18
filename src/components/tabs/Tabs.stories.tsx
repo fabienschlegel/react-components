@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tabs, { ITabsProps } from './Tabs';
 
 export default {
-  title: 'Tabs',
+  title: 'Components/Tabs',
   component: Tabs,
   decorators: [
     (StoryComponent) => (

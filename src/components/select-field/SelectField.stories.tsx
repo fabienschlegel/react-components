@@ -11,7 +11,7 @@ import * as HelpStories from '../help/Help.stories';
 import SelectField, { ISelectFieldProps } from './SelectField';
 
 export default {
-  title: 'SelectField',
+  title: 'Form/SelectField',
   component: SelectField,
   args: {},
   decorators: [

@@ -8,7 +8,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Dropdown, { IDropdownProps } from './Dropdown';
 
 export default {
-  title: 'Dropdown',
+  title: 'Components/Dropdown',
   component: Dropdown,
   decorators: [
     (StoryComponent) => (

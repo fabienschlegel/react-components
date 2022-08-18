@@ -6,7 +6,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Message, { IMessageProps } from './Message';
 
 export default {
-  title: 'Message',
+  title: 'Components/Message',
   component: Message,
   args: {},
 } as Meta;

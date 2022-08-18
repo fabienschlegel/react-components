@@ -1,0 +1,43 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+<Meta title="Components/Breadcrumb" />
+
+# Breadcrumb
+
+**A simple breadcrumb component to improve your navigation experience**
+
+## Props
+
+| Property  | Type      | Required | Default value | Description                        |
+| --------- | --------- | -------- | ------------- | ---------------------------------- |
+| children  | ReactNode | yes      | N/A           | The content of the breadcrumb      |
+| alignment | ReactNode | no       | N/A           | The alignment of the breadcrumb    |
+| separator | ReactNode | no       | N/A           | The separator of the breadcrumb    |
+| size      | ReactNode | no       | N/A           | The size of the breadcrumb         |
+| className | string    | no       | N/A           | Add custom design to the component |
+
+## Sub Components
+
+The content of the `Breadcrumb` component is made with `BreadcrumbElement` components.
+
+### `BreadcrumbElement` Props
+
+| Property  | Type      | Required | Default value | Description                        |
+| --------- | --------- | -------- | ------------- | ---------------------------------- |
+| children  | ReactNode | yes      | N/A           | The content of the breadcrumb      |
+| isActive  | ReactNode | no       | N/A           | Set breadcrumb element as active   |
+| className | string    | no       | N/A           | Add custom design to the component |
+
+## Usage
+
+<Canvas>
+  <Story id="components-breadcrumb--basic-breadcrumb" name="BasicBreadcrumb" />
+</Canvas>
+
+<Canvas>
+  <Story id="components-breadcrumb--icon-breadcrumb" name="IconBreadcrumb" />
+</Canvas>
+
+## Ressources
+
+[Official documentation](https://bulma.io/documentation/components/breadcrumb/)

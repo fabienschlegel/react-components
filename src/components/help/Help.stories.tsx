@@ -6,7 +6,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Help, { HelpProps } from './Help';
 
 export default {
-  title: 'Help',
+  title: 'Form/Help',
   component: Help,
   args: {},
 } as Meta;

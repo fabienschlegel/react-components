@@ -8,7 +8,7 @@ import { MemoryRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar, { INavbarProps } from './Navbar';
 
 export default {
-  title: 'Navbar',
+  title: 'Components/Navbar',
   component: Navbar,
   args: {},
   decorators: [

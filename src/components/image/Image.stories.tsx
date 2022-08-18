@@ -6,7 +6,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Image, { ImageType } from './Image';
 
 export default {
-  title: 'Image',
+  title: 'Elements/Image',
   component: Image,
   args: {},
 } as Meta;

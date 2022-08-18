@@ -1,39 +1,41 @@
 /* eslint-disable import/no-extraneous-dependencies, react/destructuring-assignment */
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { faAddressBook } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import Button, { ButtonType } from './Button';
+import ButtonComponent, { ButtonType } from './Button';
 
 export default {
-  title: 'Button',
-  component: Button,
+  title: 'Elements/Button',
+  component: ButtonComponent,
   args: {},
-} as Meta;
+} as ComponentMeta<FunctionComponent<ButtonType>>;
 
-const Template: Story<ButtonType> = (args) => <Button {...args}>{args.children}</Button>;
+const Button: ComponentStory<FunctionComponent<ButtonType>> = (args) => (
+  <ButtonComponent {...args}>{args.children}</ButtonComponent>
+);
 
-export const BasicButton = Template.bind({});
+export const BasicButton = Button.bind({});
 BasicButton.args = {
   children: 'Button',
 };
 
-export const DisabledButton = Template.bind({});
+export const DisabledButton = Button.bind({});
 DisabledButton.args = {
   color: 'is-black',
   disabled: true,
   children: 'Button',
 };
 
-export const IconTextButton = Template.bind({});
+export const IconTextButton = Button.bind({});
 IconTextButton.args = {
   children: [<FontAwesomeIcon icon={faAddressBook} className="mr-3" />, 'Button'],
 };
 
-export const IconButton = Template.bind({});
+export const IconButton = Button.bind({});
 IconButton.args = {
   children: <FontAwesomeIcon icon={faAddressBook} />,
 };

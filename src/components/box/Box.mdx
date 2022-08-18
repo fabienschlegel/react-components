@@ -1,0 +1,28 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+<Meta title="Elements/Box" />
+
+# Box
+
+**A white box to contain other elements**
+
+## Props
+
+| Property  | Type      | Required | Default value | Description                        |
+| --------- | --------- | -------- | ------------- | ---------------------------------- |
+| children  | ReactNode | yes      | N/A           | The content of the box             |
+| className | string    | no       | N/A           | Add custom design to the component |
+
+## Usage
+
+<Canvas>
+  <Story id="elements-box--text-box" name="TextBox"/>
+</Canvas>
+
+<Canvas>
+  <Story id="elements-box--form-elements-box" name="FormElementsBox"/>
+</Canvas>
+
+## Ressources
+
+[Official documentation](https://bulma.io/documentation/elements/box/)

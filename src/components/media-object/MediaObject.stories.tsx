@@ -6,7 +6,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import MediaObject, { IMediaObjectProps } from './MediaObject';
 
 export default {
-  title: 'MediaObject',
+  title: 'Layout/MediaObject',
   component: MediaObject,
   args: {},
   decorators: [
