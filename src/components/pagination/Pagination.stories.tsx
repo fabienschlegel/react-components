@@ -6,7 +6,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Pagination, { IPaginationProps } from './Pagination';
 
 export default {
-  title: 'Pagination',
+  title: 'Components/Pagination',
   component: Pagination,
   args: {},
 } as Meta;

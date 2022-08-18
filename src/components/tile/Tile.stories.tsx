@@ -6,7 +6,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Tile, { ITileProps } from './Tile';
 
 export default {
-  title: 'Tile',
+  title: 'Layout/Tile',
   component: Tile,
   args: {},
 } as Meta;

@@ -9,7 +9,7 @@ import * as BoxStories from '../box/Box.stories';
 import Modal, { ModalProps } from './Modal';
 
 export default {
-  title: 'Modal',
+  title: 'Components/Modal',
   component: Modal,
   args: {},
   argTypes: {

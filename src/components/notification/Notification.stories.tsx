@@ -6,7 +6,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Notification, { INotificationProps } from './Notification';
 
 export default {
-  title: 'Notification',
+  title: 'Elements/Notification',
   component: Notification,
   args: {},
 } as Meta;

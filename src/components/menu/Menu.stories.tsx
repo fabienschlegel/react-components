@@ -8,7 +8,7 @@ import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 import Menu, { IMenuProps } from './Menu';
 
 export default {
-  title: 'Menu',
+  title: 'Components/Menu',
   component: Menu,
   args: {},
   decorators: [

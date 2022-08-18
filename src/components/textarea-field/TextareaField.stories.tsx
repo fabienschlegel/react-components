@@ -8,7 +8,7 @@ import * as HelpStories from '../help/Help.stories';
 import TextareaField, { ITextareaFieldProps } from './TextareaField';
 
 export default {
-  title: 'TextareaField',
+  title: 'Form/TextareaField',
   component: TextareaField,
   args: {},
   decorators: [

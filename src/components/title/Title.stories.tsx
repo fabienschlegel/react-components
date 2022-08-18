@@ -6,7 +6,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Title, { ITitleProps } from './Title';
 
 export default {
-  title: 'Title',
+  title: 'Elements/Title',
   component: Title,
   args: {},
   decorators: [

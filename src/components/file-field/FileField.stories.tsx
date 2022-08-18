@@ -9,7 +9,7 @@ import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import FileField, { FileFieldType } from './FileField';
 
 export default {
-  title: 'FileField',
+  title: 'Form/FileField',
   component: FileField,
   args: {},
   argTypes: {

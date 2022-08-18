@@ -13,7 +13,7 @@ import Table, { ITableProps } from './Table';
 import { FakeDataType } from '../../__fake__/types';
 
 export default {
-  title: 'Table',
+  title: 'Elements/Table',
   component: Table,
   args: {},
   decorators: [

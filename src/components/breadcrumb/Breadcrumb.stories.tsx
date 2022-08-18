@@ -1,67 +1,82 @@
 /* eslint-disable import/no-extraneous-dependencies, jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
 import { faAddressBook, faChartBar, faDizzy } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Breadcrumb, { IBreadcrumbProps } from './Breadcrumb';
+import mdx from './Breadcrumb.mdx';
+
+import BreadcrumbComponent, { IBreadcrumbProps } from './Breadcrumb';
 
 export default {
-  title: 'Breadcrumb',
-  component: Breadcrumb,
-  args: {},
-} as Meta;
+  title: 'Components/Breadcrumb',
+  component: BreadcrumbComponent,
+  decorators: [
+    (StoryComponent) => (
+      <div style={{ width: '450px', margin: '0 auto', paddingTop: '25px' }}>{StoryComponent()}</div>
+    ),
+  ],
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      page: mdx,
+      source: {
+        excludeDecorators: true,
+      },
+    },
+  },
+} as ComponentMeta<FunctionComponent<IBreadcrumbProps>>;
 
-const Template: Story<IBreadcrumbProps> = (args) => {
+const BreadCrumb: ComponentStory<FunctionComponent<IBreadcrumbProps>> = (args) => {
   const { children } = args;
-  return (
-    <div style={{ margin: '0px auto', width: 450 }}>
-      <Breadcrumb {...args}>{children}</Breadcrumb>
-    </div>
-  );
+  return <BreadcrumbComponent {...args}>{children}</BreadcrumbComponent>;
 };
 
-export const BasicBreadcrumb = Template.bind({});
+export const BasicBreadcrumb = BreadCrumb.bind({});
 BasicBreadcrumb.args = {
   children: (
     <>
-      <Breadcrumb.Element>
+      <BreadcrumbComponent.Element>
         <a href="#">root</a>
-      </Breadcrumb.Element>
-      <Breadcrumb.Element>
+      </BreadcrumbComponent.Element>
+      <BreadcrumbComponent.Element>
         <a href="#">firstChild</a>
-      </Breadcrumb.Element>
-      <Breadcrumb.Element isActive>
+      </BreadcrumbComponent.Element>
+      <BreadcrumbComponent.Element isActive>
         <a href="#">secondChild</a>
-      </Breadcrumb.Element>
+      </BreadcrumbComponent.Element>
     </>
   ),
 };
 
-export const IconBreadcrumb = Template.bind({});
+BasicBreadcrumb.storyName = 'BreadCrumb with text';
+
+export const IconBreadcrumb = BreadCrumb.bind({});
 IconBreadcrumb.args = {
   children: (
     <>
-      <Breadcrumb.Element>
+      <BreadcrumbComponent.Element>
         <a href="#">
           <FontAwesomeIcon icon={faAddressBook} className="mr-2" />
           Root
         </a>
-      </Breadcrumb.Element>
-      <Breadcrumb.Element>
+      </BreadcrumbComponent.Element>
+      <BreadcrumbComponent.Element>
         <a href="#">
           <FontAwesomeIcon icon={faChartBar} className="mr-2" />
           first Child
         </a>
-      </Breadcrumb.Element>
-      <Breadcrumb.Element isActive>
+      </BreadcrumbComponent.Element>
+      <BreadcrumbComponent.Element isActive>
         <a href="#">
           <FontAwesomeIcon icon={faDizzy} className="mr-2" />
           Second Child
         </a>
-      </Breadcrumb.Element>
+      </BreadcrumbComponent.Element>
     </>
   ),
 };
+
+IconBreadcrumb.storyName = 'BreadCrumb with icons';

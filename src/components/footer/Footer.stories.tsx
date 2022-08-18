@@ -8,7 +8,7 @@ import * as ContentStories from '../content/Content.stories';
 import Footer, { FooterProps } from './Footer';
 
 export default {
-  title: 'Footer',
+  title: 'Layout/Footer',
   component: Footer,
   args: {},
 } as Meta;

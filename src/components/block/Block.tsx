@@ -2,7 +2,7 @@ import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-interface IBlockProps {
+export interface IBlockProps {
   children: ReactNode | string;
   className?: string;
 }

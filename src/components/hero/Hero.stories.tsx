@@ -8,7 +8,7 @@ import * as TitleStories from '../title/Title.stories';
 import Hero, { IHeroProps } from './Hero';
 
 export default {
-  title: 'Hero',
+  title: 'Layout/Hero',
   component: Hero,
   args: {},
   argTypes: {

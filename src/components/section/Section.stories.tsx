@@ -8,7 +8,7 @@ import * as ContentStories from '../content/Content.stories';
 import Section, { ISectionProps } from './Section';
 
 export default {
-  title: 'Section',
+  title: 'Layout/Section',
   component: Section,
   args: {},
   decorators: [
