@@ -1,14 +1,20 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent, HTMLAttributes, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-export interface ICardFooterItemProps {
+export interface CardFooterItemProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   className?: string;
 }
 
-const CardFooterItem: FunctionComponent<ICardFooterItemProps> = ({ children, className }) => (
-  <div className={clsx('card-footer-item', className)}>{children}</div>
+const CardFooterItem: FunctionComponent<CardFooterItemProps> = ({
+  children,
+  className,
+  ...others
+}) => (
+  <div className={clsx('card-footer-item', className)} {...others}>
+    {children}
+  </div>
 );
 
 export default CardFooterItem;

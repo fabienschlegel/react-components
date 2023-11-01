@@ -1,4 +1,4 @@
-import { ReactNode, CSSProperties } from 'react';
+import { ReactNode, CSSProperties, Ref, RefAttributes } from 'react';
 
 export type Colors =
   | 'is-primary'
@@ -8,13 +8,9 @@ export type Colors =
   | 'is-warning'
   | 'is-danger';
 
-export type AnotherColors =
-  | 'is-white'
-  | 'is-light'
-  | 'is-dark'
-  | 'is-black'
-  | 'is-text'
-  | 'is-ghost';
+export type AnotherColors = 'is-white' | 'is-light' | 'is-dark' | 'is-black';
+
+export type NoColors = 'is-text' | 'is-ghost';
 
 export type LightColors =
   | 'is-primary is-light'
@@ -157,6 +153,14 @@ export interface TableConfig<T> {
   isHoverable?: boolean;
   isFullWidth?: boolean;
   hasTableFooter?: boolean;
-  ascendantSortIcon?:ReactNode
-  descendantSortIcon?:ReactNode
+  ascendantSortIcon?: ReactNode;
+  descendantSortIcon?: ReactNode;
 }
+
+export type FixedForwardRef = <T, P = Record<string, never>>(
+  render: (props: P, ref: Ref<T>) => JSX.Element
+) => (props: P & RefAttributes<T>) => JSX.Element;
+
+export type DistributiveOmit<T, TOmitted extends PropertyKey> = T extends unknown
+  ? Omit<T, TOmitted>
+  : never;

@@ -1,0 +1,34 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+<Meta title="Layout/Hero" />
+
+# Hero
+
+**An imposing hero banner to showcase something.**
+
+## Props
+
+| Property  | Type      | Required | Default value | Description                        |
+| --------- | --------- | -------- | ------------- | ---------------------------------- |
+| children  | ReactNode | yes      | N/A           | The content of the hero            |
+| className | string    | no       | N/A           | Add custom design to the component |
+
+## Usage
+
+The Hero Component uses the compound pattern to be more flexible.
+
+### Basic Hero
+
+<Canvas>
+  <Story id="layout-hero--basic-hero" name="BasicHero" />
+</Canvas>
+
+### Full Height Hero
+
+<Canvas>
+  <Story id="layout-hero--full-height-hero" name="FullHeightHero" />
+</Canvas>
+
+## Ressources
+
+[Official documentation](https://bulma.io/documentation/layout/footer)

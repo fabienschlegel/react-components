@@ -1,10 +1,10 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode, TextareaHTMLAttributes } from 'react';
 
 import clsx from 'clsx';
 
 import Field from '../field/Field';
 import Control from '../control/Control';
-import Textarea, { TextareaType } from '../textarea/Textarea';
+import Textarea, { TextareaProps } from '../textarea/Textarea';
 import Label, { LabelType } from '../label/Label';
 import Help, { HelpProps } from '../help/Help';
 
@@ -14,19 +14,19 @@ interface TextareaFieldComposition {
   Help: FunctionComponent<HelpProps>;
 }
 
-export interface ITextareaFieldProps {
+export interface TextareaFieldProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   name: string;
   label: ReactNode;
   children?: ReactNode;
   color?: Colors;
   size?: Sizes;
   labelProps?: LabelType;
-  textareaProps?: TextareaType;
+  textareaProps?: TextareaProps;
   helpProps?: HelpProps;
   isLoading?: boolean;
 }
 
-type TextareaFieldType = FunctionComponent<ITextareaFieldProps> & TextareaFieldComposition;
+type TextareaFieldType = FunctionComponent<TextareaFieldProps> & TextareaFieldComposition;
 
 const TextareaField: TextareaFieldType = ({
   name,

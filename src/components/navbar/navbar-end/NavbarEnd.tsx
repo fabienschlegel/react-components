@@ -2,12 +2,12 @@ import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-export interface INavbarEndProps {
+export interface NavbarEndProps {
   children: ReactNode;
   className?: string;
 }
 
-const NavbarEnd: FunctionComponent<INavbarEndProps> = ({ children, className }) => (
+const NavbarEnd: FunctionComponent<NavbarEndProps> = ({ children, className }) => (
   <div className={clsx('navbar-end', className)}>{children}</div>
 );
 

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent, HTMLAttributes, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
@@ -6,7 +6,7 @@ import Heading from '../heading/Heading';
 
 import { HeadingLevel, HeaderSize } from '../../types';
 
-export interface ITitleProps {
+export interface TitleProps extends HTMLAttributes<HTMLParagraphElement | HTMLHeadingElement> {
   children: ReactNode;
   size: HeaderSize;
   headingLevel?: HeadingLevel;
@@ -16,7 +16,7 @@ export interface ITitleProps {
   className?: string;
 }
 
-const Title: FunctionComponent<ITitleProps> = ({
+const Title: FunctionComponent<TitleProps> = ({
   children,
   size,
   headingLevel,
@@ -24,6 +24,7 @@ const Title: FunctionComponent<ITitleProps> = ({
   isSubtitle,
   isSpaced,
   className,
+  ...others
 }) => {
   const classNameValues = clsx(
     isSubtitle ? 'subtitle' : 'title',
@@ -34,9 +35,11 @@ const Title: FunctionComponent<ITitleProps> = ({
   return (
     <>
       {useParagraph ? (
-        <p className={classNameValues}>{children}</p>
+        <p className={classNameValues} {...others}>
+          {children}
+        </p>
       ) : (
-        <Heading headingLevel={headingLevel} className={classNameValues}>
+        <Heading headingLevel={headingLevel} className={classNameValues} {...others}>
           {children}
         </Heading>
       )}

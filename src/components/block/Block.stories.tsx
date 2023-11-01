@@ -1,20 +1,17 @@
-/* eslint-disable import/no-extraneous-dependencies, react/destructuring-assignment */
 import React, { FunctionComponent } from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { flexDecorator } from '../../../stories';
+
 import mdx from './Block.mdx';
 
-import BlockComponent, { IBlockProps } from './Block';
+import BlockComponent, { BlockProps } from './Block';
 
 export default {
   title: 'Elements/Block',
   component: BlockComponent,
-  decorators: [
-    (StoryComponent) => (
-      <div style={{ width: '500px', margin: '0 auto', paddingTop: '25px' }}>{StoryComponent()}</div>
-    ),
-  ],
+  decorators: [flexDecorator],
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -24,9 +21,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<FunctionComponent<IBlockProps>>;
+} as ComponentMeta<FunctionComponent<BlockProps>>;
 
-const Block: ComponentStory<FunctionComponent<IBlockProps>> = (args) => (
+const Block: ComponentStory<FunctionComponent<BlockProps>> = (args) => (
   <BlockComponent {...args}>{args.children}</BlockComponent>
 );
 

@@ -1,19 +1,21 @@
-/* eslint-disable import/no-extraneous-dependencies, react/destructuring-assignment */
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import { flexDecorator } from '../../../stories';
+
+import mdx from './FileField.mdx';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
-import FileField, { FileFieldType } from './FileField';
+import FileField, { FileFieldProps } from './FileField';
 
 export default {
   title: 'Form/FileField',
   component: FileField,
-  args: {},
   argTypes: {
-    size: {
+    sizes: {
       control: {
         type: 'select',
         options: ['is-small', 'is-normal', 'is-medium', 'is-large'],
@@ -37,16 +39,21 @@ export default {
       },
     },
   },
-  decorators: [
-    (StoryComponent) => (
-      <div style={{ margin: '0px auto', width: 450 }}>
-        <StoryComponent />
-      </div>
-    ),
-  ],
-} as Meta;
+  decorators: [flexDecorator],
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      page: mdx,
+      source: {
+        excludeDecorators: true,
+      },
+    },
+  },
+} as ComponentMeta<FunctionComponent<FileFieldProps>>;
 
-const Template: Story<FileFieldType> = (args) => <FileField {...args} />;
+const Template: ComponentStory<FunctionComponent<FileFieldProps>> = (args) => (
+  <FileField {...args} />
+);
 
 export const BasicFileField = Template.bind({});
 

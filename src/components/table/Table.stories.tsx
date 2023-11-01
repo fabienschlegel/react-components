@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
@@ -8,7 +7,7 @@ import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 import { fakeTableData, fakeTableConfig, fakeSortableTableConfig } from '../../__fake__/fakeData';
 
-import Table, { ITableProps } from './Table';
+import Table, { TableProps } from './Table';
 
 import { FakeDataType } from '../../__fake__/types';
 
@@ -25,7 +24,7 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<ITableProps<FakeDataType>> = (args) => <Table {...args} />;
+const Template: Story<TableProps<FakeDataType>> = (args) => <Table {...args} />;
 
 export const BasicTable = Template.bind({});
 BasicTable.args = {

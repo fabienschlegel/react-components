@@ -1,11 +1,10 @@
-/* eslint-disable import/no-extraneous-dependencies, react/destructuring-assignment */
 import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
 import * as ContentStories from '../content/Content.stories';
 
-import Section, { ISectionProps } from './Section';
+import Section, { SectionProps } from './Section';
 
 export default {
   title: 'Layout/Section',
@@ -20,7 +19,7 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<ISectionProps> = (args) => <Section {...args}>{args.children}</Section>;
+const Template: Story<SectionProps> = (args) => <Section {...args}>{args.children}</Section>;
 
 export const BasicSection = Template.bind({});
 BasicSection.args = {

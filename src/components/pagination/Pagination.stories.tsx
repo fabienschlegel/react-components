@@ -1,9 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Pagination, { IPaginationProps } from './Pagination';
+import Pagination, { PaginationProps } from './Pagination';
 
 export default {
   title: 'Components/Pagination',
@@ -11,7 +10,7 @@ export default {
   args: {},
 } as Meta;
 
-const Template: Story<IPaginationProps> = (args) => <Pagination {...args} />;
+const Template: Story<PaginationProps> = (args) => <Pagination {...args} />;
 
 export const BasicPagination = Template.bind({});
 BasicPagination.args = {

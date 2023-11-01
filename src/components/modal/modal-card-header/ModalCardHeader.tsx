@@ -4,13 +4,13 @@ import clsx from 'clsx';
 
 import Delete from '../../delete/Delete';
 
-export interface IModalCardHeaderProps {
+export interface ModalCardHeaderProps {
   children: ReactNode;
   onClose?: React.MouseEventHandler<HTMLButtonElement>;
   className?: string;
 }
 
-const ModalCardHeader: FunctionComponent<IModalCardHeaderProps> = ({
+const ModalCardHeader: FunctionComponent<ModalCardHeaderProps> = ({
   children,
   onClose,
   className,

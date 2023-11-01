@@ -3,26 +3,33 @@ import React, { FunctionComponent, ReactNode } from 'react';
 import clsx from 'clsx';
 
 import MediaLeft, { MediaLeftType } from './media-left/MediaLeft';
-import MediaElement, { IMediaElementProps } from './media-element/MediaElement';
+import MediaElement, { MediaElementProps } from './media-element/MediaElement';
 
 interface MediaObjectComposition {
   Left: FunctionComponent<MediaLeftType>;
-  Content: FunctionComponent<Omit<IMediaElementProps, 'type'>>;
-  Right: FunctionComponent<Omit<IMediaElementProps, 'type'>>;
+  Content: FunctionComponent<Omit<MediaElementProps, 'type'>>;
+  Right: FunctionComponent<Omit<MediaElementProps, 'type'>>;
 }
-export interface IMediaObjectProps {
+interface MediaObjectProps {
   children: ReactNode;
   className?: string;
 }
 
-type MediaObjectType = FunctionComponent<IMediaObjectProps> & MediaObjectComposition;
+export type MediaObjectType = FunctionComponent<MediaObjectProps> & MediaObjectComposition;
+
+const Content: FunctionComponent<Omit<MediaElementProps, 'type'>> = (args) => (
+  <MediaElement {...args} type="content" />
+);
+const Right: FunctionComponent<Omit<MediaElementProps, 'type'>> = (args) => (
+  <MediaElement {...args} type="right" />
+);
 
 const MediaObject: MediaObjectType = ({ children, className }) => (
   <article className={clsx('media', className)}>{children}</article>
 );
 
 MediaObject.Left = MediaLeft;
-MediaObject.Content = (args) => <MediaElement {...args} type="content" />;
-MediaObject.Right = (args) => <MediaElement {...args} type="right" />;
+MediaObject.Content = Content;
+MediaObject.Right = Right;
 
 export default MediaObject;

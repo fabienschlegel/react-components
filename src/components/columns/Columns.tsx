@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent, HTMLAttributes, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
@@ -6,7 +6,7 @@ import { getResponsiveColumn } from '../../utils/utils';
 
 import { ColumnsGap } from '../../types';
 
-export interface IColumnsGap {
+export interface ResponsiveColumnsGap {
   mobile?: ColumnsGap;
   tablet?: ColumnsGap;
   desktop?: ColumnsGap;
@@ -14,28 +14,27 @@ export interface IColumnsGap {
   fullhd?: ColumnsGap;
 }
 
-interface IOptions {
-  'is-mobile'?: boolean;
-  'is-desktop'?: boolean;
-  'is-gapless'?: boolean;
-  'is-multiline'?: boolean;
-  'is-vcentered'?: boolean;
-  'is-centered'?: boolean;
-}
-
-interface IColumnsProps {
+interface ColumnsProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
-  options?: IOptions;
+  isMobile?: boolean;
+  isDesktop?: boolean;
+  isGapless?: boolean;
+  isMultiline?: boolean;
+  isVcentered?: boolean;
+  isCentered?: boolean;
   columnsGap?: ColumnsGap;
-  responsiveColumnsGap?: IColumnsGap;
+  responsiveColumnsGap?: ResponsiveColumnsGap;
   className?: string;
 }
 
-type ColumnsType = IColumnsProps & React.HTMLAttributes<HTMLDivElement>;
-
-const Columns: FunctionComponent<ColumnsType> = ({
+const Columns: FunctionComponent<ColumnsProps> = ({
   children,
-  options,
+  isMobile,
+  isDesktop,
+  isGapless,
+  isMultiline,
+  isVcentered,
+  isCentered,
   columnsGap,
   responsiveColumnsGap,
   className,
@@ -43,7 +42,12 @@ const Columns: FunctionComponent<ColumnsType> = ({
   <div
     className={clsx(
       'columns',
-      options,
+      isMobile && 'is-mobile',
+      isDesktop && 'is-desktop',
+      isGapless && 'is-gapless',
+      isMultiline && 'is-multiline',
+      isVcentered && 'is-vcentered',
+      isCentered && 'is-centered',
       columnsGap,
       responsiveColumnsGap && getResponsiveColumn(responsiveColumnsGap),
       (columnsGap || responsiveColumnsGap) && 'is-variable',

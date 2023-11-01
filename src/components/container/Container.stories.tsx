@@ -1,16 +1,28 @@
-/* eslint-disable import/no-extraneous-dependencies, react/destructuring-assignment */
 import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
+import { flexDecorator } from '../../../stories';
+
 import * as NotificationStories from '../notification/Notification.stories';
 
-import Container, { IContainerProps } from './Container';
+import mdx from './Container.mdx';
+
+import Container, { ContainerProps } from './Container';
 
 export default {
   title: 'Layout/Container',
   component: Container,
-  args: {},
+  decorators: [flexDecorator],
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      page: mdx,
+      source: {
+        excludeDecorators: true,
+      },
+    },
+  },
   argTypes: {
     fullWidth: {
       control: {
@@ -27,7 +39,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<IContainerProps> = (args) => <Container {...args}>{args.children}</Container>;
+const Template: Story<ContainerProps> = (args) => <Container {...args}>{args.children}</Container>;
 
 export const BasicContainer = Template.bind({});
 BasicContainer.args = {
@@ -35,3 +47,5 @@ BasicContainer.args = {
     <NotificationStories.BasicNotification {...NotificationStories.BasicNotification.args} />
   ),
 };
+
+BasicContainer.storyName = 'Container';

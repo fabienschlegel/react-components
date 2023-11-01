@@ -1,28 +1,35 @@
-/* eslint-disable import/no-extraneous-dependencies, react/destructuring-assignment */
 import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
+import { flexDecorator } from '../../../stories';
+
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import mdx from './Card.mdx';
 
 import * as ContentStories from '../content/Content.stories';
 import * as HeadingStories from '../heading/Heading.stories';
 
-import Card, { ICardProps } from './Card';
+import Card, { CardProps } from './Card';
 
 export default {
   title: 'Components/Card',
   component: Card,
-  args: {},
-  argTypes: {},
+  decorators: [flexDecorator],
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      page: mdx,
+      source: {
+        excludeDecorators: true,
+      },
+    },
+  },
 } as Meta;
 
-const Template: Story<ICardProps> = (args) => (
-  <div style={{ margin: '0px auto', width: 450 }}>
-    <Card {...args}>{args.children}</Card>
-  </div>
-);
+const Template: Story<CardProps> = (args) => <Card {...args}>{args.children}</Card>;
 
 export const BasicCard = Template.bind({});
 BasicCard.args = {

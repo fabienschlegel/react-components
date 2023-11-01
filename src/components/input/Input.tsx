@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, InputHTMLAttributes } from 'react';
 
 import clsx from 'clsx';
 
@@ -14,7 +14,7 @@ interface InputProps {
   isStatic?: boolean;
 }
 
-export type InputType = InputProps & React.InputHTMLAttributes<HTMLInputElement>;
+export type InputType = InputProps & InputHTMLAttributes<HTMLInputElement>;
 
 const Input: FunctionComponent<InputType> = ({
   inputSize,

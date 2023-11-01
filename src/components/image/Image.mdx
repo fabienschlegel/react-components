@@ -1,0 +1,29 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+<Meta title="Elements/Image" />
+
+# Image
+
+**A container for responsive images**
+
+## Props
+
+| Property          | Type              | Required | Default value | Description                              |
+| ----------------- | ----------------- | -------- | ------------- | ---------------------------------------- |
+| src               | string            | yes      | N/A           | The source of the image                  |
+| alt               | string            | yes      | N/A           | The alternate of the image               |
+| squaredDimensions | SquaredDimensions | no       | N/A           | Set squared dimensions to the component  |
+| ratio             | Ratio             | no       | N/A           | Set ratio to the component               |
+| isRounded         | boolean           | no       | N/A           | Add custom design to the component       |
+| className         | string            | no       | N/A           | Add custom design to the figure HTML tag |
+| imgClassName      | string            | no       | N/A           | Add custom design to the img HTML tag    |
+
+## Usage
+
+<Canvas>
+  <Story id="elements-image--basic-image" name="BasicImage" />
+</Canvas>
+
+## Ressources
+
+[Official documentation](https://bulma.io/documentation/elements/image)

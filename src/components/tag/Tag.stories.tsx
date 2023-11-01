@@ -1,19 +1,17 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Delete from '../delete/Delete';
 
-import Tag, { ITagProps } from './Tag';
+import Tag, { TagProps } from './Tag';
 
 export default {
   title: 'Elements/Tag',
   component: Tag,
-  args: {},
-} as Meta;
+} as ComponentMeta<FunctionComponent<TagProps>>;
 
-const Template: Story<ITagProps> = (args) => {
+const Template: ComponentStory<FunctionComponent<TagProps>> = (args) => {
   const { children } = args;
   return <Tag {...args}>{children}</Tag>;
 };

@@ -1,0 +1,36 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+<Meta title="Elements/Button" />
+
+# Button
+
+**The button is an essential element of any design. It's meant to look and behave as an interactive element of your page.**
+
+## Props
+
+| Property     | Type                               | Required | Default value | Description                                                      |
+| ------------ | ---------------------------------- | -------- | ------------- | ---------------------------------------------------------------- |
+| children     | ReactNode                          | yes      | N/A           | The content of the button                                        |
+| size         | Sizes                              | no       | N/A           | Change the size of the button                                    |
+| color        | Colors, AnotherColors, LightColors | no       | N/A           | Change the color of the button                                   |
+| isFullWidth  | boolean                            | no       | N/A           | Button is full width                                             |
+| isOutlined   | boolean                            | no       | N/A           | Button is outlined                                               |
+| isInverted   | boolean                            | no       | N/A           | The text color becomes the background color, and vice-versa      |
+| isRounded    | boolean                            | no       | N/A           | Button is rounded                                                |
+| isHovered    | boolean                            | no       | N/A           | Button is same as with `hover` pseudo-class                      |
+| isFocused    | boolean                            | no       | N/A           | Button is same as with `focus` pseudo-class                      |
+| isActive     | boolean                            | no       | N/A           | Button is same as with `active` pseudo-class                     |
+| isLoading    | boolean                            | no       | N/A           | Loading version of the button. Hide inner text and maintain size |
+| isStatic     | boolean                            | no       | N/A           | Create a non interactive button                                  |
+| isResponsive | boolean                            | no       | N/A           | Add different button sizes for each breakpoint                   |
+| className    | string                             | no       | N/A           | Add custom design to the component                               |
+
+## Usage
+
+<Canvas>
+  <Story id="elements-button--basic-button" name="BasicButton" />
+</Canvas>
+
+## Ressources
+
+[Official documentation](https://bulma.io/documentation/elements/button/)

@@ -1,14 +1,14 @@
 import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
-import ModalCardHeader, { IModalCardHeaderProps } from '../modal-card-header/ModalCardHeader';
-import ModalCardBody, { IModalCardBodyProps } from '../modal-card-body/ModalCardBody';
-import ModalCardFooter, { IModalCardFooterProps } from '../modal-card-footer/ModalCardFooter';
+import ModalCardHeader, { ModalCardHeaderProps } from '../modal-card-header/ModalCardHeader';
+import ModalCardBody, { ModalCardBodyProps } from '../modal-card-body/ModalCardBody';
+import ModalCardFooter, { ModalCardFooterProps } from '../modal-card-footer/ModalCardFooter';
 
 interface ModalCardComposition {
-  Header: FunctionComponent<IModalCardHeaderProps>;
-  Body: FunctionComponent<IModalCardBodyProps>;
-  Footer: FunctionComponent<IModalCardFooterProps>;
+  Header: FunctionComponent<ModalCardHeaderProps>;
+  Body: FunctionComponent<ModalCardBodyProps>;
+  Footer: FunctionComponent<ModalCardFooterProps>;
 }
 
 interface IModalCardProps {

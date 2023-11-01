@@ -1,11 +1,10 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
 import * as HelpStories from '../help/Help.stories';
 
-import TextareaField, { ITextareaFieldProps } from './TextareaField';
+import TextareaField, { TextareaFieldProps } from './TextareaField';
 
 export default {
   title: 'Form/TextareaField',
@@ -20,7 +19,7 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<ITextareaFieldProps> = (args) => <TextareaField {...args} />;
+const Template: Story<TextareaFieldProps> = (args) => <TextareaField {...args} />;
 
 export const BasicTextareaField = Template.bind({});
 BasicTextareaField.args = {
@@ -31,5 +30,5 @@ BasicTextareaField.args = {
 export const TextareaFieldWithHelper = Template.bind({});
 TextareaFieldWithHelper.args = {
   ...BasicTextareaField.args,
-  children: <HelpStories.BasicHelp {...HelpStories.BasicHelp.args} />,
+  children: <TextareaField.Help {...HelpStories.BasicHelp.args} />,
 };

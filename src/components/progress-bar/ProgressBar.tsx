@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, ProgressHTMLAttributes } from 'react';
 
 import clsx from 'clsx';
 
 import { Colors, Sizes } from '../../types';
 
-export interface ProgressBarProps {
+export interface ProgressBarProps extends ProgressHTMLAttributes<HTMLProgressElement> {
   value?: number;
   max?: number;
   color?: Colors;
@@ -18,6 +18,14 @@ const ProgressBar: FunctionComponent<ProgressBarProps> = ({
   color,
   size,
   className,
-}) => <progress className={clsx('progress', color, size, className)} value={value} max={max} />;
+  ...others
+}) => (
+  <progress
+    className={clsx('progress', color, size, className)}
+    value={value}
+    max={max}
+    {...others}
+  />
+);
 
 export default ProgressBar;

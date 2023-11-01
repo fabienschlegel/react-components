@@ -1,22 +1,24 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { ComponentPropsWithRef, ElementType, ForwardedRef, ReactNode } from 'react';
 
-import { Link } from 'react-router-dom';
+import { fixedForwardRef } from '../../../utils/utils';
 
-export interface IMenuItemProps {
+import { DistributiveOmit } from 'types';
+
+export type MenuItemProps<TAs extends ElementType> = {
   children: ReactNode;
-  to: string;
-  renderAsAnchor?: boolean;
-  className?: string;
-}
+  as?: TAs;
+} & DistributiveOmit<ComponentPropsWithRef<ElementType extends TAs ? 'a' : TAs>, 'as'>;
 
-const MenuList: FunctionComponent<IMenuItemProps> = ({ children, to, renderAsAnchor, className }) =>
-  renderAsAnchor ? (
-    <a href={to} className={className}>
+const MenuList = <TAs extends ElementType>(
+  props: MenuItemProps<TAs>,
+  ref: ForwardedRef<unknown>
+) => {
+  const { children, as: Comp = 'a', ...others } = props;
+
+  return (
+    <Comp {...others} ref={ref}>
       {children}
-    </a>
-  ) : (
-    <Link className={className} to={to}>
-      {children}
-    </Link>
+    </Comp>
   );
-export default MenuList;
+};
+export default fixedForwardRef(MenuList);

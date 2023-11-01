@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, TextareaHTMLAttributes } from 'react';
 
 import clsx from 'clsx';
 
 import { Colors, Sizes } from '../../types';
 
-interface ITextareaProps {
+export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   size?: Sizes;
   borderColor?: Colors;
   isHovered?: boolean;
@@ -14,9 +14,7 @@ interface ITextareaProps {
   hasFixedSize?: boolean;
 }
 
-export type TextareaType = ITextareaProps & React.TextareaHTMLAttributes<HTMLTextAreaElement>;
-
-const Textarea: FunctionComponent<TextareaType> = ({
+const Textarea: FunctionComponent<TextareaProps> = ({
   size,
   borderColor,
   isHovered,

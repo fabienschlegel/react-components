@@ -15,7 +15,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "types": ["node"],
+    "types": ["node", "jest", "@testing-library/jest-dom"],
     "jsx": "react-jsx",
     "outDir": "dist",
     "rootDir": "src"
@@ -25,11 +25,14 @@
     "node_modules",
     "src/**/*.spec.ts",
     "src/**/*.spec.tsx",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
     "src/**/*.stories.ts",
     "src/**/*.stories.tsx",
-    "src/setupTests.ts",
     "src/__mocks__/*",
-    "src/__fake__/*"
+    "src/__fake__/*",
+    "src/jest-setup.ts",
+    "stories/*"
   ],
   "include": ["src"]
 }

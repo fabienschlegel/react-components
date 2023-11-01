@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import { SquaredDimensions } from '../../../types';
 
-interface IMediaLeftProps {
+interface MediaLeftProps {
   src: string;
   alt: string;
   squaredDimensions?: SquaredDimensions;
@@ -13,7 +13,7 @@ interface IMediaLeftProps {
   imgClassName?: string;
 }
 
-export type MediaLeftType = IMediaLeftProps & React.ImgHTMLAttributes<HTMLImageElement>;
+export type MediaLeftType = MediaLeftProps & React.ImgHTMLAttributes<HTMLImageElement>;
 
 const MediaLeft: FunctionComponent<MediaLeftType> = ({
   src,

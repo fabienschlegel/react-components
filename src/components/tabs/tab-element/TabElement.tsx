@@ -1,25 +1,30 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { ComponentPropsWithRef, ElementType, ForwardedRef, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-import { Link, useLocation } from 'react-router-dom';
+import { fixedForwardRef } from '../../../utils/utils';
 
-export interface ITabElementProps {
+import { DistributiveOmit } from 'types';
+
+export type TabElementProps<TAs extends ElementType> = {
   children: string | ReactNode;
-  to: string;
   isActive?: boolean;
   className?: string;
-}
+  as?: TAs;
+} & DistributiveOmit<ComponentPropsWithRef<ElementType extends TAs ? 'a' : TAs>, 'as'>;
 
-const TabElement: FunctionComponent<ITabElementProps> = ({ children, to, isActive, className }) => {
-  const location = useLocation();
-
-  const { pathname } = location;
+const TabElement = <TAs extends ElementType>(
+  props: TabElementProps<TAs>,
+  ref: ForwardedRef<unknown>
+) => {
+  const { children, isActive, className, as: Comp = 'a', ...others } = props;
   return (
-    <li key={to} className={clsx(pathname === to || isActive ? 'is-active' : undefined, className)}>
-      <Link to={to}>{children}</Link>
+    <li className={clsx(isActive && 'is-active', className)}>
+      <Comp {...others} ref={ref}>
+        {children}
+      </Comp>
     </li>
   );
 };
 
-export default TabElement;
+export default fixedForwardRef(TabElement);

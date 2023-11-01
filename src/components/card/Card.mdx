@@ -1,0 +1,52 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+<Meta title="Components/Card" />
+
+# Card
+
+**The card component comprises several elements that you can mix and match.**
+
+## Props
+
+| Property  | Type      | Required | Default value | Description                        |
+| --------- | --------- | -------- | ------------- | ---------------------------------- |
+| children  | ReactNode | yes      | N/A           | The content of the box             |
+| className | string    | no       | N/A           | Add custom design to the component |
+
+## Usage
+
+The Card Component uses the compound pattern to be more flexible.
+
+### Basic Card
+
+<Canvas>
+  <Story id="components-card--basic-card" name="BasicCard" />
+</Canvas>
+
+### Card with Footer
+
+<Canvas>
+  <Story id="components-card--card-with-footer" name="CardWithFooter" />
+</Canvas>
+
+### Card with Image
+
+<Canvas>
+  <Story id="components-card--card-with-image" name="CardWithImage" />
+</Canvas>
+
+### Card with Header
+
+<Canvas>
+  <Story id="components-card--card-with-header" name="CardWithHeader" />
+</Canvas>
+
+### Card with Header Icon
+
+<Canvas>
+  <Story id="components-card--card-with-header-icon" name="CardWithHeaderIcon" />
+</Canvas>
+
+## Ressources
+
+[Official documentation](https://bulma.io/documentation/components/card)

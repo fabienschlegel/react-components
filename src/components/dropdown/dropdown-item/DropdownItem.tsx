@@ -1,28 +1,33 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { ComponentPropsWithRef, ElementType, ForwardedRef, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-import { Link } from 'react-router-dom';
+import { fixedForwardRef } from '../../../utils/utils';
 
-export interface IDropdownItemProps {
+import { DistributiveOmit } from 'types';
+
+export type DropdownItemProps<TAs extends ElementType> = {
   children: ReactNode;
-  to?: string;
   isActive?: boolean;
   className?: string;
-}
+  as?: TAs;
+} & DistributiveOmit<ComponentPropsWithRef<ElementType extends TAs ? 'a' : TAs>, 'as'>;
 
-const DropdownItem: FunctionComponent<IDropdownItemProps> = ({
-  children,
-  to,
-  isActive,
-  className,
-}) =>
-  to ? (
-    <Link to={to} className={clsx('dropdown-item', isActive && 'is-active')}>
+const DropdownItem = <TAs extends ElementType>(
+  props: DropdownItemProps<TAs>,
+  ref: ForwardedRef<unknown>
+) => {
+  const { children, isActive, className, as: Comp = 'a', ...others } = props;
+
+  return (
+    <Comp
+      className={clsx('dropdown-item', isActive && 'is-active', className)}
+      {...others}
+      ref={ref}
+    >
       {children}
-    </Link>
-  ) : (
-    <div className={clsx('dropdown-item', className)}>{children}</div>
+    </Comp>
   );
+};
 
-export default DropdownItem;
+export default fixedForwardRef(DropdownItem);

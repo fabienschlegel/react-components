@@ -4,13 +4,13 @@ import clsx from 'clsx';
 
 import Delete from '../../delete/Delete';
 
-export interface IMessageHeaderProps {
+export interface MessageHeaderProps {
   children: ReactNode;
   onDelete: () => void;
   className?: string;
 }
 
-const MessageHeader: FunctionComponent<IMessageHeaderProps> = ({
+const MessageHeader: FunctionComponent<MessageHeaderProps> = ({
   children,
   onDelete,
   className,

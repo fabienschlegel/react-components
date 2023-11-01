@@ -7,7 +7,7 @@ import Button from '../button/Button';
 import { Alignment, Sizes } from '../../types';
 import usePagination from './hook/usePagination';
 
-export interface IPaginationProps {
+export interface PaginationProps {
   currentPage: number;
   lastPage: number;
   previousPageIcon?: ReactNode;
@@ -19,7 +19,7 @@ export interface IPaginationProps {
   isRounded?: boolean;
 }
 
-const Pagination: FunctionComponent<IPaginationProps> = ({
+const Pagination: FunctionComponent<PaginationProps> = ({
   currentPage,
   lastPage,
   previousPageIcon,
@@ -53,7 +53,7 @@ const Pagination: FunctionComponent<IPaginationProps> = ({
         onClick={() => changePage(currentPage - 1)}
         disabled={currentPage <= 1}
       >
-        {previousPageIcon || <>&#x23F4;</>}
+        {previousPageIcon || <>⏴</>}
       </Button>
 
       <Button
@@ -61,7 +61,7 @@ const Pagination: FunctionComponent<IPaginationProps> = ({
         onClick={() => changePage(currentPage + 1)}
         disabled={currentPage >= lastPage}
       >
-        {nextPageIcon || <>&#x23F5;</>}
+        {nextPageIcon || <>⏵</>}
       </Button>
       <ul className="pagination-list">
         {displayFirstPage && (

@@ -2,13 +2,13 @@ import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-interface IRadioElementProps {
+interface RadioElementProps {
   children: ReactNode;
   name: string;
   className?: string;
 }
 
-export type RadioElementType = IRadioElementProps & React.InputHTMLAttributes<HTMLInputElement>;
+export type RadioElementType = RadioElementProps & React.InputHTMLAttributes<HTMLInputElement>;
 
 const RadioElement: FunctionComponent<RadioElementType> = ({
   children,
@@ -16,7 +16,6 @@ const RadioElement: FunctionComponent<RadioElementType> = ({
   className,
   ...others
 }) => (
-  // eslint-disable-next-line jsx-a11y/label-has-associated-control
   <label className={clsx('radio', className)}>
     <input type="radio" name={name} {...others} className="mr-1" />
     {children}

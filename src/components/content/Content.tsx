@@ -1,17 +1,19 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent, HTMLAttributes, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
 import { Sizes } from '../../types';
 
-export interface IContentProps {
+export interface ContentProps extends HTMLAttributes<HTMLElement> {
   children: ReactNode | string;
   size?: Sizes;
   className?: string;
 }
 
-const Content: FunctionComponent<IContentProps> = ({ children, size, className }) => (
-  <div className={clsx('content', size, className)}>{children}</div>
+const Content: FunctionComponent<ContentProps> = ({ children, size, className, ...others }) => (
+  <div className={clsx('content', size, className)} {...others}>
+    {children}
+  </div>
 );
 
 export default Content;

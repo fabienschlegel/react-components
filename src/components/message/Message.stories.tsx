@@ -1,9 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Message, { IMessageProps } from './Message';
+import Message, { MessageProps } from './Message';
 
 export default {
   title: 'Components/Message',
@@ -11,7 +10,7 @@ export default {
   args: {},
 } as Meta;
 
-const Template: Story<IMessageProps> = (args) => {
+const Template: Story<MessageProps> = (args) => {
   const { children } = args;
   return (
     <div style={{ margin: '0px auto', width: 600 }}>
@@ -36,7 +35,7 @@ export const MessageWithHeader = Template.bind({});
 MessageWithHeader.args = {
   children: (
     <>
-      <Message.Header onDelete={() => {}}>Message Header</Message.Header>
+      <Message.Header onDelete={() => null}>Message Header</Message.Header>
       <Message.Body>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at egestas nisi. Pellentesque
         id pulvinar ipsum. Mauris imperdiet elit et euismod mattis. Quisque malesuada vitae est ut

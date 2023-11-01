@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode, SelectHTMLAttributes } from 'react';
 
 import clsx from 'clsx';
 
@@ -29,7 +29,7 @@ interface SelectProps {
   controlIsExpanded?: boolean;
 }
 
-export type SelectType = SelectProps & React.SelectHTMLAttributes<HTMLSelectElement>;
+export type SelectType = SelectProps & SelectHTMLAttributes<HTMLSelectElement>;
 
 const Select: FunctionComponent<SelectType> = ({
   options,
@@ -46,7 +46,7 @@ const Select: FunctionComponent<SelectType> = ({
 }) => (
   <Control
     isExpanded={controlIsExpanded}
-    icons={hasIconLeft ? { leftIcon: hasIconLeft, leftIconClassName: size } : undefined}
+    leftIcon={hasIconLeft ? { icon: hasIconLeft, className: size } : undefined}
   >
     <div
       className={clsx(

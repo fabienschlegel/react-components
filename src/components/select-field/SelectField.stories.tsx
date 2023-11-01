@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies, react/destructuring-assignment */
 import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
@@ -8,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import * as HelpStories from '../help/Help.stories';
 
-import SelectField, { ISelectFieldProps } from './SelectField';
+import SelectField, { SelectFieldProps } from './SelectField';
 
 export default {
   title: 'Form/SelectField',
@@ -23,7 +22,7 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<ISelectFieldProps> = (args) => <SelectField {...args} />;
+const Template: Story<SelectFieldProps> = (args) => <SelectField {...args} />;
 
 const options = [
   {

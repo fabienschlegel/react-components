@@ -1,25 +1,26 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent, HTMLAttributes, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
 import { AnotherColors, Colors, LightColors, Sizes } from '../../types';
 
-export interface ITagProps {
+export interface TagProps extends HTMLAttributes<HTMLSpanElement> {
   children: ReactNode;
-  color?: Colors | Omit<AnotherColors, 'is-text' | 'is-ghost'> | LightColors;
+  color?: Colors | AnotherColors | LightColors;
   size?: Omit<Sizes, 'is-small'>;
   isRounded?: boolean;
   isDelete?: boolean;
   className?: string;
 }
 
-const Tag: FunctionComponent<ITagProps> = ({
+const Tag: FunctionComponent<TagProps> = ({
   children,
   color,
   size,
   isRounded,
   isDelete,
   className,
+  ...others
 }) => (
   <span
     className={clsx(
@@ -30,6 +31,7 @@ const Tag: FunctionComponent<ITagProps> = ({
       isDelete && 'is-delete',
       className
     )}
+    {...others}
   >
     {children}
   </span>

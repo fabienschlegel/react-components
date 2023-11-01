@@ -1,0 +1,27 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+<Meta title="Elements/Content" />
+
+# Content
+
+**A single class to handle WYSIWYG generated content, where only HTML tags are available.**
+
+## Props
+
+| Property  | Type      | Required | Default value | Description                             |
+| --------- | --------- | -------- | ------------- | --------------------------------------- |
+| children  | ReactNode | yes      | N/A           | The content of the box                  |
+| size      | Sizes     | no       | N/A           | Change the size of the content          |
+| className | string    | no       | N/A           | Add custom design to the input checkbox |
+
+## Usage
+
+### Basic content
+
+<Canvas>
+  <Story id="elements-content--basic-content" name="BasicContent" />
+</Canvas>
+
+## Ressources
+
+[Official documentation](https://bulma.io/documentation/elements/content)

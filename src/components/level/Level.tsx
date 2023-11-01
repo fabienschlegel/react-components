@@ -11,20 +11,28 @@ interface LevelComposition {
   Item: FunctionComponent<LevelItemProps>;
 }
 
-export interface ILevelProps {
+interface LevelProps {
   children: ReactNode;
   isMobile?: boolean;
   className?: string;
 }
 
-type LevelType = FunctionComponent<ILevelProps> & LevelComposition;
+export type LevelType = FunctionComponent<LevelProps> & LevelComposition;
+
+const LevelLeft: FunctionComponent<Omit<LevelSideProps, 'side'>> = (args) => (
+  <LevelSide {...args} side="left" />
+);
+
+const LevelRight: FunctionComponent<Omit<LevelSideProps, 'side'>> = (args) => (
+  <LevelSide {...args} side="right" />
+);
 
 const Level: LevelType = ({ children, isMobile, className }) => (
   <nav className={clsx('level', isMobile && 'is-mobile', className)}>{children}</nav>
 );
 
-Level.Left = (args) => <LevelSide {...args} side="left" />;
-Level.Right = (args) => <LevelSide {...args} side="right" />;
+Level.Left = LevelLeft;
+Level.Right = LevelRight;
 Level.Item = LevelItem;
 
 export default Level;

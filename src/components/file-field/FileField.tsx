@@ -1,34 +1,33 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent, InputHTMLAttributes, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
 import { Alignment, AnotherColors, Colors, Sizes } from '../../types';
 
-interface IFileFieldProps {
+export interface FileFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   fileLabel: string;
   fileName?: string;
   downloadIcon?: ReactNode;
-  color?: Colors | Omit<AnotherColors, 'is-text' | 'is-ghost'>;
-  size?: Sizes;
+  color?: Colors | AnotherColors;
+  sizes?: Sizes;
   alignment?: Alignment;
   isFullWidth?: boolean;
   isBoxed?: boolean;
+  className?: string;
 }
 
-export type FileFieldType = IFileFieldProps & React.InputHTMLAttributes<HTMLInputElement>;
-
-const FileField: FunctionComponent<FileFieldType> = ({
+const FileField: FunctionComponent<FileFieldProps> = ({
   name,
   fileLabel,
   fileName,
   downloadIcon,
   color,
-  size,
+  sizes,
   alignment,
   isFullWidth,
   isBoxed,
+  className,
   ...others
 }) => (
   <div
@@ -36,10 +35,11 @@ const FileField: FunctionComponent<FileFieldType> = ({
       'file',
       fileName && 'has-name',
       color,
-      size,
+      sizes,
       alignment,
       isFullWidth && 'is-fullwidth',
-      isBoxed && 'is-boxed'
+      isBoxed && 'is-boxed',
+      className
     )}
   >
     <label className="file-label">

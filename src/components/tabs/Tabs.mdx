@@ -1,0 +1,40 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+<Meta title="Components/Tabs" />
+
+# Tabs
+
+**Simple responsive horizontal navigation tabs, with different styles**
+
+## Props
+
+| Property        | Type      | Required | Default value | Description                               |
+| --------------- | --------- | -------- | ------------- | ----------------------------------------- |
+| children        | ReactNode | yes      | N/A           | The content of the tabs                   |
+| alignment       | Alignment | no       | N/A           | The alignment of the tabs                 |
+| size            | Sizes     | no       | N/A           | The size of the tabs                      |
+| isBoxed         | boolean   | no       | N/A           | Add borders to the component              |
+| isToggle        | boolean   | no       | N/A           | Add button radios design to the component |
+| isToggleRounded | boolean   | no       | N/A           | Add rounded style to the component        |
+| isFullWidth     | boolean   | no       | N/A           | Component take the whole width            |
+| className       | string    | no       | N/A           | Add custom design to the component        |
+
+## Usage
+
+The Tabs Component uses the compound pattern to be more flexible.
+
+### Basic Tabs
+
+<Canvas>
+  <Story id="components-tabs--basic-tabs" name="BasicTabs" />
+</Canvas>
+
+### Icon Tabs
+
+<Canvas>
+  <Story id="components-tabs--icon-tabs" name="IconTabs" />
+</Canvas>
+
+## Ressources
+
+[Official documentation](https://bulma.io/documentation/components/tabs/)

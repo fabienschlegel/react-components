@@ -8,12 +8,12 @@ import TableCell from '../table-cell/TableCell';
 
 import { TableConfig } from '../../../types';
 
-interface ITableBodyProps<T> {
+interface TableBodyProps<T> {
   config: TableConfig<T>;
   data: T[];
 }
 
-export default function TableBody<T>({ config, data: allData }: ITableBodyProps<T>): JSX.Element {
+export default function TableBody<T>({ config, data: allData }: TableBodyProps<T>): JSX.Element {
   const getOrderedColumns = (orderedColumnsConfig: TableConfig<T>) => orderedColumnsConfig.columns; // later ordering columns will be enabled
   const renderRow = (renderRowConfig: TableConfig<T>, data: T[], rowIndex: number, rowData: T) => {
     const { handleClickOnRow } = renderRowConfig;

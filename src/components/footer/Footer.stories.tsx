@@ -1,7 +1,10 @@
-/* eslint-disable import/no-extraneous-dependencies, react/destructuring-assignment */
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import { fullDecorator } from '../../../stories';
+
+import mdx from './Footer.mdx';
 
 import * as ContentStories from '../content/Content.stories';
 
@@ -10,10 +13,21 @@ import Footer, { FooterProps } from './Footer';
 export default {
   title: 'Layout/Footer',
   component: Footer,
-  args: {},
-} as Meta;
+  decorators: [fullDecorator],
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      page: mdx,
+      source: {
+        excludeDecorators: true,
+      },
+    },
+  },
+} as ComponentMeta<FunctionComponent<FooterProps>>;
 
-const Template: Story<FooterProps> = (args) => <Footer {...args}>{args.children}</Footer>;
+const Template: ComponentStory<FunctionComponent<FooterProps>> = (args) => (
+  <Footer {...args}>{args.children}</Footer>
+);
 
 export const BasicFooter = Template.bind({});
 BasicFooter.args = {
@@ -23,3 +37,5 @@ BasicFooter.args = {
     </ContentStories.BasicContent>
   ),
 };
+
+BasicFooter.storyName = 'Footer';
