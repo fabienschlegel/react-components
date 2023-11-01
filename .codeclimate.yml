@@ -21,11 +21,11 @@ plugins:
   eslint:
     enabled: true
     config: 
-      config: .eslintrc
+      config: .eslintrc.json
       extensions:
         - .ts
         - .tsx
-    channel: "eslint-7"
+    channel: "eslint-8"
     checks:
       '@typescript-eslint/object-curly-spacing':
         enabled: false
