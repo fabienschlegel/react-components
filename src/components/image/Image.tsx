@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, ImgHTMLAttributes } from 'react';
 
 import clsx from 'clsx';
 
 import { Ratio, SquaredDimensions } from '../../types';
 
-interface ImageProps {
+export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   src: string;
   alt: string;
   squaredDimensions?: SquaredDimensions;
@@ -14,9 +14,7 @@ interface ImageProps {
   imgClassName?: string;
 }
 
-export type ImageType = ImageProps & React.ImgHTMLAttributes<HTMLImageElement>;
-
-const Image: FunctionComponent<ImageType> = ({
+const Image: FunctionComponent<ImageProps> = ({
   src,
   alt,
   squaredDimensions,

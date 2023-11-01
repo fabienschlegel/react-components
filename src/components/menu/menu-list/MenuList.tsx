@@ -2,12 +2,12 @@ import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-export interface IMenuListProps {
+export interface MenuListProps {
   children: ReactNode;
   className?: string;
 }
 
-const MenuList: FunctionComponent<IMenuListProps> = ({ children, className }) => (
+const MenuList: FunctionComponent<MenuListProps> = ({ children, className }) => (
   <ul className={clsx('menu-list', className)}>{children}</ul>
 );
 

@@ -14,13 +14,14 @@ interface InputFieldComposition {
 
 export interface InputFieldProps {
   name: string;
-  label: React.ReactNode;
+  label: ReactNode;
   children?: ReactNode;
   color?: Colors;
   size?: Sizes;
   labelProps?: LabelType;
   inputProps?: InputType;
-  icons?: IconsProps;
+  leftIcon?: IconsProps;
+  rightIcon?: IconsProps;
   controlIsExpanded?: boolean;
 }
 
@@ -34,14 +35,15 @@ const InputField: InputFieldType = ({
   size,
   labelProps,
   inputProps,
-  icons,
+  leftIcon,
+  rightIcon,
   controlIsExpanded,
 }) => (
   <Field>
     <Label size={size} htmlFor={name} {...labelProps}>
       {label}
     </Label>
-    <Control isExpanded={controlIsExpanded} icons={icons}>
+    <Control isExpanded={controlIsExpanded} leftIcon={leftIcon} rightIcon={rightIcon}>
       <Input inputSize={size} name={name} borderColor={color} {...inputProps} />
     </Control>
     {children}

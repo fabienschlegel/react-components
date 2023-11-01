@@ -1,43 +1,40 @@
-/* eslint-disable react/button-has-type */
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent, ButtonHTMLAttributes, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-import { Colors, AnotherColors, LightColors, Sizes } from '../../types';
+import { Colors, AnotherColors, LightColors, Sizes, NoColors } from '../../types';
 
-interface IStyles {
-  'is-outlined'?: boolean;
-  'is-inverted'?: boolean;
-  'is-rounded'?: boolean;
-}
-
-interface IStates {
-  'is-hovered'?: boolean;
-  'is-focused'?: boolean;
-  'is-active'?: boolean;
-  'is-loading'?: boolean;
-  'is-static'?: boolean;
-}
-
-interface IButtonProps {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   size?: Sizes;
-  color?: Colors | AnotherColors | LightColors;
+  color?: Colors | AnotherColors | NoColors | LightColors;
   isFullWidth?: boolean;
-  styles?: IStyles;
-  states?: IStates;
+  isOutlined?: boolean;
+  isInverted?: boolean;
+  isRounded?: boolean;
+  isHovered?: boolean;
+  isFocused?: boolean;
+  isActive?: boolean;
+  isLoading?: boolean;
+  isStatic?: boolean;
+  isResponsive?: boolean;
   className?: string;
 }
 
-export type ButtonType = IButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
-
-const Button: FunctionComponent<ButtonType> = ({
+const Button: FunctionComponent<ButtonProps> = ({
   children,
   size,
   color,
   isFullWidth,
-  styles,
-  states,
+  isOutlined,
+  isInverted,
+  isRounded,
+  isHovered,
+  isFocused,
+  isActive,
+  isLoading,
+  isStatic,
+  isResponsive,
   className,
   ...others
 }) => (
@@ -47,8 +44,15 @@ const Button: FunctionComponent<ButtonType> = ({
       size,
       color,
       isFullWidth && 'is-fullwidth',
-      styles,
-      states,
+      isOutlined && 'is-outlined',
+      isInverted && 'is-inverted',
+      isRounded && 'is-rounded',
+      isHovered && 'is-hovered',
+      isFocused && 'is-focused',
+      isActive && 'is-active',
+      isLoading && 'is-loading',
+      isStatic && 'is-static',
+      isResponsive && 'is-responsive',
       className
     )}
     {...others}

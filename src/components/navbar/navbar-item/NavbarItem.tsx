@@ -1,28 +1,28 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { ComponentPropsWithRef, ElementType, ForwardedRef, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-import { Link } from 'react-router-dom';
+import { fixedForwardRef } from '../../../utils/utils';
 
-export interface INavbarItemProps {
+import { DistributiveOmit } from 'types';
+
+export type NavbarItemProps<TAs extends ElementType> = {
   children: ReactNode;
-  to?: string;
-  asDiv?: boolean;
   className?: string;
-}
+  as?: TAs;
+} & DistributiveOmit<ComponentPropsWithRef<ElementType extends TAs ? 'a' : TAs>, 'as'>;
 
-const NavbarItem: FunctionComponent<INavbarItemProps> = ({ children, to, asDiv, className }) => (
-  <>
-    {asDiv ? (
-      <div className={clsx('navbar-item', className)}>{children}</div>
-    ) : (
-      to && (
-        <Link to={to} className={clsx('navbar-item', className)}>
-          {children}
-        </Link>
-      )
-    )}
-  </>
-);
+const NavbarItem = <TAs extends ElementType>(
+  props: NavbarItemProps<TAs>,
+  ref: ForwardedRef<unknown>
+) => {
+  const { children, className, as: Comp = 'a', ...others } = props;
 
-export default NavbarItem;
+  return (
+    <Comp className={clsx('navbar-item', className)} {...others} ref={ref}>
+      {children}
+    </Comp>
+  );
+};
+
+export default fixedForwardRef(NavbarItem);

@@ -1,32 +1,39 @@
-import React, { ReactNode, useState, useCallback, FunctionComponent } from 'react';
+import {
+  ReactNode,
+  useState,
+  useCallback,
+  FunctionComponent,
+  createContext,
+  HTMLAttributes,
+} from 'react';
 
 import clsx from 'clsx';
 
-import NavbarBrand from './navbar-brand/NavbarBrand';
-import NavbarDivider, { INavbarDividerProps } from './navbar-divider/NavbarDivider';
-import NavbarDropdown, { INavbarDropdownProps } from './navbar-dropdown/NavbarDropdown';
-import NavbarEnd, { INavbarEndProps } from './navbar-end/NavbarEnd';
-import NavbarItem, { INavbarItemProps } from './navbar-item/NavbarItem';
-import NavbarStart, { INavbarStartProps } from './navbar-start/NavbarStart';
+import NavbarMenu, { NavbarMenuProps } from './navbar-menu/NavbarMenu';
+import NavbarBrand, { NavbarBrandProps } from './navbar-brand/NavbarBrand';
+import NavbarDivider, { NavbarDividerProps } from './navbar-divider/NavbarDivider';
+import NavbarDropdown, { NavbarDropdownProps } from './navbar-dropdown/NavbarDropdown';
+import NavbarEnd, { NavbarEndProps } from './navbar-end/NavbarEnd';
+import NavbarItem from './navbar-item/NavbarItem';
+import NavbarStart, { NavbarStartProps } from './navbar-start/NavbarStart';
 
 import { Colors, AnotherColors } from '../../types';
 
 interface NavbarComposition {
-  Divider: FunctionComponent<INavbarDividerProps>;
-  Dropdown: FunctionComponent<INavbarDropdownProps>;
-  End: FunctionComponent<INavbarEndProps>;
-  Item: FunctionComponent<INavbarItemProps>;
-  Start: FunctionComponent<INavbarStartProps>;
+  Menu: FunctionComponent<NavbarMenuProps>;
+  Brand: FunctionComponent<NavbarBrandProps>;
+  Divider: FunctionComponent<NavbarDividerProps>;
+  Dropdown: FunctionComponent<NavbarDropdownProps>;
+  End: FunctionComponent<NavbarEndProps>;
+  Item: typeof NavbarItem;
+  Start: FunctionComponent<NavbarStartProps>;
 }
 
-export interface INavbarProps {
+export interface NavbarProps extends HTMLAttributes<HTMLElement> {
   children: ReactNode;
   label: string;
-  brandUrl: string;
   dataTarget: string;
-  navbarBrand: ReactNode;
-  renderNavbarBrandLinkAsAnchor?:boolean
-  colors?: Colors | Omit<AnotherColors, 'is-text' | 'is-ghost'>;
+  color?: Colors | AnotherColors;
   isTransparent?: boolean;
   isFixed?: 'top' | 'bottom';
   isSpaced?: boolean;
@@ -34,21 +41,31 @@ export interface INavbarProps {
   className?: string;
 }
 
-type NavbarType = FunctionComponent<INavbarProps> & NavbarComposition;
+type NavbarType = FunctionComponent<NavbarProps> & NavbarComposition;
+
+export interface NavbarContextProps {
+  dataTarget: string;
+  isOpen: boolean;
+  toggleMenu: () => void;
+}
+
+export const NavbarContext = createContext<NavbarContextProps>({
+  dataTarget: '',
+  isOpen: false,
+  toggleMenu: () => null,
+});
 
 const Navbar: NavbarType = ({
   children,
   label,
-  brandUrl,
   dataTarget,
-  navbarBrand,
-  renderNavbarBrandLinkAsAnchor,
-  colors,
+  color,
   isTransparent,
   isFixed,
   isSpaced,
   hasShadow,
   className,
+  ...others
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -57,35 +74,29 @@ const Navbar: NavbarType = ({
   }, [isOpen]);
 
   return (
-    <nav
-      className={clsx(
-        'navbar',
-        colors,
-        isTransparent && 'is-transparent',
-        isFixed && `is-fixed-${isFixed}`,
-        isSpaced && 'is-spaced',
-        hasShadow && 'has-shadow',
-        className
-      )}
-      role="navigation"
-      aria-label={label}
-    >
-      <NavbarBrand
-        brandUrl={brandUrl}
-        dataTarget={dataTarget}
-        toggleMenu={toggleMenu}
-        isOpen={isOpen}
-        renderAsAnchor={renderNavbarBrandLinkAsAnchor}
+    <NavbarContext.Provider value={{ dataTarget, isOpen, toggleMenu }}>
+      <nav
+        className={clsx(
+          'navbar',
+          color,
+          isTransparent && 'is-transparent',
+          isFixed && `is-fixed-${isFixed}`,
+          isSpaced && 'is-spaced',
+          hasShadow && 'has-shadow',
+          className
+        )}
+        role="navigation"
+        aria-label={label}
+        {...others}
       >
-        {navbarBrand}
-      </NavbarBrand>
-      <div id={dataTarget} className={clsx('navbar-menu', isOpen && 'is-active')}>
         {children}
-      </div>
-    </nav>
+      </nav>
+    </NavbarContext.Provider>
   );
 };
 
+Navbar.Menu = NavbarMenu;
+Navbar.Brand = NavbarBrand;
 Navbar.Divider = NavbarDivider;
 Navbar.Dropdown = NavbarDropdown;
 Navbar.End = NavbarEnd;

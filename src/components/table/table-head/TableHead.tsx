@@ -6,7 +6,7 @@ import { isFunction } from '../../../utils/utils';
 
 import { TableConfig, SortOrders, ColumnConfig, SortOrder } from '../../../types';
 
-interface ITableHeaderProps<T> {
+interface TableHeaderProps<T> {
   config: TableConfig<T>;
   sortOrders: SortOrders;
   noSort: boolean;
@@ -20,7 +20,7 @@ export default function TableHead<T>({
   noSort,
   isTableFooter,
   onHeaderCellsClick,
-}: ITableHeaderProps<T>): JSX.Element {
+}: TableHeaderProps<T>): JSX.Element {
   const renderHeaderValue = (column: ColumnConfig<T>): React.ReactNode => {
     if (!column.label) {
       return '';

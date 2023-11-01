@@ -1,28 +1,33 @@
-/* eslint-disable import/no-extraneous-dependencies, react/destructuring-assignment */
 import React from 'react';
 
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import { decorator } from '../../../stories';
+
+import mdx from './Level.mdx';
 
 import * as ButtonStories from '../button/Button.stories';
 import * as CheckboxStories from '../checkbox/Checkbox.stories';
 import * as TitleStories from '../title/Title.stories';
 
-import Level, { ILevelProps } from './Level';
+import Level, { LevelType } from './Level';
 
 export default {
   title: 'Layout/Level',
   component: Level,
-  args: {},
-  decorators: [
-    (StoryComponent) => (
-      <div style={{ margin: '0px auto', width: 800 }}>
-        <StoryComponent />
-      </div>
-    ),
-  ],
-} as Meta;
+  decorators: [decorator],
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      page: mdx,
+      source: {
+        excludeDecorators: true,
+      },
+    },
+  },
+} as ComponentMeta<LevelType>;
 
-const Template: Story<ILevelProps> = (args) => <Level {...args}>{args.children}</Level>;
+const Template: ComponentStory<LevelType> = (args) => <Level {...args}>{args.children}</Level>;
 
 export const BasicLevel = Template.bind({});
 BasicLevel.args = {

@@ -1,7 +1,12 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "types": ["node", "jest"],
+    "types": [
+      "node",
+      "jest",
+      "@testing-library/jest-dom",
+      "@testing-library/jest-dom/extend-expect"
+    ],
     "noEmit": true
   },
   "exclude": ["dist", "node_modules"]

@@ -9,13 +9,13 @@ import TableBody from './table-body/TableBody';
 
 import { TableConfig } from '../../types';
 
-export interface ITableProps<T> {
+export interface TableProps<T> {
   config: TableConfig<T>;
   data: T[];
   className?: string;
 }
 
-const Table = <T extends unknown>({ config, data, className }: ITableProps<T>): JSX.Element => {
+function Table<T>({ config, data, className }: TableProps<T>): JSX.Element {
   const [sorts, noSort, handleSort] = useSortableData<T>(config);
   const { isBordered, isStriped, isNarrow, isHoverable, isFullWidth, hasTableFooter } = config;
   return (
@@ -49,6 +49,6 @@ const Table = <T extends unknown>({ config, data, className }: ITableProps<T>): 
       <TableBody<T> config={config} data={data} />
     </table>
   );
-};
+}
 
 export default Table;

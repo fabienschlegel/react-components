@@ -1,28 +1,30 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent, HTMLAttributes, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-import MessageHeader, { IMessageHeaderProps } from './message-header/MessageHeader';
-import MessageBody, { IMessageBodyProps } from './message-body/MessageBody';
+import MessageHeader, { MessageHeaderProps } from './message-header/MessageHeader';
+import MessageBody, { MessageBodyProps } from './message-body/MessageBody';
 
 import { Colors, Sizes } from '../../types';
 
 interface MessageComposition {
-  Header: FunctionComponent<IMessageHeaderProps>;
-  Body: FunctionComponent<IMessageBodyProps>;
+  Header: FunctionComponent<MessageHeaderProps>;
+  Body: FunctionComponent<MessageBodyProps>;
 }
 
-export interface IMessageProps {
+export interface MessageProps extends HTMLAttributes<HTMLElement> {
   children: ReactNode;
   size?: Omit<Sizes, 'is-normal'>;
   color?: Colors | 'is-dark';
   className?: string;
 }
 
-type MessageType = FunctionComponent<IMessageProps> & MessageComposition;
+type MessageType = FunctionComponent<MessageProps> & MessageComposition;
 
-const Message: MessageType = ({ children, size, color, className }) => (
-  <article className={clsx('message', size, color, className)}>{children}</article>
+const Message: MessageType = ({ children, size, color, className, ...others }) => (
+  <article className={clsx('message', size, color, className)} {...others}>
+    {children}
+  </article>
 );
 
 Message.Header = MessageHeader;

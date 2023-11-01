@@ -1,9 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies, react/destructuring-assignment */
 import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Notification, { INotificationProps } from './Notification';
+import Notification, { NotificationProps } from './Notification';
 
 export default {
   title: 'Elements/Notification',
@@ -11,7 +10,7 @@ export default {
   args: {},
 } as Meta;
 
-const Template: Story<INotificationProps> = (args) => (
+const Template: Story<NotificationProps> = (args) => (
   <Notification {...args}>{args.children}</Notification>
 );
 

@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.9.0] - 2023-11-01
+
+### Added
+
+- Add `as` props to components with routing capacity
+- Add documentation in Storybook
+
+### Changed
+
+- Tests migrated from **Enzyme** to **React Testing Library**
+- Update versions of dependencies
+- Move react-router to devDependencies.
+
 ## [0.8.2] - 2022-08-18
 
 ### Added
@@ -29,7 +42,7 @@
 - Fix code snippets styles in Storybook
 - react-router is now a peer dependency
 - Components which used Font Awesome icons are updated with HTML entities and
-a prop for custom icon.
+  a prop for custom icon.
 - Components which need `Link` from react-router can be used with an anchor tag instead.
 - Update deprecated Prettier `jsxBracketSameLine` option to `bracketSameLine`
 

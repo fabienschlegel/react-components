@@ -1,24 +1,29 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import MediaObject, { IMediaObjectProps } from './MediaObject';
+import { flexDecorator } from '../../../stories';
+
+import mdx from './MediaObject.mdx';
+
+import MediaObject, { MediaObjectType } from './MediaObject';
 
 export default {
   title: 'Layout/MediaObject',
   component: MediaObject,
-  args: {},
-  decorators: [
-    (StoryComponent) => (
-      <div style={{ margin: '0px auto', width: 800 }}>
-        <StoryComponent />
-      </div>
-    ),
-  ],
-} as Meta;
+  decorators: [flexDecorator],
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      page: mdx,
+      source: {
+        excludeDecorators: true,
+      },
+    },
+  },
+} as ComponentMeta<MediaObjectType>;
 
-const Template: Story<IMediaObjectProps> = (args) => {
+const Template: ComponentStory<MediaObjectType> = (args) => {
   const { children } = args;
   return <MediaObject {...args}>{children}</MediaObject>;
 };
@@ -32,3 +37,5 @@ BasicMediaObject.args = {
     </>
   ),
 };
+
+BasicMediaObject.storyName = 'MediaObject';

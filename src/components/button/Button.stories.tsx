@@ -1,20 +1,32 @@
-/* eslint-disable import/no-extraneous-dependencies, react/destructuring-assignment */
 import React, { FunctionComponent } from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { flexDecorator } from '../../../stories';
+
 import { faAddressBook } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import ButtonComponent, { ButtonType } from './Button';
+import mdx from './Button.mdx';
+
+import ButtonComponent, { ButtonProps } from './Button';
 
 export default {
   title: 'Elements/Button',
   component: ButtonComponent,
-  args: {},
-} as ComponentMeta<FunctionComponent<ButtonType>>;
+  decorators: [flexDecorator],
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      page: mdx,
+      source: {
+        excludeDecorators: true,
+      },
+    },
+  },
+} as ComponentMeta<FunctionComponent<ButtonProps>>;
 
-const Button: ComponentStory<FunctionComponent<ButtonType>> = (args) => (
+const Button: ComponentStory<FunctionComponent<ButtonProps>> = (args) => (
   <ButtonComponent {...args}>{args.children}</ButtonComponent>
 );
 
@@ -32,7 +44,7 @@ DisabledButton.args = {
 
 export const IconTextButton = Button.bind({});
 IconTextButton.args = {
-  children: [<FontAwesomeIcon icon={faAddressBook} className="mr-3" />, 'Button'],
+  children: [<FontAwesomeIcon key="0" icon={faAddressBook} className="mr-3" />, 'Button'],
 };
 
 export const IconButton = Button.bind({});

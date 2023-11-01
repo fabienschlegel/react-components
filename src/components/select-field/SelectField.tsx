@@ -11,14 +11,14 @@ interface SelectFieldComposition {
   Help: FunctionComponent<HelpProps>;
 }
 
-export interface ISelectFieldProps extends SelectType {
+export interface SelectFieldProps extends SelectType {
   name: string;
   label: React.ReactNode;
   children?: ReactNode;
   labelProps?: LabelType;
 }
 
-type SelectFieldType = FunctionComponent<ISelectFieldProps> & SelectFieldComposition;
+type SelectFieldType = FunctionComponent<SelectFieldProps> & SelectFieldComposition;
 
 const SelectField: SelectFieldType = ({
   children,

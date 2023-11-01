@@ -1,17 +1,15 @@
-import * as React from 'react';
+import React, { ButtonHTMLAttributes, FunctionComponent } from 'react';
 
 import clsx from 'clsx';
 
 import { Sizes } from '../../types';
 
-interface IDeleteProps {
+interface DeleteProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: Omit<Sizes, 'is-normal'>;
   className?: string;
 }
 
-type DeleteType = IDeleteProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
-
-const Delete: React.FunctionComponent<DeleteType> = ({ size, className, ...others }) => (
+const Delete: FunctionComponent<DeleteProps> = ({ size, className, ...others }) => (
   <button type="button" className={clsx('delete', size, className)} {...others} />
 );
 

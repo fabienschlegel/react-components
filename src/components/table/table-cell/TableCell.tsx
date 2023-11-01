@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 
 import clsx from 'clsx';
@@ -7,7 +6,7 @@ import renderValue from '../cells-renderers/renderValue';
 
 import { ColumnConfig } from '../../../types';
 
-interface ITableCellsProps<T> {
+interface TableCellsProps<T> {
   column: ColumnConfig<T>;
   data: T[];
   rowIndex: number;
@@ -20,7 +19,7 @@ export default function TableCells<T>({
   rowIndex,
   colIndex,
   rowData,
-}: ITableCellsProps<T>): JSX.Element {
+}: TableCellsProps<T>): JSX.Element {
   const result = (
     <td
       key={colIndex}
@@ -32,7 +31,6 @@ export default function TableCells<T>({
         column.tooltip && 'has-tooltip-arrow has-tooltip-left'
       )}
       onClick={() => column.onClick && column.onClick(rowData, column, colIndex, rowIndex)}
-      onKeyPress={() => column.onClick && column.onClick(rowData, column, colIndex, rowIndex)}
     >
       {renderValue(column, data, rowIndex, rowData)}
     </td>

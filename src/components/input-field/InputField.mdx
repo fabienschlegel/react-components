@@ -1,0 +1,61 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+<Meta title="Form/InputField" />
+
+# InputField
+
+**The text input and its variations**
+
+## Props
+
+| Property          | Type       | Required | Default value | Description                        |
+| ----------------- | ---------- | -------- | ------------- | ---------------------------------- |
+| name              | string     | yes      | N/A           | The name property of the input tag |
+| label             | ReactNode  | yes      | N/A           | The content of the label           |
+| children          | ReactNode  | no       | N/A           | Add content under the input field  |
+| color             | Colors     | no       | N/A           | Change the color of the component  |
+| size              | Sizes      | no       | N/A           | Change the size of the component   |
+| labelProps        | LabelType  | no       | N/A           | Add custom props to the label      |
+| inputProps        | InputType  | no       | N/A           | Add custom props to the input tag  |
+| leftIcon          | IconsProps | no       | N/A           | Add custom icon to the left        |
+| rightIcon         | IconsProps | no       | N/A           | Add custom icon to the right       |
+| controlIsExpanded | boolean    | no       | N/A           | Expand control component           |
+
+## Usage
+
+### BasicInputField
+
+<Canvas>
+  <Story id="form-inputfield--basic-input-field" name="BasicHelp" />
+</Canvas>
+
+### RoundedInputField
+
+<Canvas>
+  <Story id="form-inputfield--rounded-input-field" name="RoundedInputField" />
+</Canvas>
+
+### InputFieldWithHelper
+
+<Canvas>
+  <Story id="form-inputfield--input-field-with-helper" name="InputFieldWithHelper" />
+</Canvas>
+
+### InputFieldWithIcons
+
+<Canvas>
+  <Story id="form-inputfield--input-field-with-icons" name="InputFieldWithIcons" />
+</Canvas>
+
+### InputFieldWithIconsClickable
+
+<Canvas>
+  <Story
+    id="form-inputfield--input-field-with-icons-clickable"
+    name="InputFieldWithIconsClickable"
+  />
+</Canvas>
+
+## Ressources
+
+[Official documentation](https://bulma.io/documentation/form/input/)

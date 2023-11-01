@@ -2,17 +2,15 @@ import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-import TabElement, { ITabElementProps } from './tab-element/TabElement';
-import TabAnchorElement, { ITabAnchorElementProps } from './tab-anchor-element/TabAnchorElement';
+import TabElement from './tab-element/TabElement';
 
 import { Alignment, Sizes } from '../../types';
 
 interface TabsComposition {
-  Element: FunctionComponent<ITabElementProps>;
-  AnchorElement: FunctionComponent<ITabAnchorElementProps>;
+  Element: typeof TabElement;
 }
 
-export interface ITabsProps {
+export interface TabsProps {
   children: ReactNode;
   alignment?: Alignment;
   size?: Omit<Sizes, 'is-normal'>;
@@ -23,7 +21,7 @@ export interface ITabsProps {
   className?: string;
 }
 
-type TabsType = FunctionComponent<ITabsProps> & TabsComposition;
+type TabsType = FunctionComponent<TabsProps> & TabsComposition;
 
 const Tabs: TabsType = ({
   children,
@@ -52,6 +50,5 @@ const Tabs: TabsType = ({
 );
 
 Tabs.Element = TabElement;
-Tabs.AnchorElement = TabAnchorElement;
 
 export default Tabs;

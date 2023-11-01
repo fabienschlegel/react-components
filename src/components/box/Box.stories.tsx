@@ -1,23 +1,20 @@
-/* eslint-disable import/no-extraneous-dependencies, react/destructuring-assignment */
 import React, { FunctionComponent } from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import { flexDecorator } from '../../../stories';
 
 import { BasicInputField } from '../input-field/InputField.stories';
 import { BasicButton } from '../button/Button.stories';
 
 import mdx from './Box.mdx';
 
-import Box, { IBoxProps } from './Box';
+import Box, { BoxProps } from './Box';
 
 export default {
   title: 'Elements/Box',
   component: Box,
-  decorators: [
-    (StoryComponent) => (
-      <div style={{ width: '500px', margin: '0 auto', paddingTop: '25px' }}>{StoryComponent()}</div>
-    ),
-  ],
+  decorators: [flexDecorator],
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -27,9 +24,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<FunctionComponent<IBoxProps>>;
+} as ComponentMeta<FunctionComponent<BoxProps>>;
 
-const Template: ComponentStory<FunctionComponent<IBoxProps>> = (args) => (
+const Template: ComponentStory<FunctionComponent<BoxProps>> = (args) => (
   <Box {...args}>{args.children}</Box>
 );
 

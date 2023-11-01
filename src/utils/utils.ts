@@ -1,5 +1,9 @@
-import { IColumnSize } from '../components/column/Column';
-import { IColumnsGap } from '../components/columns/Columns';
+import { forwardRef } from 'react';
+
+import { ResponsiveColumnSize } from '../components/column/Column';
+import { ResponsiveColumnsGap } from '../components/columns/Columns';
+
+import { FixedForwardRef } from 'types';
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export const isFunction = (value: unknown): value is Function => typeof value === 'function';
@@ -7,7 +11,7 @@ export const isFunction = (value: unknown): value is Function => typeof value ==
 export const generateRandomId = (): string => Math.random().toString(36).substr(2);
 
 export function getResponsiveColumn(
-  responsiveColumn: IColumnSize | IColumnsGap
+  responsiveColumn: ResponsiveColumnSize | ResponsiveColumnsGap
 ): Array<string | undefined> {
   const { mobile, tablet, desktop, widescreen, fullhd } = responsiveColumn;
 
@@ -19,3 +23,5 @@ export function getResponsiveColumn(
     fullhd && `${fullhd}-fullhd`,
   ];
 }
+
+export const fixedForwardRef = forwardRef as FixedForwardRef;

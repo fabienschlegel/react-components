@@ -1,0 +1,28 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+<Meta title="Layout/Container" />
+
+# Container
+
+**A simple container to center your content horizontally.**
+
+## Props
+
+| Property  | Type                                  | Required | Default value | Description                                    |
+| --------- | ------------------------------------- | -------- | ------------- | ---------------------------------------------- |
+| children  | ReactNode                             | yes      | N/A           | The content of the box                         |
+| fullWidth | 'is-widescreen', 'is-fullhd'          | no       | N/A           | Set container full width related to breakpoint |
+| maxWidth  | 'is-max-desktop', 'is-max-widescreen' | no       | N/A           | Narrow conatiner on larger viewports           |
+| className | string                                | no       | N/A           | Add custom design to the input checkbox        |
+
+## Usage
+
+### Basic container
+
+<Canvas>
+  <Story id="layout-container--basic-container" name="BasicContainer" />
+</Canvas>
+
+## Ressources
+
+[Official documentation](https://bulma.io/documentation/layout/container)

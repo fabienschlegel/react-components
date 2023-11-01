@@ -2,14 +2,14 @@ import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-interface IControlIconProps {
+interface ControlIconProps {
   children: ReactNode;
   side: 'is-left' | 'is-right';
   handleClick?: () => void;
   className?: string;
 }
 
-const ControlIcon: FunctionComponent<IControlIconProps> = ({
+const ControlIcon: FunctionComponent<ControlIconProps> = ({
   children,
   side,
   handleClick,

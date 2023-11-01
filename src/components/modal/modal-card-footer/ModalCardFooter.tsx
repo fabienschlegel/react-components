@@ -2,12 +2,12 @@ import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-export interface IModalCardFooterProps {
+export interface ModalCardFooterProps {
   children: ReactNode;
   className?: string;
 }
 
-const ModalCardFooter: FunctionComponent<IModalCardFooterProps> = ({ children, className }) => (
+const ModalCardFooter: FunctionComponent<ModalCardFooterProps> = ({ children, className }) => (
   <footer className={clsx('modal-card-foot', className)}>{children}</footer>
 );
 

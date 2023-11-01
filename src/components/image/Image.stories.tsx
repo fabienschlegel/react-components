@@ -1,20 +1,34 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Image, { ImageType } from './Image';
+import { decorator } from '../../../stories';
+
+import mdx from './Image.mdx';
+
+import Image, { ImageProps } from './Image';
 
 export default {
   title: 'Elements/Image',
   component: Image,
-  args: {},
-} as Meta;
+  decorators: [decorator],
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      page: mdx,
+      source: {
+        excludeDecorators: true,
+      },
+    },
+  },
+} as ComponentMeta<FunctionComponent<ImageProps>>;
 
-const Template: Story<ImageType> = (args) => <Image {...args} />;
+const Template: ComponentStory<FunctionComponent<ImageProps>> = (args) => <Image {...args} />;
 
 export const BasicImage = Template.bind({});
 BasicImage.args = {
   src: 'https://via.placeholder.com/150',
   alt: 'Alternative Text',
 };
+
+BasicImage.storyName = 'Image';

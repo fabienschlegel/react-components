@@ -2,12 +2,12 @@ import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-export interface IMessageBodyProps {
+export interface MessageBodyProps {
   children: ReactNode;
   className?: string;
 }
 
-const MessageBody: FunctionComponent<IMessageBodyProps> = ({ children, className }) => (
+const MessageBody: FunctionComponent<MessageBodyProps> = ({ children, className }) => (
   <div className={clsx('message-body', className)}>{children}</div>
 );
 

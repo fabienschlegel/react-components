@@ -1,7 +1,10 @@
-/* eslint-disable import/no-extraneous-dependencies, react/destructuring-assignment */
 import React, { FunctionComponent } from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import { flexDecorator } from '../../../stories';
+
+import mdx from './InputField.mdx';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faMailBulk } from '@fortawesome/free-solid-svg-icons';
@@ -13,14 +16,16 @@ import InputFieldComponent, { InputFieldProps } from './InputField';
 export default {
   title: 'Form/InputField',
   component: InputFieldComponent,
-  args: {},
-  decorators: [
-    (StoryComponent) => (
-      <div style={{ margin: '0px auto', width: 450 }}>
-        <StoryComponent />
-      </div>
-    ),
-  ],
+  decorators: [flexDecorator],
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      page: mdx,
+      source: {
+        excludeDecorators: true,
+      },
+    },
+  },
 } as ComponentMeta<FunctionComponent<InputFieldProps>>;
 
 const InputField: ComponentStory<FunctionComponent<InputFieldProps>> = (args) => (
@@ -48,22 +53,22 @@ InputFieldWithHelper.args = {
 export const InputFieldWithIcons = InputField.bind({});
 InputFieldWithIcons.args = {
   ...BasicInputField.args,
-  icons: {
-    leftIcon: <FontAwesomeIcon icon={faMailBulk} />,
-    rightIcon: <FontAwesomeIcon icon={faCheck} />,
-  },
+  leftIcon: { icon: <FontAwesomeIcon icon={faMailBulk} /> },
+  rightIcon: { icon: <FontAwesomeIcon icon={faCheck} /> },
 };
 
 export const InputFieldWithIconsClickable = InputField.bind({});
 InputFieldWithIconsClickable.args = {
   ...BasicInputField.args,
-  icons: {
-    leftIcon: <FontAwesomeIcon icon={faMailBulk} />,
-    rightIcon: <FontAwesomeIcon icon={faCheck} />,
-    handleLeftIconClick: () => {
+  leftIcon: {
+    icon: <FontAwesomeIcon icon={faMailBulk} />,
+    handleIconClick: () => {
       // eslint-disable-next-line no-alert
       alert('top');
     },
-    handleRightIconClick: () => {},
+  },
+  rightIcon: {
+    icon: <FontAwesomeIcon icon={faCheck} />,
+    handleIconClick: () => null,
   },
 };

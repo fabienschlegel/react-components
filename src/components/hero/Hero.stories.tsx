@@ -1,16 +1,28 @@
-/* eslint-disable import/no-extraneous-dependencies, react/destructuring-assignment */
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import { fullScreenDecorator } from '../../../stories';
+
+import mdx from './Hero.mdx';
 
 import * as TitleStories from '../title/Title.stories';
 
-import Hero, { IHeroProps } from './Hero';
+import Hero, { HeroProps } from './Hero';
 
 export default {
   title: 'Layout/Hero',
   component: Hero,
-  args: {},
+  decorators: [fullScreenDecorator],
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      page: mdx,
+      source: {
+        excludeDecorators: true,
+      },
+    },
+  },
   argTypes: {
     size: {
       control: {
@@ -26,9 +38,11 @@ export default {
       },
     },
   },
-} as Meta;
+} as ComponentMeta<FunctionComponent<HeroProps>>;
 
-const Template: Story<IHeroProps> = (args) => <Hero {...args}>{args.children}</Hero>;
+const Template: ComponentStory<FunctionComponent<HeroProps>> = (args) => (
+  <Hero {...args}>{args.children}</Hero>
+);
 
 export const BasicHero = Template.bind({});
 BasicHero.args = {
@@ -44,23 +58,27 @@ BasicHero.args = {
   ),
 };
 
+BasicHero.storyName = 'Basic Hero';
+
 export const FullHeightHero = Template.bind({});
 FullHeightHero.args = {
   children: (
     <>
       <Hero.Head>Head of the Hero</Hero.Head>
       <Hero.Body>
-        <div>
+        <>
           <TitleStories.BasicTitle useParagraph>
             {TitleStories.BasicTitle.args.children}
           </TitleStories.BasicTitle>
           <TitleStories.BasicTitle useParagraph isSubtitle>
             Subtitle
           </TitleStories.BasicTitle>
-        </div>
+        </>
       </Hero.Body>
       <Hero.Footer>Footer of the Hero</Hero.Footer>
     </>
   ),
   size: 'is-fullheight',
 };
+
+FullHeightHero.storyName = 'Hero with full height';

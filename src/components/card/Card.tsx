@@ -1,25 +1,31 @@
-import React, { ReactNode, FunctionComponent } from 'react';
+import React, { ReactNode, FunctionComponent, HTMLAttributes } from 'react';
 
 import clsx from 'clsx';
 
-import CardHeader, { ICardHeaderProps } from './card-header/CardHeader';
-import CardContent, { ICardContentProps } from './card-content/CardContent';
+import CardHeader, { CardHeaderProps } from './card-header/CardHeader';
+import CardContent, { CardContentProps } from './card-content/CardContent';
 import CardImage, { CardImageType } from './card-image/CardImage';
 import CardFooter, { CardFooterType } from './card-footer/CardFooter';
 
-interface ICardComposition {
-  Header: FunctionComponent<ICardHeaderProps>;
-  Content: FunctionComponent<ICardContentProps>;
+interface CardComposition {
+  Header: FunctionComponent<CardHeaderProps>;
+  Content: FunctionComponent<CardContentProps>;
   Image: CardImageType;
   Footer: CardFooterType;
 }
-export interface ICardProps {
+export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   className?: string;
 }
 
-const Card: FunctionComponent<ICardProps> & ICardComposition = ({ children, className }) => (
-  <div className={clsx('card', className)}>{children}</div>
+const Card: FunctionComponent<CardProps> & CardComposition = ({
+  children,
+  className,
+  ...others
+}) => (
+  <div className={clsx('card', className)} {...others}>
+    {children}
+  </div>
 );
 
 Card.Header = CardHeader;

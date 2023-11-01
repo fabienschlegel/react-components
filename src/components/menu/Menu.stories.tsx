@@ -1,33 +1,29 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
+import { flexDecorator } from '../../../stories';
 
-import Menu, { IMenuProps } from './Menu';
+import mdx from './Menu.mdx';
+
+import Menu, { MenuType } from './Menu';
 
 export default {
   title: 'Components/Menu',
   component: Menu,
-  args: {},
-  decorators: [
-    (StoryComponent) => (
-      <Router initialEntries={['/']}>
-        <div style={{ margin: '0px auto', width: 500 }}>
-          <Routes>
-            <Route path="/" element={<StoryComponent />} />
-          </Routes>
-        </div>
-      </Router>
-    ),
-  ],
+  decorators: [flexDecorator],
   parameters: {
     layout: 'fullscreen',
+    docs: {
+      page: mdx,
+      source: {
+        excludeDecorators: true,
+      },
+    },
   },
-} as Meta;
+} as ComponentMeta<MenuType>;
 
-const Template: Story<IMenuProps> = (args) => {
+const Template: ComponentStory<MenuType> = (args) => {
   const { children } = args;
   return <Menu {...args}>{children}</Menu>;
 };
@@ -39,20 +35,22 @@ BasicMenu.args = {
     <>
       <Menu.Label>General</Menu.Label>
       <Menu.List>
-        <Menu.Item to="/">Dashboard</Menu.Item>
-        <Menu.Item to="/">Customers</Menu.Item>
+        <Menu.Item>Dashboard</Menu.Item>
+        <Menu.Item>Customers</Menu.Item>
       </Menu.List>
       <Menu.Label>Administration</Menu.Label>
       <Menu.List>
-        <Menu.Item to="/">Team Settings</Menu.Item>
+        <Menu.Item>Team Settings</Menu.Item>
         <Menu.NestedList label="Manage Your team">
-          <Menu.Item to="/">Members</Menu.Item>
-          <Menu.Item to="/">Plugins</Menu.Item>
-          <Menu.Item to="/">Add a member</Menu.Item>
+          <Menu.Item>Members</Menu.Item>
+          <Menu.Item>Plugins</Menu.Item>
+          <Menu.Item>Add a member</Menu.Item>
         </Menu.NestedList>
-        <Menu.Item to="/">Invitations</Menu.Item>
-        <Menu.Item to="/">Cloud Storage Environment Settings</Menu.Item>
+        <Menu.Item>Invitations</Menu.Item>
+        <Menu.Item>Cloud Storage Environment Settings</Menu.Item>
       </Menu.List>
     </>
   ),
 };
+
+BasicMenu.storyName = 'Menu';

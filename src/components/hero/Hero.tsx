@@ -1,10 +1,10 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent, HTMLAttributes, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-import HeroHead, { IHeroHeadProps } from './hero-head/HeroHead';
-import HeroBody, { IHeroBodyProps } from './hero-body/HeroBody';
-import HeroFoot, { IHeroFootProps } from './hero-foot/HeroFoot';
+import HeroHead, { HeroHeadProps } from './hero-head/HeroHead';
+import HeroBody, { HeroBodyProps } from './hero-body/HeroBody';
+import HeroFoot, { HeroFootProps } from './hero-foot/HeroFoot';
 
 import { Sizes, Colors } from '../../types';
 
@@ -12,23 +12,25 @@ type AdditionalSizes = 'is-halfheight' | 'is-fullheight' | 'is-fullheight-with-n
 
 type HeroSizes = Omit<Sizes, 'is-normal'> | AdditionalSizes;
 
-interface IHeroComposition {
-  Head: FunctionComponent<IHeroHeadProps>;
-  Body: FunctionComponent<IHeroBodyProps>;
-  Footer: FunctionComponent<IHeroFootProps>;
+interface HeroComposition {
+  Head: FunctionComponent<HeroHeadProps>;
+  Body: FunctionComponent<HeroBodyProps>;
+  Footer: FunctionComponent<HeroFootProps>;
 }
 
-export interface IHeroProps {
+export interface HeroProps extends HTMLAttributes<HTMLElement> {
   children: ReactNode;
   className?: string;
   size?: HeroSizes;
   color?: Colors;
 }
 
-type HeroType = FunctionComponent<IHeroProps> & IHeroComposition;
+type HeroType = FunctionComponent<HeroProps> & HeroComposition;
 
-const Hero: HeroType = ({ children, className, size, color = 'is-primary' }) => (
-  <section className={clsx('hero', className, size, color)}>{children}</section>
+const Hero: HeroType = ({ children, className, size, color = 'is-primary', ...others }) => (
+  <section className={clsx('hero', className, size, color)} {...others}>
+    {children}
+  </section>
 );
 
 Hero.Head = HeroHead;

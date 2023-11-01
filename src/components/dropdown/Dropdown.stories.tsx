@@ -1,31 +1,30 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
-import { MemoryRouter as Router, Route, Routes } from 'react-router-dom';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { routingDecorator } from '../../../stories';
 
-import Dropdown, { IDropdownProps } from './Dropdown';
+import mdx from './Dropdown.mdx';
+
+import Dropdown, { DropdownProps } from './Dropdown';
+import { Link } from 'react-router-dom';
 
 export default {
   title: 'Components/Dropdown',
   component: Dropdown,
-  decorators: [
-    (StoryComponent) => (
-      <Router>
-        <div style={{ margin: '15% auto', width: '150px' }}>
-          <Routes>
-            <Route path="/" element={<StoryComponent />} />
-          </Routes>
-        </div>
-      </Router>
-    ),
-  ],
-  args: {},
-  argTypes: {},
-} as Meta;
+  decorators: [routingDecorator],
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      page: mdx,
+      source: {
+        excludeDecorators: true,
+      },
+    },
+  },
+} as ComponentMeta<FunctionComponent<DropdownProps>>;
 
-const Template: Story<IDropdownProps> = (args) => {
+const Template: ComponentStory<FunctionComponent<DropdownProps>> = (args) => {
   const { children } = args;
   return <Dropdown {...args}>{children}</Dropdown>;
 };
@@ -35,8 +34,10 @@ const items = (
     <Dropdown.Item>First Item</Dropdown.Item>
     <Dropdown.Item>Second Item</Dropdown.Item>
     <Dropdown.Divider />
-    <Dropdown.Item to="#">This item is a link</Dropdown.Item>
-    <Dropdown.Item isActive to="#">
+    <Dropdown.Item as={Link} to="#">
+      This item is a link
+    </Dropdown.Item>
+    <Dropdown.Item isActive as={Link} to="#">
       This item is an active link
     </Dropdown.Item>
   </>

@@ -1,44 +1,36 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent, HTMLAttributes, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-import { Sizes } from 'types';
 import ControlIcon from './control-icon/ControlIcon';
 
+import { Sizes } from 'types';
+
 export interface IconsProps {
-  leftIcon?: ReactNode;
-  leftIconClassName?: string;
-  rightIcon?: ReactNode;
-  rightIconClassName?: string;
-  handleLeftIconClick?: () => void;
-  handleRightIconClick?: () => void;
+  icon?: ReactNode;
+  className?: string;
+  handleIconClick?: () => void;
 }
-interface IControlProps {
+interface ControlProps extends HTMLAttributes<HTMLElement> {
   children: ReactNode;
   size?: Sizes;
-  icons?: IconsProps;
+  leftIcon?: IconsProps;
+  rightIcon?: IconsProps;
   isExpanded?: boolean;
   isLoading?: boolean;
   className?: string;
 }
 
-const Control: FunctionComponent<IControlProps> = ({
+const Control: FunctionComponent<ControlProps> = ({
   children,
   size,
-  icons = {},
+  leftIcon,
+  rightIcon,
   isExpanded,
   isLoading,
   className,
+  ...others
 }) => {
-  const {
-    leftIcon,
-    leftIconClassName,
-    rightIcon,
-    rightIconClassName,
-    handleLeftIconClick,
-    handleRightIconClick,
-  } = icons;
-
   return (
     <div
       className={clsx(
@@ -50,20 +42,25 @@ const Control: FunctionComponent<IControlProps> = ({
         rightIcon && 'has-icons-right',
         className
       )}
+      {...others}
     >
       {children}
       {leftIcon && (
-        <ControlIcon side="is-left" handleClick={handleLeftIconClick} className={leftIconClassName}>
-          {leftIcon}
+        <ControlIcon
+          side="is-left"
+          handleClick={leftIcon.handleIconClick}
+          className={leftIcon.className}
+        >
+          {leftIcon.icon}
         </ControlIcon>
       )}
       {rightIcon && (
         <ControlIcon
           side="is-right"
-          handleClick={handleRightIconClick}
-          className={rightIconClassName}
+          handleClick={rightIcon.handleIconClick}
+          className={rightIcon.className}
         >
-          {rightIcon}
+          {rightIcon.icon}
         </ControlIcon>
       )}
     </div>

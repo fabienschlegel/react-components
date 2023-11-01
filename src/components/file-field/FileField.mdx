@@ -1,0 +1,42 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+<Meta title="Form/FileField" />
+
+# FileField
+
+**A custom file upload input, without JavaScript.**
+
+## Props
+
+| Property     | Type                                                  | Required | Default value | Description                         |
+| ------------ | ----------------------------------------------------- | -------- | ------------- | ----------------------------------- |
+| name         | string                                                | yes      | N/A           | The name attribute of the input     |
+| fileLabel    | string                                                | yes      | N/A           | The label of the input              |
+| fileName     | string                                                | no       | N/A           | The label of the file to display    |
+| downloadIcon | ReactNode                                             | no       | N/A           | The icon of the component           |
+| color        | Colors,AnotherColors, except : 'is-text' & 'is-ghost' | no       | N/A           | Change the color of the button      |
+| sizes        | Sizes                                                 | no       | N/A           | Change the size of the component    |
+| alignment    | Alignment                                             | no       | N/A           | Change the alignment of the content |
+| isFullWidth  | boolean                                               | no       | N/A           | Input is full width                 |
+| isBoxed      | boolean                                               | no       | N/A           | Input is boxed                      |
+| className    | string                                                | no       | N/A           | Add custom design to the input      |
+
+## Usage
+
+### Basic FileField
+
+<Canvas>
+  <Story id="form-filefield--basic-file-field" name="BasicFileField" />
+</Canvas>
+
+<Canvas>
+  <Story id="form-filefield--custom-icon-file-field" name="CustomIconFileField" />
+</Canvas>
+
+<Canvas>
+  <Story id="form-filefield--file-field-with-file-name" name="FileFieldWithFileName" />
+</Canvas>
+
+## Ressources
+
+[Official documentation](https://bulma.io/documentation/form/file)

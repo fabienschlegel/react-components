@@ -1,9 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies, react/destructuring-assignment */
 import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Title, { ITitleProps } from './Title';
+import Title, { TitleProps } from './Title';
 
 export default {
   title: 'Elements/Title',
@@ -18,7 +17,7 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<ITitleProps> = (args) => <Title {...args} />;
+const Template: Story<TitleProps> = (args) => <Title {...args} />;
 
 export const BasicTitle = Template.bind({});
 BasicTitle.args = {

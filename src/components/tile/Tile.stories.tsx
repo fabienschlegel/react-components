@@ -1,9 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Tile, { ITileProps } from './Tile';
+import Tile, { TileProps } from './Tile';
 
 export default {
   title: 'Layout/Tile',
@@ -11,7 +10,7 @@ export default {
   args: {},
 } as Meta;
 
-const Template: Story<ITileProps> = (args) => {
+const Template: Story<TileProps> = (args) => {
   const { children } = args;
   return <Tile {...args}>{children}</Tile>;
 };

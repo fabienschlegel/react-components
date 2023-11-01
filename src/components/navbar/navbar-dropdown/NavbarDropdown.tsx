@@ -1,8 +1,8 @@
-import React, { FunctionComponent, ReactNode, useCallback, useState } from 'react';
+import { FunctionComponent, HTMLAttributes, ReactNode, useCallback, useState } from 'react';
 
 import clsx from 'clsx';
 
-export interface INavbarDropdownProps {
+export interface NavbarDropdownProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   label: ReactNode;
   isHoverable?: boolean;
@@ -13,7 +13,7 @@ export interface INavbarDropdownProps {
   className?: string;
 }
 
-const NavbarDropdown: FunctionComponent<INavbarDropdownProps> = ({
+const NavbarDropdown: FunctionComponent<NavbarDropdownProps> = ({
   children,
   label,
   isHoverable,
@@ -22,6 +22,7 @@ const NavbarDropdown: FunctionComponent<INavbarDropdownProps> = ({
   isBoxed,
   hasDropdownUp,
   className,
+  ...others
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -41,14 +42,9 @@ const NavbarDropdown: FunctionComponent<INavbarDropdownProps> = ({
         isOpen && 'is-active',
         className
       )}
+      {...others}
     >
-      <span
-        className="navbar-link"
-        role="button"
-        tabIndex={0}
-        onClick={toggleDropdown}
-        onKeyPress={toggleDropdown}
-      >
+      <span className="navbar-link" role="button" tabIndex={0} onClick={toggleDropdown}>
         {label}
       </span>
       <div className={clsx('navbar-dropdown', isOpen && 'is-active')}>{children}</div>

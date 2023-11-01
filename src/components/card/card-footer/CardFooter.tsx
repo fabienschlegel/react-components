@@ -1,22 +1,24 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent, HTMLAttributes, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-import CardFooterItem, { ICardFooterItemProps } from '../card-footer-item/CardFooterItem';
+import CardFooterItem, { CardFooterItemProps } from '../card-footer-item/CardFooterItem';
 
-interface ICardFooterComposition {
-  Item: FunctionComponent<ICardFooterItemProps>;
+interface CardFooterComposition {
+  Item: FunctionComponent<CardFooterItemProps>;
 }
 
-interface ICardFooterProps {
+interface CardFooterProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   className?: string;
 }
 
-export type CardFooterType = FunctionComponent<ICardFooterProps> & ICardFooterComposition;
+export type CardFooterType = FunctionComponent<CardFooterProps> & CardFooterComposition;
 
-const CardFooter: CardFooterType = ({ children, className }) => (
-  <footer className={clsx('card-footer', className)}>{children}</footer>
+const CardFooter: CardFooterType = ({ children, className, ...others }) => (
+  <footer className={clsx('card-footer', className)} {...others}>
+    {children}
+  </footer>
 );
 
 CardFooter.Item = CardFooterItem;

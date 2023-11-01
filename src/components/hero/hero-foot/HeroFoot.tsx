@@ -2,12 +2,12 @@ import React, { FunctionComponent, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-export interface IHeroFootProps {
+export interface HeroFootProps {
   children: ReactNode;
   className?: string;
 }
 
-const HeroFoot: FunctionComponent<IHeroFootProps> = ({ children, className }) => (
+const HeroFoot: FunctionComponent<HeroFootProps> = ({ children, className }) => (
   <div className={clsx('hero-foot', className)}>{children}</div>
 );
 

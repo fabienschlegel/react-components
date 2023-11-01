@@ -7,12 +7,12 @@ import RadioElement, { RadioElementType } from './radio-element/RadioElement';
 interface RadiofieldComposition {
   Element: FunctionComponent<RadioElementType>;
 }
-export interface IRadioFieldProps {
+export interface RadioFieldProps {
   children: ReactNode;
   className?: string;
 }
 
-type RadioFieldType = FunctionComponent<IRadioFieldProps> & RadiofieldComposition;
+type RadioFieldType = FunctionComponent<RadioFieldProps> & RadiofieldComposition;
 
 const RadioField: RadioFieldType = ({ children, className }) => (
   <Field className={className}>

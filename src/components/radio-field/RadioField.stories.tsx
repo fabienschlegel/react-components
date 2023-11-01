@@ -1,9 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import RadioField, { IRadioFieldProps } from './RadioField';
+import RadioField, { RadioFieldProps } from './RadioField';
 
 export default {
   title: 'Form/RadioField',
@@ -18,7 +17,7 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<IRadioFieldProps> = (args) => {
+const Template: Story<RadioFieldProps> = (args) => {
   const { children } = args;
   return <RadioField {...args}>{children}</RadioField>;
 };

@@ -1,20 +1,35 @@
-/* eslint-disable import/no-extraneous-dependencies, react/destructuring-assignment */
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Heading, { IHeadingProps } from './Heading';
+import { flexDecorator } from '../../../stories';
+
+import mdx from './Heading.mdx';
+
+import Heading, { HeadingProps } from './Heading';
 
 export default {
   title: 'Elements/Heading',
   component: Heading,
-  args: {},
-  argTypes: {},
-} as Meta;
+  decorators: [flexDecorator],
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      page: mdx,
+      source: {
+        excludeDecorators: true,
+      },
+    },
+  },
+} as ComponentMeta<FunctionComponent<HeadingProps>>;
 
-const Template: Story<IHeadingProps> = (args) => <Heading {...args}>{args.children}</Heading>;
+const Template: ComponentStory<FunctionComponent<HeadingProps>> = (args) => (
+  <Heading {...args}>{args.children}</Heading>
+);
 
 export const BasicHeading = Template.bind({});
 BasicHeading.args = {
   children: "It's a trap !",
 };
+
+BasicHeading.storyName = 'Heading';

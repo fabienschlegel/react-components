@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent, HTMLAttributes, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
@@ -6,7 +6,7 @@ import { Colors, NumericSizeModifier } from '../../types';
 
 type Context = 'is-ancestor' | 'is-parent' | 'is-child';
 
-export interface ITileProps {
+export interface TileProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   context: Context;
   isVertical?: boolean;
@@ -16,7 +16,7 @@ export interface ITileProps {
   className?: string;
 }
 
-const Tile: FunctionComponent<ITileProps> = ({
+const Tile: FunctionComponent<TileProps> = ({
   children,
   context,
   isVertical,
@@ -24,6 +24,7 @@ const Tile: FunctionComponent<ITileProps> = ({
   color,
   size,
   className,
+  ...others
 }) => (
   <div
     className={clsx(
@@ -35,6 +36,7 @@ const Tile: FunctionComponent<ITileProps> = ({
       size,
       className
     )}
+    {...others}
   >
     {children}
   </div>

@@ -1,20 +1,35 @@
-/* eslint-disable import/no-extraneous-dependencies, react/destructuring-assignment */
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Content, { IContentProps } from './Content';
+import mdx from './Content.mdx';
+
+import { flexDecorator } from '../../../stories';
+
+import Content, { ContentProps } from './Content';
 
 export default {
   title: 'Elements/Content',
   component: Content,
-  args: {},
-  argTypes: {},
-} as Meta;
+  decorators: [flexDecorator],
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      page: mdx,
+      source: {
+        excludeDecorators: true,
+      },
+    },
+  },
+} as ComponentMeta<FunctionComponent<ContentProps>>;
 
-const Template: Story<IContentProps> = (args) => <Content {...args}>{args.children}</Content>;
+const Template: ComponentStory<FunctionComponent<ContentProps>> = (args) => (
+  <Content {...args}>{args.children}</Content>
+);
 
 export const BasicContent = Template.bind({});
 BasicContent.args = {
   children: <p>It&apos;s a trap !</p>,
 };
+
+BasicContent.storyName = 'Content';

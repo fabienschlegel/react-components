@@ -1,14 +1,14 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent, HTMLAttributes, ReactNode } from 'react';
 
 import { HeadingLevel } from '../../types';
 
-export interface IHeadingProps {
+export interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
   children: ReactNode;
   headingLevel?: HeadingLevel;
   className?: string;
 }
 
-const Heading: FunctionComponent<IHeadingProps> = ({
+const Heading: FunctionComponent<HeadingProps> = ({
   headingLevel = 'h1',
   className,
   children,

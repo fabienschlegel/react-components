@@ -1,5 +1,13 @@
 import React, { FunctionComponent } from 'react';
 
-const DropdownDivider: FunctionComponent = () => <hr className="dropdown-divider" />;
+import clsx from 'clsx';
+
+export interface DropdownDividerProps {
+  className?: string;
+}
+
+const DropdownDivider: FunctionComponent<DropdownDividerProps> = ({ className }) => (
+  <hr className={clsx('dropdown-divider', className)} />
+);
 
 export default DropdownDivider;

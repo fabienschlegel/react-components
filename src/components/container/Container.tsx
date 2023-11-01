@@ -1,19 +1,24 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent, HTMLAttributes, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-export interface IContainerProps {
+export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   fullWidth?: 'is-widescreen' | 'is-fullhd';
   maxWidth?: 'is-max-desktop' | 'is-max-widescreen';
   className?: string;
 }
 
-const Container: FunctionComponent<IContainerProps> = ({
+const Container: FunctionComponent<ContainerProps> = ({
   children,
   fullWidth,
   maxWidth,
   className,
-}) => <div className={clsx('container', fullWidth, maxWidth, className)}>{children}</div>;
+  ...others
+}) => (
+  <div className={clsx('container', fullWidth, maxWidth, className)} {...others}>
+    {children}
+  </div>
+);
 
 export default Container;

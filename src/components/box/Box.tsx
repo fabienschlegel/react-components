@@ -1,14 +1,16 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent, HTMLAttributes, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-export interface IBoxProps {
+export interface BoxProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   className?: string;
 }
 
-const Box: FunctionComponent<IBoxProps> = ({ children, className }) => (
-  <div className={clsx('box', className)}>{children}</div>
+const Box: FunctionComponent<BoxProps> = ({ children, className, ...others }) => (
+  <div className={clsx('box', className)} {...others}>
+    {children}
+  </div>
 );
 
 export default Box;

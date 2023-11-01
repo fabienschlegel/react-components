@@ -121,7 +121,7 @@ export const fakeSortableTableConfig: TableConfig<FakeDataType> = {
       label: 'id',
       value: 'id',
       sortable: true,
-      defaultSort: 'desc'
+      defaultSort: 'desc',
     },
     {
       label: 'name',

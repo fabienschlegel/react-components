@@ -1,0 +1,21 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+<Meta title="Elements/Heading" />
+
+# Heading
+
+**A utility component to create h1 to h6 HTML tag**
+
+## Props
+
+| Property     | Type      | Required | Default value | Description                        |
+| ------------ | --------- | -------- | ------------- | ---------------------------------- |
+| children     | ReactNode | yes      | N/A           | The content of the heading         |
+| headingLevel | string    | no       | h1            | The heading level of the component |
+| className    | string    | no       | N/A           | Add custom design to the component |
+
+## Usage
+
+<Canvas>
+  <Story id="elements-heading--basic-heading" name="BasicHeading" />
+</Canvas>

@@ -1,0 +1,48 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+<Meta title="Components/Dropdown" />
+
+# Dropdown
+
+**An interactive dropdown menu for discoverable content.**
+
+## Props
+
+| Property     | Type        | Required | Default value | Description                                         |
+| ------------ | ----------- | -------- | ------------- | --------------------------------------------------- |
+| children     | ReactNode   | yes      | N/A           | The content of the box                              |
+| title        | string      | yes      | N/A           | The content of the dropdown button                  |
+| name         | string      | no       | 'dropdown'    | The name of the aria-controls attribute             |
+| isActive     | boolean     | no       | N/A           | If true, the dropdown menu will show up             |
+| isHoverable  | boolean     | no       | N/A           | The dropdown menu opens on hover                    |
+| isRight      | boolean     | no       | N/A           | The dropdown menu is aligned to right               |
+| isUp         | boolean     | no       | N/A           | The dropdown menu appears above the dropdown button |
+| buttonConfig | ButtonProps | no       | N/A           | All the props available for a Button Component      |
+| dropdownIcon | ReactNode   | no       | N/A           | Replace the small caret with a custom icon          |
+| className    | string      | no       | N/A           | Add custom design to the component                  |
+
+## Usage
+
+The Dropdown Component uses the compound pattern to be more flexible.
+
+### Basic Dropdown
+
+<Canvas>
+  <Story id="components-dropdown--basic-dropdown" name="BasicDropdown" />
+</Canvas>
+
+### Dropdown is Hoverable
+
+<Canvas>
+  <Story id="components-dropdown--dropdown-is-hoverable" name="DropdownIsHoverable" />
+</Canvas>
+
+### Dropdown as a Primary Button
+
+<Canvas>
+  <Story id="components-dropdown--dropdown-primary-button" name="DropdownPrimaryButton" />
+</Canvas>
+
+## Ressources
+
+[Official documentation](https://bulma.io/documentation/components/dropdown)

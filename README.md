@@ -8,7 +8,7 @@
 &nbsp;&nbsp;&nbsp;
 [![license](https://badgen.net/npm/license/@the-sleeping-dog/react-components)](https://badgen.net/npm/license/@the-sleeping-dog/react-components)
 
-React Components designed with Bulma 0.9.2
+React Components designed with Bulma 0.9.4
 
 🛠️ This project is currently in development.
 
@@ -20,7 +20,9 @@ React Components designed with Bulma 0.9.2
 
 ## Context
 
-This project is an experiment to create a library of reusable React components. They are designed with Bulma in an opiniated way.
+This project is an experiment to create a library of reusable React components.
+
+They are designed with Bulma in an opiniated way.
 
 If you want to contribute to this project, you can contact me.
 
@@ -28,6 +30,6 @@ If you want to contribute to this project, you can contact me.
 
 Fabien Schlegel
 
-* Email : fabien.schlegel.fr@gmail.com
-* Twitter : <https://twitter.com/fabienschlegel>
-* Linkedin : <https://www.linkedin.com/in/fabien-schlegel/>
+- Email : <fabien.schlegel.fr@gmail.com>
+- Twitter : <https://twitter.com/fabienschlegel>
+- Linkedin : <https://www.linkedin.com/in/fabien-schlegel/>

@@ -1,0 +1,36 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+<Meta title="Layout/Column" />
+
+# Column
+
+**The power of Flexbox in a simple interface.**
+
+## Props
+
+| Property             | Type                 | Required | Default value | Description                                                        |
+| -------------------- | -------------------- | -------- | ------------- | ------------------------------------------------------------------ |
+| children             | ReactNode            | yes      | N/A           | The content of the box                                             |
+| columnSize           | ColumnSize           | no       | N/A           | Set the column size with the 12 columns system                     |
+| responsiveColumnSize | ResponsiveColumnSize | no       | N/A           | Set the column size with the 12 columns system for each breakpoint |
+| offset               | number               | no       | N/A           | Add offset to your column instead empty columns                    |
+| isNarrow             | boolean              | no       | N/A           | The column take only the space it needs                            |
+| className            | string               | no       | N/A           | Add custom design to the input checkbox                            |
+
+## Types
+
+- `ColumnSize` is an union type for each available division in the 12 columns system.
+
+- `ResponsiveColumnSize` is an object to define a column size for each required breakpoint.
+
+## Usage
+
+### Basic column
+
+<Canvas>
+  <Story id="layout-column--basic-column" name="BasicColumn" />
+</Canvas>
+
+## Ressources
+
+[Official documentation](https://bulma.io/documentation/columns)

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies, jsx-a11y/anchor-is-valid */
 import React, { FunctionComponent } from 'react';
 
 import { faAddressBook, faChartBar, faDizzy } from '@fortawesome/free-regular-svg-icons';
@@ -6,18 +5,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { flexDecorator } from '../../../stories';
+
 import mdx from './Breadcrumb.mdx';
 
-import BreadcrumbComponent, { IBreadcrumbProps } from './Breadcrumb';
+import BreadcrumbComponent, { BreadcrumbProps } from './Breadcrumb';
 
 export default {
   title: 'Components/Breadcrumb',
   component: BreadcrumbComponent,
-  decorators: [
-    (StoryComponent) => (
-      <div style={{ width: '450px', margin: '0 auto', paddingTop: '25px' }}>{StoryComponent()}</div>
-    ),
-  ],
+  decorators: [flexDecorator],
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -27,9 +24,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<FunctionComponent<IBreadcrumbProps>>;
+} as ComponentMeta<FunctionComponent<BreadcrumbProps>>;
 
-const BreadCrumb: ComponentStory<FunctionComponent<IBreadcrumbProps>> = (args) => {
+const BreadCrumb: ComponentStory<FunctionComponent<BreadcrumbProps>> = (args) => {
   const { children } = args;
   return <BreadcrumbComponent {...args}>{children}</BreadcrumbComponent>;
 };

@@ -1,39 +1,19 @@
-import React, { ReactNode } from 'react';
-
 import clsx from 'clsx';
 
-import { Link } from 'react-router-dom';
+import React, { FunctionComponent, HTMLAttributes, ReactNode, useContext } from 'react';
 
-interface NavbarBrandProps {
+import { NavbarContextProps, NavbarContext } from '../Navbar';
+
+export interface NavbarBrandProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
-  brandUrl: string;
-  dataTarget: string;
-  isOpen: boolean;
-  toggleMenu: () => void;
-  renderAsAnchor?: boolean;
+  className?: string;
 }
 
-const NavbarBrand: React.FC<NavbarBrandProps> = ({
-  children,
-  brandUrl,
-  dataTarget,
-  isOpen,
-  toggleMenu,
-  renderAsAnchor,
-}) => {
-  const navbarItem = renderAsAnchor ? (
-    <a className="navbar-item" href={brandUrl}>
-      {children}
-    </a>
-  ) : (
-    <Link className="navbar-item" to={brandUrl}>
-      {children}
-    </Link>
-  );
-
+const NavbarBrand: FunctionComponent<NavbarBrandProps> = ({ children, className, ...others }) => {
+  const { dataTarget, isOpen, toggleMenu } = useContext<NavbarContextProps>(NavbarContext);
   return (
-    <div className="navbar-brand">
-      {navbarItem}
+    <div className={clsx('navbar-brand', className)} {...others}>
+      {children}
       <span
         role="button"
         tabIndex={0}
@@ -42,7 +22,7 @@ const NavbarBrand: React.FC<NavbarBrandProps> = ({
         aria-expanded="false"
         data-target={dataTarget}
         onClick={toggleMenu}
-        onKeyPress={toggleMenu}
+        onKeyDown={toggleMenu}
       >
         <span aria-hidden="true" />
         <span aria-hidden="true" />

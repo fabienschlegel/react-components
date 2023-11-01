@@ -1,8 +1,8 @@
-import React, { ButtonHTMLAttributes, FunctionComponent, ReactNode } from 'react';
+import React, { ButtonHTMLAttributes, FunctionComponent, HTMLAttributes, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
-export interface ICardHeaderProps {
+export interface CardHeaderProps extends HTMLAttributes<HTMLElement> {
   title: string;
   icon?: ReactNode;
   iconProps?: ButtonHTMLAttributes<HTMLButtonElement>;
@@ -10,21 +10,21 @@ export interface ICardHeaderProps {
   titleClassName?: string;
 }
 
-const CardHeader: FunctionComponent<ICardHeaderProps> = ({
+const CardHeader: FunctionComponent<CardHeaderProps> = ({
   title,
   className,
   titleClassName,
   icon,
   iconProps,
+  ...others
 }) => {
   const { className: iconClassName, ...otherIconProps } = iconProps || {
     className: undefined,
   };
   return (
-    <header className={clsx('card-header', className)}>
+    <header className={clsx('card-header', className)} {...others}>
       <p className={clsx('card-header-title', titleClassName)}>{title}</p>
       {icon && (
-        // eslint-disable-next-line react/button-has-type
         <button {...otherIconProps} className={clsx('card-header-icon', iconClassName)}>
           {icon}
         </button>

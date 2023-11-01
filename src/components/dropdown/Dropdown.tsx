@@ -1,46 +1,54 @@
-import React, { FunctionComponent, ReactNode, useEffect, useState } from 'react';
+import React, {
+  FunctionComponent,
+  ReactNode,
+  useEffect,
+  useState,
+  MouseEvent,
+  KeyboardEvent,
+  HTMLAttributes,
+} from 'react';
 
 import clsx from 'clsx';
 
-import Button, { ButtonType } from '../button/Button';
-import DropdownItem, { IDropdownItemProps } from './dropdown-item/DropdownItem';
-import DropdownDivider from './dropdown-divider/DropdownDivider';
+import Button, { ButtonProps } from '../button/Button';
+import DropdownItem from './dropdown-item/DropdownItem';
+import DropdownDivider, { DropdownDividerProps } from './dropdown-divider/DropdownDivider';
 
-interface IStates {
-  'is-right'?: boolean;
-  'is-up'?: boolean;
+interface DropdownComposition {
+  Item: typeof DropdownItem;
+  Divider: FunctionComponent<DropdownDividerProps>;
 }
 
-interface IDropdownComposition {
-  Item: FunctionComponent<IDropdownItemProps>;
-  Divider: FunctionComponent;
-}
-
-export interface IDropdownProps {
+export interface DropdownProps extends HTMLAttributes<HTMLElement> {
   children: ReactNode;
   title: string;
+  name?: string;
   isActive?: boolean;
   isHoverable?: boolean;
-  states?: IStates;
-  buttonConfig?: ButtonType;
+  isRight?: boolean;
+  isUp?: boolean;
+  buttonConfig?: ButtonProps;
   dropdownIcon?: ReactNode;
+  className?: string;
 }
 
-type DropdownType = FunctionComponent<IDropdownProps> & IDropdownComposition;
-
-const Dropdown: DropdownType = ({
+const Dropdown: FunctionComponent<DropdownProps> & DropdownComposition = ({
   children,
   title,
   isActive,
   isHoverable,
-  states,
+  isRight,
+  isUp,
   buttonConfig,
   dropdownIcon,
+  className,
+  name = 'dropdown',
+  ...others
 }) => {
   const [isActiveState, setIsActive] = useState(isActive);
 
   const toggleDropdown = (
-    e: React.MouseEvent<HTMLButtonElement | MouseEvent> | React.KeyboardEvent<HTMLButtonElement>
+    e: MouseEvent<HTMLButtonElement | MouseEvent> | KeyboardEvent<HTMLButtonElement>
   ) => {
     e.stopPropagation();
     if (!isHoverable) {
@@ -51,20 +59,23 @@ const Dropdown: DropdownType = ({
   useEffect(() => {
     setIsActive(isActive);
   }, [isActive, setIsActive]);
-  
+
   return (
     <div
       className={clsx(
         'dropdown',
         isActiveState && 'is-active',
         isHoverable && 'is-hoverable',
-        states
+        isRight && 'is-right',
+        isUp && 'is-up',
+        className
       )}
+      {...others}
     >
       <div className="dropdown-trigger">
         <Button
           aria-haspopup="true"
-          aria-controls="dropdown"
+          aria-controls={name}
           type="button"
           onClick={toggleDropdown}
           {...buttonConfig}
@@ -73,7 +84,7 @@ const Dropdown: DropdownType = ({
           <span className="icon is-small">{dropdownIcon || <>&#9207;</>}</span>
         </Button>
       </div>
-      <div className="dropdown-menu" id="dropdown" role="menu">
+      <div className="dropdown-menu" id={name} role="menu">
         <div className="dropdown-content">{children}</div>
       </div>
     </div>
