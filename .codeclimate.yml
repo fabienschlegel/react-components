@@ -38,8 +38,8 @@ ratings:
 exclude_patterns:
   - 'node_modules/'
   - 'coverage/'
-  - '**/*.spec.ts'
-  - '**/*.spec.tsx'
+  - '**/*.test.ts'
+  - '**/*.test.tsx'
   - '**/*.stories.ts'
   - '**/*.stories.tsx'
   - 'build/'

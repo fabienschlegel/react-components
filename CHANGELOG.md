@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.1] - 2023-11-05
+
+### Changed
+
+- Upgrade **Storybook** to v7.5
+- Update **CodeClimate** configuration
+
 ## [0.9.0] - 2023-11-01
 
 ### Added

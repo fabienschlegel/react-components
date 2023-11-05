@@ -1,29 +1,21 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { MemoryRouter as Router, Route, Routes } from 'react-router-dom';
+import { fullScreenDecorator } from '../../../stories';
 
 import Navbar, { NavbarProps } from './Navbar';
 
 export default {
   title: 'Components/Navbar',
   component: Navbar,
-  decorators: [
-    (StoryComponent) => (
-      <Router initialEntries={['/']}>
-        <Routes>
-          <Route path="/" element={<StoryComponent />} />
-        </Routes>
-      </Router>
-    ),
-  ],
+  decorators: [fullScreenDecorator],
   parameters: {
     layout: 'fullscreen',
   },
-} as Meta;
+} as ComponentMeta<FunctionComponent<NavbarProps>>;
 
-const Template: Story<NavbarProps> = (args) => (
+const Template: ComponentStory<FunctionComponent<NavbarProps>> = (args) => (
   <Navbar {...args}>
     <Navbar.Brand>
       <Navbar.Item>The Sleeping Dog</Navbar.Item>

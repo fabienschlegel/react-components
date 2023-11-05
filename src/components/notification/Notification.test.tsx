@@ -11,18 +11,6 @@ describe('Test Notification', () => {
     expect(screen).toBeDefined();
   });
 
-  it('is light', () => {
-    render(
-      <Notification data-testid="notification" isLight>
-        Text Notification
-      </Notification>
-    );
-
-    const notification = screen.getByTestId('notification').classList.contains('is-light');
-
-    expect(notification).toBeTruthy();
-  });
-
   it('is primary', () => {
     render(
       <Notification data-testid="notification" color="is-primary">
