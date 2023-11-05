@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { fullScreenDecorator } from '../../../stories';
 
@@ -38,9 +38,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<FunctionComponent<HeroProps>>;
+} as Meta<FunctionComponent<HeroProps>>;
 
-const Template: ComponentStory<FunctionComponent<HeroProps>> = (args) => (
+const Template: StoryFn<FunctionComponent<HeroProps>> = (args) => (
   <Hero {...args}>{args.children}</Hero>
 );
 
@@ -57,8 +57,6 @@ BasicHero.args = {
     </Hero.Body>
   ),
 };
-
-BasicHero.storyName = 'Basic Hero';
 
 export const FullHeightHero = Template.bind({});
 FullHeightHero.args = {

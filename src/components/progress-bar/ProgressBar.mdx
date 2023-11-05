@@ -1,0 +1,35 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+<Meta title="Elements/ProgressBar" />
+
+# ProgressBar
+
+**Native HTML progress bars**
+
+## Props
+
+| Property  | Type   | Required | Default value | Description                        |
+| --------- | ------ | -------- | ------------- | ---------------------------------- |
+| value     | number | no       | N/A           | The value of the progress bar      |
+| max       | number | no       | N/A           | The max of the progress bar        |
+| color     | Colors | no       | N/A           | The color of the progress bar      |
+| size      | Sizes  | no       | N/A           | The size of the progress bar       |
+| className | string | no       | N/A           | Add custom design to the component |
+
+## Usage
+
+### Basic progress bar
+
+<Canvas>
+  <Story id="elements-progressbar--basic-progress-bar" name="BasicProgressBar" />
+</Canvas>
+
+### Indeterminate progress bar
+
+<Canvas>
+  <Story id="elements-progressbar--indeterminate-progress-bar" name="IndeterminateProgressBar" />
+</Canvas>
+
+## Ressources
+
+[Official documentation](https://bulma.io/documentation/elements/progress/)

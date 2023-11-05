@@ -1,0 +1,26 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+<Meta title="Elements/Notification" />
+
+# Notification
+
+**Bold notification blocks, to alert your users of something**
+
+## Props
+
+| Property  | Type                | Required | Default value | Description                          |
+| --------- | ------------------- | -------- | ------------- | ------------------------------------ |
+| children  | ReactNode           | yes      | N/A           | The content of the notification      |
+| color     | Colors, LightColors | no       | N/A           | The color of the notification        |
+| onClick   | MouseEventHandler   | no       | N/A           | Function to handle the delete button |
+| className | string              | no       | N/A           | Add custom design to the component   |
+
+## Usage
+
+<Canvas>
+  <Story id="elements-notification--basic-notification" name="BasicNotification" />
+</Canvas>
+
+## Ressources
+
+[Official documentation](https://bulma.io/documentation/elements/notification)

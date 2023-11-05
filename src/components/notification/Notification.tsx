@@ -4,12 +4,11 @@ import clsx from 'clsx';
 
 import Delete from '../delete/Delete';
 
-import { Colors } from '../../types';
+import { Colors, LightColors } from '../../types';
 
 export interface NotificationProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode | string;
-  color?: Colors;
-  isLight?: boolean;
+  color?: Colors | LightColors;
   onClick?: MouseEventHandler<HTMLButtonElement | HTMLDivElement>;
   className?: string;
 }
@@ -17,12 +16,11 @@ export interface NotificationProps extends HTMLAttributes<HTMLDivElement> {
 const Notification: FunctionComponent<NotificationProps> = ({
   children,
   color,
-  isLight,
   onClick,
   className,
   ...others
 }) => (
-  <div className={clsx('notification', color, isLight && 'is-light', className)} {...others}>
+  <div className={clsx('notification', color, className)} {...others}>
     <Delete onClick={onClick} />
     {children}
   </div>

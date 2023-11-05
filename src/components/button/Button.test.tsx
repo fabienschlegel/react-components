@@ -1,18 +1,19 @@
 import React from 'react';
 
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import Button from './Button';
 
 describe('Test Button', () => {
+  const buttonLabel = 'Text Button';
   it('Mount the component', () => {
-    render(<Button>Text Button</Button>);
+    render(<Button>{buttonLabel}</Button>);
 
-    expect(screen).toBeDefined();
+    expect(screen.getByText(buttonLabel)).toBeDefined();
   });
 
   it('is small', () => {
-    render(<Button size="is-small">Text Button</Button>);
+    render(<Button size="is-small">{buttonLabel}</Button>);
 
     const button = screen.getByRole('button').classList.contains('is-small');
 
@@ -20,7 +21,7 @@ describe('Test Button', () => {
   });
 
   it('is full width', () => {
-    render(<Button isFullWidth>Text Button</Button>);
+    render(<Button isFullWidth>{buttonLabel}</Button>);
 
     const button = screen.getByRole('button').classList.contains('is-fullwidth');
 
@@ -28,7 +29,7 @@ describe('Test Button', () => {
   });
 
   it('is outlined', () => {
-    render(<Button isOutlined>Text Button</Button>);
+    render(<Button isOutlined>{buttonLabel}</Button>);
 
     const button = screen.getByRole('button').classList.contains('is-outlined');
 
@@ -36,7 +37,7 @@ describe('Test Button', () => {
   });
 
   it('is inverted', () => {
-    render(<Button isInverted>Text Button</Button>);
+    render(<Button isInverted>{buttonLabel}</Button>);
 
     const button = screen.getByRole('button').classList.contains('is-inverted');
 
@@ -44,7 +45,7 @@ describe('Test Button', () => {
   });
 
   it('is rounded', () => {
-    render(<Button isRounded>Text Button</Button>);
+    render(<Button isRounded>{buttonLabel}</Button>);
 
     const button = screen.getByRole('button').classList.contains('is-rounded');
 
@@ -52,7 +53,7 @@ describe('Test Button', () => {
   });
 
   it('is hovered', () => {
-    render(<Button isHovered>Text Button</Button>);
+    render(<Button isHovered>{buttonLabel}</Button>);
 
     const button = screen.getByRole('button').classList.contains('is-hovered');
 
@@ -60,7 +61,7 @@ describe('Test Button', () => {
   });
 
   it('is focused', () => {
-    render(<Button isFocused>Text Button</Button>);
+    render(<Button isFocused>{buttonLabel}</Button>);
 
     const button = screen.getByRole('button').classList.contains('is-focused');
 
@@ -68,7 +69,7 @@ describe('Test Button', () => {
   });
 
   it('is active', () => {
-    render(<Button isActive>Text Button</Button>);
+    render(<Button isActive>{buttonLabel}</Button>);
 
     const button = screen.getByRole('button').classList.contains('is-active');
 
@@ -76,7 +77,7 @@ describe('Test Button', () => {
   });
 
   it('is loading', () => {
-    render(<Button isLoading>Text Button</Button>);
+    render(<Button isLoading>{buttonLabel}</Button>);
 
     const button = screen.getByRole('button').classList.contains('is-loading');
 
@@ -84,7 +85,7 @@ describe('Test Button', () => {
   });
 
   it('is static', () => {
-    render(<Button isStatic>Text Button</Button>);
+    render(<Button isStatic>{buttonLabel}</Button>);
 
     const button = screen.getByRole('button').classList.contains('is-static');
 
@@ -92,7 +93,7 @@ describe('Test Button', () => {
   });
 
   it('is responsive', () => {
-    render(<Button isResponsive>Text Button</Button>);
+    render(<Button isResponsive>{buttonLabel}</Button>);
 
     const button = screen.getByRole('button').classList.contains('is-responsive');
 
@@ -102,12 +103,12 @@ describe('Test Button', () => {
   it('click event', () => {
     const onClickEvent = jest.fn();
 
-    render(<Button onClick={onClickEvent}>Text Button</Button>);
+    render(<Button onClick={onClickEvent}>{buttonLabel}</Button>);
 
     const button = screen.getByRole('button');
 
-    button.click();
+    fireEvent.click(button);
 
-    expect(onClickEvent).toHaveBeenCalled();
+    expect(onClickEvent).toHaveBeenCalledTimes(1);
   });
 });

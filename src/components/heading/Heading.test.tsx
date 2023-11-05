@@ -6,8 +6,9 @@ import Heading from './Heading';
 
 describe('Test Heading', () => {
   it('Mount the component', () => {
-    render(<Heading>Text Heading</Heading>);
+    const headingLabel = 'Text Heading';
+    render(<Heading>{headingLabel}</Heading>);
 
-    expect(screen).toBeDefined();
+    expect(screen.getByText(headingLabel)).toBeDefined();
   });
 });
