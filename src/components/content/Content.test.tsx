@@ -5,16 +5,21 @@ import { render, screen } from '@testing-library/react';
 import Content from './Content';
 
 describe('Test Content', () => {
+  const contentLabel = 'Text Content';
   it('Mount the component', () => {
-    render(<Content>Text Content</Content>);
+    render(<Content>{contentLabel}</Content>);
 
-    expect(screen).toBeDefined();
+    expect(screen.getByText(contentLabel)).toBeDefined();
   });
 
   it('is small', () => {
-    const { container } = render(<Content size="is-small">Text Content</Content>);
+    render(
+      <Content data-testid="contentElement" size="is-small">
+        {contentLabel}
+      </Content>
+    );
 
-    const content = container.getElementsByClassName('is-small');
+    const content = screen.getByTestId('contentElement').classList.contains('is-small');
 
     expect(content).toBeTruthy();
   });

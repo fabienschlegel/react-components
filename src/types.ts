@@ -1,124 +1,55 @@
+import {
+  ALIGNMENT,
+  ANOTHER_COLORS,
+  COLORS,
+  COLUMNS_GAP,
+  COLUMNS_SIZE,
+  HEADING_LEVEL,
+  HEADING_SIZE as HEADER_SIZE,
+  IS_NARROW,
+  LIGHT_COLORS,
+  NO_COLORS,
+  NUMERIC_SIZE_MODIFIER,
+  SEPARATOR,
+  SIZES,
+  SQUARED_DIMENSIONS,
+  RATIO,
+  SORT_ORDER,
+} from './constants';
+
 import { ReactNode, CSSProperties, Ref, RefAttributes } from 'react';
 
-export type Colors =
-  | 'is-primary'
-  | 'is-link'
-  | 'is-info'
-  | 'is-success'
-  | 'is-warning'
-  | 'is-danger';
+export type Colors = (typeof COLORS)[number];
 
-export type AnotherColors = 'is-white' | 'is-light' | 'is-dark' | 'is-black';
+export type AnotherColors = (typeof ANOTHER_COLORS)[number];
 
-export type NoColors = 'is-text' | 'is-ghost';
+export type NoColors = (typeof NO_COLORS)[number];
 
-export type LightColors =
-  | 'is-primary is-light'
-  | 'is-link is-light'
-  | 'is-info is-light'
-  | 'is-success is-light'
-  | 'is-warning is-light'
-  | 'is-danger is-light';
+export type LightColors = (typeof LIGHT_COLORS)[number];
 
-export type Sizes = 'is-small' | 'is-normal' | 'is-medium' | 'is-large';
+export type Sizes = (typeof SIZES)[number];
 
-export type Alignment = 'is-right' | 'is-centered';
+export type Alignment = (typeof ALIGNMENT)[number];
 
-export type Separator =
-  | 'has-arrow-separator'
-  | 'has-bullet-separator'
-  | 'has-dot-separator'
-  | 'has-succeeds-separator';
+export type Separator = (typeof SEPARATOR)[number];
 
-export type ColumnSize =
-  | 'is-full'
-  | 'is-one-quarter'
-  | 'is-one-third'
-  | 'is-half'
-  | 'is-two-thirds'
-  | 'is-three-quarters'
-  | 'is-four-fifths'
-  | 'is-three-fifths'
-  | 'is-two-fifths'
-  | 'is-one-fifth'
-  | 'is-1'
-  | 'is-2'
-  | 'is-3'
-  | 'is-4'
-  | 'is-5'
-  | 'is-6'
-  | 'is-7'
-  | 'is-8'
-  | 'is-9'
-  | 'is-10'
-  | 'is-11'
-  | 'is-12';
+export type ColumnSize = (typeof COLUMNS_SIZE)[number];
 
-export type ColumnsGap =
-  | 'is-0'
-  | 'is-1'
-  | 'is-2'
-  | 'is-3'
-  | 'is-4'
-  | 'is-5'
-  | 'is-6'
-  | 'is-7'
-  | 'is-8';
+export type ColumnsGap = (typeof COLUMNS_GAP)[number];
 
-export type IsNarrow =
-  | 'is-narrow-mobile'
-  | 'is-narrow-tablet'
-  | 'is-narrow-touch'
-  | 'is-narrow-desktop'
-  | 'is-narrow-widescreen'
-  | 'is-narrow-fullhd';
+export type IsNarrow = (typeof IS_NARROW)[number];
 
-export type NumericSizeModifier =
-  | 'is-1'
-  | 'is-2'
-  | 'is-3'
-  | 'is-4'
-  | 'is-5'
-  | 'is-6'
-  | 'is-7'
-  | 'is-8'
-  | 'is-9'
-  | 'is-10'
-  | 'is-11'
-  | 'is-12';
+export type NumericSizeModifier = (typeof NUMERIC_SIZE_MODIFIER)[number];
 
-export type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+export type HeadingLevel = (typeof HEADING_LEVEL)[number];
 
-export type HeaderSize = 'is-1' | 'is-2' | 'is-3' | 'is-4' | 'is-5' | 'is-6';
+export type HeaderSize = (typeof HEADER_SIZE)[number];
 
-export type SquaredDimensions =
-  | 'is-16x16'
-  | 'is-24x24'
-  | 'is-32x32'
-  | 'is-48x48'
-  | 'is-64x64'
-  | 'is-96x96'
-  | 'is-128x128';
+export type SquaredDimensions = (typeof SQUARED_DIMENSIONS)[number];
 
-export type Ratio =
-  | 'is-square'
-  | 'is-1by1'
-  | 'is-5by4'
-  | 'is-4by3'
-  | 'is-3by2'
-  | 'is-5by3'
-  | 'is-16by9'
-  | 'is-2by1'
-  | 'is-3by1'
-  | 'is-4by5'
-  | 'is-3by4'
-  | 'is-2by3'
-  | 'is-3by5'
-  | 'is-9by16'
-  | 'is-1by2'
-  | 'is-1by3';
+export type Ratio = (typeof RATIO)[number];
 
-export type SortOrder = 'asc' | 'desc';
+export type SortOrder = (typeof SORT_ORDER)[number];
 
 export type SortOrders = (SortOrder | undefined)[];
 
